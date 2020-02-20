@@ -1,0 +1,7 @@
+created: 20181113063926371
+modified: 20200219094242959
+tags: 
+title: $:/plugins/telmiger/EditButtons/icon
+type: text/vnd.tiddlywiki
+
+{{$:/core/images/done-close-button}}

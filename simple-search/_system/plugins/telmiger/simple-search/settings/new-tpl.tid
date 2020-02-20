@@ -1,0 +1,8 @@
+created: 20190101213442298
+creator: Thomas Elmiger
+modified: 20190426081734668
+modifier: Thomas Elmiger
+title: $:/plugins/telmiger/simple-search/settings/new-tpl
+type: text/vnd.tiddlywiki
+
+{{$:/temp/advancedsearch}}

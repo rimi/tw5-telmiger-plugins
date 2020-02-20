@@ -1,0 +1,28 @@
+created: 20170513135149714
+creator: Thomas Elmiger
+list-after: $:/core/ui/ViewTemplate/text
+modified: 20190426075510709
+modifier: Thomas Elmiger
+tags: ToDoComponents $:/tags/ViewTemplate
+title: $:/plugins/telmiger/todonow/todoinfo.tpl
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]tag[ToDoNow]] [all[current]tag[ToDo]]">
+<section class="todo-now te-tiddler-info">
+<ul class="te-list">
+   <<todonowShowListItem>>
+</ul>
+</section>
+</$list>
+<$list filter="[all[current]tag[ToDoDone]] [all[current]tag[ToDoArchive]]">
+<section class="todo-done">
+<ul class="te-list">
+   <<tododoneShowListItem>>
+</ul>
+</section>
+</$list>
+
+<!--
+* Template to show todo info on tiddlers with one of the tags <<tag ToDo>> and <<tag ToDoNow>>
+* Template to show todo info on tiddlers with one of the tags <<tag ToDoDone>> and <<tag ToDoArchive>>
+-->

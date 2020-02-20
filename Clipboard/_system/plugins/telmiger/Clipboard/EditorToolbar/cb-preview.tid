@@ -1,0 +1,15 @@
+button-classes: te-cb-btn
+caption: Show clipboard preview
+condition: [<targetTiddler>]
+created: 20170214223304030
+creator: Thomas Elmiger
+description: Show/Hide clipboard preview
+dropdown: $:/plugins/telmiger/Clipboard/EditorToolbar/cb-dropdown
+icon: $:/plugins/telmiger/Clipboard/icons/file
+list-after: $:/plugins/telmiger/Clipboard/EditorToolbar/cb
+modified: 20200219110755820
+modifier: Thomas Elmiger
+shortcuts: ((clipboard-preview))
+tags: $:/tags/EditorToolbar Clipboard
+title: $:/plugins/telmiger/Clipboard/EditorToolbar/cb-preview
+type: text/vnd.tiddlywiki

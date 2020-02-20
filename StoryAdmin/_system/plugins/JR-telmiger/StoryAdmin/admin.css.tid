@@ -1,0 +1,46 @@
+caption: StoryAdmin Styles (CSS)
+created: 20190102193452283
+creator: Thomas Elmiger
+modified: 20200219130956362
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet
+title: $:/plugins/JR-telmiger/StoryAdmin/admin.css
+type: text/vnd.tiddlywiki
+
+.tc-sidebar-lists .tc-tab-content .story-manager label {
+   width: initial;
+}
+
+/* Save */
+
+.savebox button {
+   font-weight: 400;
+}
+
+.savewarning {
+   border: 1px solid red;
+   padding: .25rem;
+   padding-left: .75rem;
+}
+
+.savebox {
+   max-width: 20rem;
+   margin-top: 1rem;
+}
+
+
+/* Story Manager */
+
+.story-manager input {
+   width: 16rem;
+}
+
+.story-manager select {
+   width: 16rem;
+}
+
+div.story-manager  {
+   padding: 10px 0 10px 0;
+   border-bottom: 1px dashed lightgray;
+   max-width: 28rem;
+}

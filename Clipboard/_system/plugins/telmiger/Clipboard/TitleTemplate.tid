@@ -1,0 +1,29 @@
+caption: Copy to clipboard
+created: 20170215210047960
+creator: Thomas Elmiger
+description: Copy tiddler title to the clipboard’s title list
+icon: {{$:/plugins/telmiger/Clipboard/icons/clone}}
+list-before: $:/core/ui/EditTemplate/tags
+modified: 20200219110755792
+modifier: Thomas Elmiger
+shortcuts: ((clipboard-copy-title))
+tags: $:/tags/EditTemplate Clipboard
+title: $:/plugins/telmiger/Clipboard/TitleTemplate
+type: text/vnd.tiddlywiki
+
+\define draft-title() [<currentTiddler>get[draft.title]]
+\define draft-title-text() {{!!draft.title}}
+
+<$reveal type="match" text="yes" state="$:/plugins/telmiger/Clipboard/settings/title-button">
+<$button tooltip={{$:/plugins/telmiger/Clipboard/TitleTemplate!!description}} class="tc-btn-invisible te-cb-btn te-cb-title">
+<$wikify name="d-title" text=<<draft-title-text>>>
+<$action-setfield $tiddler="$:/plugins/telmiger/Clipboard/cb" $field="te-cb-title" $value=<<d-title>>/>
+</$wikify>
+<$action-listops $tiddler="$:/plugins/telmiger/Clipboard/cb" $field="te-cb-titles" $subfilter=<<draft-title>>/>
+{{$:/plugins/telmiger/Clipboard/icons/clone}}
+</$button>
+</$reveal>
+
+<!--
+Add the draft title to the title clipboard/to the titles list
+-->

@@ -1,0 +1,160 @@
+created: 20170413053458131
+creator: Thomas Elmiger
+modified: 20190426075510729
+modifier: Thomas Elmiger
+tags: $:/tags/Macro ToDoComponents
+title: $:/plugins/telmiger/todonow/report
+type: text/vnd.tiddlywiki
+
+\define workReportList()
+<$wikify name="listfilter" text="<<tagfilter>>">
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+   <<workReportListItem>>
+</$list>
+</ul>
+</$wikify>
+\end
+
+\define workReportListItem()
+<$set name="todoTitle" value={{!!title}}>
+   <li class="todo-item te-flex-item">
+      <span class="te-flex-item te-flex-half-full">
+         <span class="te-flex-item te-flex-content te-flex-left">
+<$list filter="[<currentTiddler>tag[ToDoDone]has:value[todo-done]] [<currentTiddler>tag[ToDoArchive]has:value[todo-done]]">
+   {{$:/core/images/done-button}}
+</$list>
+   <$link to={{!!title}}><$view field="title"/></$link>
+         </span>
+      </span>
+      <span class="te-flex-item te-flex-half-full">
+         <span class="te-flex-item te-flex-content te-flex-right">
+<$list filter="[<currentTiddler>tag[ToDoDone]has:value[todo-done]] [<currentTiddler>tag[ToDoArchive]has:value[todo-done]]">
+<$wikify name="tpl" text=<<telang date-deadline-tmpl>> >
+   ~~<$view field="todo-done" format="date" template=<<tpl>>/>~~
+</$wikify>
+<span class="te-tip">
+   <$view field="todo-done" format="date" template="0hh:0mm"/>
+</span>
+</$list>
+<$list filter="[<currentTiddler>tag[ToDo]] [<currentTiddler>tag[ToDoNow]]">
+   <<todoShowDeadline>>
+</$list>
+   <<todoBtnDeadline>>
+   <<todoBtnPriority>>
+<$list filter="[<currentTiddler>tag[ToDoArchive]]">
+   <<teBtnDelete>>
+</$list>
+   <<teBtnEditShowModified>>
+<$wikify name="cl" text=<<telang close>> >
+<$wikify name="tt" text=<<telang Details>> >
+   <$macrocall $name="listrevealButton" title=<<todoTitle>> tooltip=<<tt>> close=<<cl>>/>
+</$wikify>
+</$wikify>
+         </span>
+      </span>
+<$wikify name="tpl" text=<<telang date-created-tmpl>> >
+   <$macrocall $name="listrevealContent" title=<<todoTitle>> mode="block" datetime=<<tpl>>/>
+</$wikify>
+
+<<extract start:"<header>" end:"</header>">>
+   </li>
+</$set>
+\end
+
+\define reportDays(days:7)
+<$set name="reportDaysTiddler" value="$:/temp/report-days">
+<$wikify name="placeholder" text=<<telang no.>> >
+<div class="tc-search">
+<$edit-text tiddler=<<reportDaysTiddler>> type="search" tag="input" focus="true" placeholder=<<placeholder>> default="1" size="5"/>
+<$reveal state=<<reportDaysTiddler>> type="nomatch" text="">
+<$wikify name="reset" text=<<telang Reset>> >
+<$button tooltip=<<reset>> class="tc-btn-invisible">
+<$action-setfield $tiddler=<<reportDaysTiddler>> text="" />
+{{$:/core/images/close-button}}
+</$button>
+</$wikify>
+</$reveal>
+</div>
+</$wikify>
+</$set>
+\end
+
+\define reportProjectSelect()
+<$wikify name="tagfilter" text="$(tagfilter)$ +[tags[]sort[title]]">
+<div class="tdn-report lr-project-search">
+<$select tiddler='$:/state/report-project'>
+<option value=""><<telang all-projects>></option>
+<$list filter=<<tagfilter>>>
+   <option><$view field='title'/></option>
+</$list>
+</$select>
+</div>
+</$wikify>
+\end
+
+\define reportProjectSort()
+<$wikify name="listfilter" text="$(tagfilter)$">
+<div class="lr-search-count">
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-report" text="modified">
+<$wikify name="after" text=<<telang sorted-by-modification>>>
+   <$macrocall $name="listrevealCounter" textafter=<<after>>/> 
+</$wikify>
+</$reveal>
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-report" text="priority">
+<$wikify name="after" text=<<telang sorted-by-priority>>>
+   <$macrocall $name="resultCounter" textafter=<<after>>/> 
+</$wikify>
+</$reveal>
+<span class="todo-sort-list">
+<$reveal type="nomatch" state="$:/plugins/telmiger/todonow/settings##sort-report" text="modified">
+<$wikify name="tt" text=<<telang Sort-by-modification>>>
+   <$button set="$:/plugins/telmiger/todonow/settings##sort-report" setTo="modified" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/edit-button}}</$button>
+</$wikify>
+</$reveal>
+<$reveal type="nomatch" state="$:/plugins/telmiger/todonow/settings##sort-report" text="priority">
+<$wikify name="tt" text=<<telang Sort-by-priority>>>
+   <$button set="$:/plugins/telmiger/todonow/settings##sort-report" setTo="priority" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/star-filled}}</$button>
+</$wikify>
+</$reveal>
+</span>
+</div>
+</$wikify>
+\end
+
+\define sortReportPriority()
+<$set name="tagfilter" filter="[tag{$:/state/report-project}]" value="[days:modified[<<rdays>>]!is[system]!has[draft.of]!prefix[Work-Report]tag[<<rtag>>]sort[modified]sort[todo-done]] +[sort[priority]]" 
+emptyValue="[days:modified[<<rdays>>]!is[system]!has[draft.of]!prefix[Work-Report]sort[modified]sort[todo-done]] +[sort[priority]]">
+   <<reportProjectSelect>>
+<div class="tdn-report-results">
+   <<reportProjectSort>>
+   <<workReportList>>
+</div>
+</$set>
+\end
+
+\define sortReportModified()
+<$set name="tagfilter" filter="[tag{$:/state/report-project}]" value="[days:modified[<<rdays>>]!is[system]!has[draft.of]!prefix[Work-Report]tag[<<rtag>>]sort[todo-done]] +[sort[modified]]" emptyValue="[days:modified[<<rdays>>]!is[system]!has[draft.of]!prefix[Work-Report]sort[todo-done]] +[sort[modified]]">
+   <<reportProjectSelect>>
+<div class="tdn-report-results">
+   <<reportProjectSort>>
+   <<workReportList>>
+</div>
+</$set>
+\end
+
+
+<!-- !!! Macros for the Work Report delivered with the ToDoNow plugin
+* workReportList: produce the list according to the sort filter
+** workReportListItem: produce a list item `<li>…</li>` for work-reports and archive
+* reportDays: the input field for the range
+* reportProjectSelect: Dropdown for projects
+* reportProjectSort: output sorting options
+
+!!!! Compose sort filters
+* sortReportPriority
+* sortReportModified
+
+-->

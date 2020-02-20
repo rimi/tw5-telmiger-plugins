@@ -1,0 +1,13 @@
+caption: MyStory icon
+created: 20190106092402457
+creator: Thomas Elmiger
+e-name: MyStory Icon
+modified: 20190426131037436
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/MyStory/icon
+type: text/vnd.tiddlywiki
+
+<svg class="tc-image tc-image-button tc-image-my-story-icon"  width="22pt" height="22pt" viewBox="0 0 22 22">
+<path d="M5 0v16h17V0H5zm14 13H8V5h11v8zm-2 8v-3H3V5H0v16h17z" fill-rule="nonzero"/>
+</svg>

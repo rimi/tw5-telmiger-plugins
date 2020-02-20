@@ -1,0 +1,123 @@
+created: 20170316225737516
+creator: Thomas Elmiger
+list: 3 1 2
+modified: 20190426075510691
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: ToDo
+todo-show-priorities: 2
+type: text/vnd.tiddlywiki
+
+\define list-deadline()
+<div class="lr-search-count">
+<$wikify name="after" text=<<telang sorted-by-deadline>>>
+   <$macrocall $name="resultCounter" textafter=<<after>>/> 
+</$wikify>
+<span class="todo-move-list">
+   <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##show-list-deadline" text="top">
+<$wikify name="tt" text=<<telang Move-down>>>
+<$button set="$:/plugins/telmiger/todonow/settings##show-list-deadline" setTo="bottom" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/chevron-down}}</$button>
+</$wikify>
+   </$reveal>
+   <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##show-list-deadline" text="bottom">
+<$wikify name="tt" text=<<telang Move-up>>>
+<$button set="$:/plugins/telmiger/todonow/settings##show-list-deadline" setTo="top" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/chevron-up}}</$button>
+</$wikify>
+   </$reveal>
+</span>
+<span class="todo-sort-list">
+<$wikify name="tt" text=<<telang Sort-by-title>>>
+<$button set="$:/plugins/telmiger/todonow/settings##sort-list" setTo="title" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/mono-line}}</$button>
+</$wikify>
+<$wikify name="tt" text=<<telang Sort-by-priority>>>
+<$button set="$:/plugins/telmiger/todonow/settings##sort-list" setTo="priority" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/star-filled}}</$button>
+</$wikify>
+</span>
+</div>
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+   <<todonowShowListItem "ToDo">>
+</$list>
+</ul>
+\end
+
+<$set name="listfilter" value="[tag[ToDo]tag{$:/config/listreveal/ProjectSelect/ToDo}!has[draft.of]!tag[ToDoDone]!title[ToDo Item]search{$:/config/listreveal/Search/ToDo}]">
+<div class="lr-search te-flex-item">
+   <<listrevealSearch ToDo>> <<todoUserFilter>> <<listrevealProjectSelect ToDo>>
+</div>
+</$set>
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-list" text="deadline" tag="div" class="todo-waiting">
+   <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##show-list-deadline" text="top" tag="div">
+<$wikify name="user-filter1" text="[all[]] {{$:/plugins/telmiger/todonow/settings!!filter}} +[tag[ToDo]tag{$:/config/listreveal/ProjectSelect/ToDo}has[todo-deadline]!has[draft.of]!tag[ToDoDone]!title[ToDo Item]search{$:/config/listreveal/Search/ToDo}sort[priority]] +[sort[todo-deadline]]">
+<$set name="listfilter" value=<<user-filter1>>>
+   <<list-deadline>>
+</$set>
+</$wikify>
+   </$reveal>
+<$wikify name="user-filter2" text="[all[]] {{$:/plugins/telmiger/todonow/settings!!filter}} +[tag[ToDo]tag{$:/config/listreveal/ProjectSelect/ToDo}!has[todo-deadline]!has[draft.of]!tag[ToDoDone]!title[ToDo Item]search{$:/config/listreveal/Search/ToDo}sort[created]] +[sort[priority]]">
+<$set name="listfilter" value=<<user-filter2>>>
+<div class="lr-search-count">
+<$wikify name="after" text=<<telang sorted-by-priority>>>
+   <$macrocall $name="resultCounter" textafter=<<after>>/> 
+</$wikify>
+<span class="todo-move-list">
+   <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##show-list-deadline" text="top" tag="div">
+<$wikify name="tt" text=<<telang Move-up>>>
+<$button set="$:/plugins/telmiger/todonow/settings##show-list-deadline" setTo="bottom" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/chevron-up}}</$button>
+</$wikify>
+   </$reveal>
+   <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##show-list-deadline" text="bottom"  tag="div">
+<$wikify name="tt" text=<<telang Move-down>>>
+<$button set="$:/plugins/telmiger/todonow/settings##show-list-deadline" setTo="top" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/chevron-down}}</$button>
+</$wikify>
+   </$reveal>
+</span>
+<span class="todo-sort-list">
+<$wikify name="tt" text=<<telang Sort-by-title>>>
+<$button set="$:/plugins/telmiger/todonow/settings##sort-list" setTo="title" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/mono-line}}</$button>
+</$wikify>
+<$wikify name="tt" text=<<telang Sort-by-priority>>>
+<$button set="$:/plugins/telmiger/todonow/settings##sort-list" setTo="priority" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/star-filled}}</$button>
+</$wikify>
+</span>
+</div>
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+   <<todonowShowListItem "ToDo">>
+</$list>
+</ul>
+</$set>
+</$wikify>
+   <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##show-list-deadline" text="bottom" tag="div">
+<$wikify name="user-filter3" text="[all[]] {{$:/plugins/telmiger/todonow/settings!!filter}} +[tag{$:/config/listreveal/ProjectSelect/ToDo}has[todo-deadline]!has[draft.of]tag[ToDo]!tag[ToDoDone]!title[ToDo Item]search{$:/config/listreveal/Search/ToDo}sort[todo-deadline]]">
+<$set name="listfilter" value=<<user-filter3>>>
+   <<list-deadline>>
+</$set>
+</$wikify>
+   </$reveal>
+</$reveal>
+
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-list" text="title"  tag="div" class="todo-waiting">
+{{$:/plugins/telmiger/todonow/ToDoByTitle}}
+</$reveal>
+
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-list" text="priority" tag="div" class="todo-waiting">
+{{$:/plugins/telmiger/todonow/ToDoByPriority}}
+</$reveal>
+
+<$set name="hint" filter="[tag[ToDo]!has[draft.of]]" emptyValue="show">
+<$list filter="""[<hint>suffix[show]]""">
+<<telang Nothing-to-do-?>>: <<teBigNewTaskButton 'te-inline'>>
+<br><br>
+</$list>
+</$set>
+
+<small><<telang Motivation-Don’t-do-it>></small>

@@ -1,0 +1,13 @@
+caption: Foo
+created: 20181127222534567
+creator: Thomas
+modified: 20200219150938514
+modifier: Thomas Elmiger
+tags: Foo Dummy
+title: $:/plugins/telmiger/WMR/foo
+type: text/vnd.tiddlywiki
+wmr-example: 54rem
+
+A man went into a ''bar''.
+
+He ordered a beer.

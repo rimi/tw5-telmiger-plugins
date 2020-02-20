@@ -1,0 +1,20 @@
+created: 20170509195619833
+creator: Thomas Elmiger
+modified: 20190426075510677
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: ToDoArchive
+type: text/vnd.tiddlywiki
+
+<$set name="listfilter" value="[tag[ToDoArchive]tag{$:/config/listreveal/ProjectSelect/ToDoArchive}!has[draft.of]!title[ToDoArchive]search{$:/config/listreveal/Search/ToDoArchive}!sort[modified]]">
+
+@@.lr-search.te-flex-item
+<<listrevealSearch ToDoArchive>> <<listrevealProjectSelect ToDoArchive>>
+@@
+
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+   <<workReportListItem>>
+</$list>
+</ul>
+</$set>

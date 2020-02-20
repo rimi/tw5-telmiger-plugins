@@ -1,0 +1,37 @@
+created: 20170715121502832
+creator: Thomas Elmiger
+modified: 20190426102400806
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/rpn/usage
+type: text/vnd.tiddlywiki
+
+!! Usage
+
+`<<rpn 5000 200 * 2 p en-GB>>` output: <<rpn 5000 200 * 2 p en-US>>
+
+The following operations can be used with two operands:
+
+|Operation |Description |h
+|+ |Addition |
+|- |Subtraction |
+|* |Multiplication |
+|/ |Division |
+|% |Modulo (remains after division) |
+|& |Concatenation of two strings^^1^^ |
+| |[none] when generating random numbers, any value would be ignored |
+
+<small>1 – The list of operators found at Stephen Kimmel’s Mathcell project (see readme section) inspired me to implement this easter egg – it has nothing to do with math.</small>
+
+|Parameter |Description |h
+|a |first operand |
+|b |second operand |
+|operation |see above |
+|decimals |digits after comma (number) |
+|precision |defaults to ""<br>"p" to show all digits after comma (precision)<br>"f" to round downwards to the next integer (Math.floor)<br>"c" to round upwards to the next integer (Math.ceil) <br>"r" to get a random integer in the range from a to b, a and b included (Math.random) |
+|locale |Formatting according to language or country specific standards, e.g. "en", "de-DE" or "de-CH" – [[toLocaleString|https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString#Browser_compatibility]] is used, including minimumFractionDigits option if decimals and precision "p" are provided. |
+|sd |separator for decimals if //locale// is not used, defaults to "." |
+|st |TODO separator for thousands if //locale// is not used, defaults to "" |
+
+!!! Known limitations
+* //st// is not implemented yet

@@ -1,0 +1,40 @@
+created: 20181124191601375
+creator: Thomas
+modified: 20200219150938648
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/links
+type: text/vnd.tiddlywiki
+wmr-source-link: https://tiddlywiki.com/#Linking%20in%20WikiText
+
+!!! Internal Wiki Links
+
+<<wt "[[Wikitext Markup Reference]]
+
+[[Missing Tiddler]] – italic
+
+$:/AdvancedSearch
+
+[[shadow tiddler|$:/AdvancedSearch]] – bold
+">>
+
+
+<<wt "CamelCaseLink
+
+~SuppressedLink
+">>
+
+
+!!! External Links
+
+<<wt "https://tiddlywiki.com
+
+[[web link|https://tiddlywiki.com]]
+
+~https://not.alink.com
+">>
+
+
+!!! File Links
+
+Links to local/external files: see [[tiddlywiki.com|https://tiddlywiki.com/#Linking%20in%20WikiText]]

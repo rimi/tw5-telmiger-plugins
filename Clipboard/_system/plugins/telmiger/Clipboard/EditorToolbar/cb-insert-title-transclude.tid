@@ -1,0 +1,28 @@
+button-classes: te-cb-btn
+caption: Insert clipboard title as transclusion
+condition: [<targetTiddler>]
+created: 20170215230349818
+creator: Thomas Elmiger
+description: Insert clipboard title as transclusion
+icon: $:/plugins/telmiger/Clipboard/icons/transclude
+modified: 20200219110755826
+modifier: Thomas Elmiger
+shortcuts: ((clipboard-insert-title-transclude))
+tags: $:/tags/EditorToolbar Clipboard
+title: $:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert-title-transclude
+type: text/vnd.tiddlywiki
+
+<$wikify name="cbTitle" text={{$:/plugins/telmiger/Clipboard/cb!!te-cb-title}}>
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="replace-selection"
+	text=<<cbTitle>>
+/>
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix="{{"
+	suffix="}}"
+/>
+</$wikify>

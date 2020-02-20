@@ -1,0 +1,10 @@
+created: 20190128170540016
+creator: Thomas Elmiger
+modified: 20190426131037403
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/MyStory/ui/icons/insert-above
+type: text/vnd.tiddlywiki
+
+<svg class="em-icon insert-above" viewBox="0 0 22 22" width="1em" height="1em" role="img" aria-labelledby="title desc" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;"><title id="title">{{$:/language/Buttons/InsertAbove/Caption}}</title><desc id="desc">{{$:/language/Buttons/InsertAbove/Hint}}</desc>
+<path d="M16.09 2.1c1.758 1.131 4.391 2.749 4.394 4.559l.016 10.096c.004 2.33-1.894 4.226-4.237 4.23L5.768 21c-2.343.004-4.248-1.885-4.252-4.215L1.5 6.691c.065-1.928 2.717-3.495 4.396-4.57.799-.512 2.84-2.093 5.089-2.12 2.25-.028 4.383 1.635 5.105 2.1z" fill-opacity=".792"/><path d="M9.625 9.624H6.188c-.755 0-1.375.621-1.375 1.375s.62 1.375 1.375 1.375h3.437v3.438c0 .755.621 1.376 1.375 1.376s1.375-.621 1.375-1.375v-3.439h3.438c.754 0 1.375-.62 1.375-1.375 0-.754-.621-1.375-1.375-1.375h-3.438V6.188c0-.755-.621-1.375-1.375-1.375s-1.375.62-1.375 1.375v3.438z" fill="#fff" fill-rule="nonzero"/></svg>

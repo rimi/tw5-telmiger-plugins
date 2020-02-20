@@ -1,0 +1,9 @@
+created: 20170216195905987
+creator: Thomas Elmiger
+modified: 20200219110755624
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/Clipboard/icons/clone
+type: text/vnd.tiddlywiki
+
+<span class="te-rotate-icon">{{$:/core/images/clone-button}}</span>

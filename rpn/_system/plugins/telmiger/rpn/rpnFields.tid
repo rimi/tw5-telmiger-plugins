@@ -1,0 +1,47 @@
+created: 20181111075024851
+creator: Thomas Elmiger
+modified: 20190426102400815
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/telmiger/rpn/rpnFields
+type: text/vnd.tiddlywiki
+
+\define rpnFields(filter:"[tags[]!is[system]]",startvalue:"0",field:"text",operation:"+",
+ saveTo:"$:/temp/telmiger/rpn/result",saveField:"text",label:"Calculate")
+<$button>
+<$vars filter="""$filter$""" startvalue="""$startvalue$""" field="""$field$""" operation="""$operation$""" saveTo="""$saveTo$""" saveField="""$saveField$""">
+<$wikify name="countfilter" text="""$filter$ +[has[<<field>>]] +[count[]]""">
+<$set name="items" filter=<<countfilter>> emptyValue="0">
+<$macrocall $name="calcAll" startvalue=<<startvalue>> counter=<<items>>/>
+"""$label$"""
+</$set>
+</$wikify>
+</$vars>
+</$button>
+\end
+
+\define saveResult(a:"0")
+<$action-setfield $tiddler="$(saveTo)$" $field="$(saveField)$" $value="""$a$"""/>
+\end
+
+\define calculate(a:"0",b:"0",counter)
+<$wikify name="result" text='<$macrocall $name="rpn" a=$a$ b=$b$ operation=$(operation)$/>'>
+<$macrocall $name="calcAll" startvalue=<<result>> counter=$counter$/>
+</$wikify>
+\end
+
+\define calcAll(startvalue,counter)
+<$wikify name="next" text='<$macrocall $name="rpn" a=$counter$ b=1 operation="-"/>'>
+<$wikify name="restfilter" text="""$(filter)$  +[has[$(field)$]] +[rest[<<next>>]limit[1]]""">
+<$set name="proceed" filter="[<next>prefix[-]]" value="saveResult" emptyValue="calculate">
+<$list filter=<<restfilter>> variable="tid">
+<$vars a=$startvalue$>
+<$wikify name="b" text='<$transclude tiddler=<<tid>> field=$(field)$/>'>
+<$macrocall $name=<<proceed>> a=<<a>> b=<<b>> counter=<<next>>/>
+</$wikify>
+</$vars>
+</$list>
+</$set>
+</$wikify>
+</$wikify>
+\end

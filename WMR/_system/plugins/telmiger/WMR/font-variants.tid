@@ -1,0 +1,43 @@
+created: 20181124191306552
+creator: Thomas
+modified: 20200219150938522
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/font-variants
+type: text/vnd.tiddlywiki
+
+<<wt "Normal text: We don’t serve their kind here! What? Your droids. They’ll have to wait outside. We don’t want them here. Listen, why don’t you wait out by the speeder. We don’t want any trouble. I heartily agree with you sir. Negola dewaghi wooldugger?!? He doesn’t like you. I’m sorry.">>
+
+<<wt "''bold'' ">>
+
+
+<<wt //italics//>>
+
+
+<<wt "''//bold italics//'' ">>
+
+
+<<wt __underline__>>
+
+
+<<wt ~~strikethrough~~>>
+
+
+<<wt super^^script^^>>
+
+
+<<wt sub,,script,,>>
+
+
+<<wt "! Heading 1
+
+!! Heading 2
+
+!!! Heading 3
+
+!!!! Heading 4
+
+!!!!! Heading 5
+
+!!!!!! Heading 6
+">>

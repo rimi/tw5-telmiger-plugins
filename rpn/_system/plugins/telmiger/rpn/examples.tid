@@ -1,0 +1,44 @@
+created: 20170715121619734
+creator: Thomas Elmiger
+modified: 20190426102400840
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/rpn/examples
+type: text/vnd.tiddlywiki
+
+!! Examples
+
+`<<rpn pi 2 * 3>>` results in <<rpn pi 2 * 3>>
+
+`<<rpn Pi " was the name." &>>`  
+
+<<<
+<<rpn Pi " was the name." &>>
+<<<
+
+
+`<<rpn a:100 b:200 precision:"r">>`  creates a random number in the range from a to b:
+
+<<<
+Your lucky number is <<rpn a:100 b:200 precision:"r">>.
+<<<
+
+Calculate the area of a circle with radius 2:
+
+```
+<$macrocall $name="rpn" a=<<rpn 2 2 *>> b=pi operation="*" decimals="4"/>
+```
+<<<
+<$macrocall $name="rpn" a=<<rpn 2 2 *>> b=pi operation="*" decimals="4"/>
+<<<
+
+A 50% discount price, rounded downwards with Swiss formatting applied: 
+
+```
+<$macrocall $name="rpn" a=<<rpn 2123.45 50 * 0 f>> b=100 operation="/" decimals="2" precision="p" locale="de-CH"/>
+```
+<<<
+<$macrocall $name="rpn" a=<<rpn 2123.45 50 * 0 f>> b=100 operation="/" decimals="2" precision="p" locale="de-CH"/>
+<<<
+
+For more examples see https://tid.li/tw5/hacks.html#rpnTest.

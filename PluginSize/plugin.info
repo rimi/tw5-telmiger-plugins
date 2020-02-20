@@ -1,0 +1,12 @@
+{
+	"title": "$:/plugins/telmiger/PluginSize",
+	"author": "Thomas Elmiger",
+	"core-version": ">=5.1.17",
+	"dependents": "Editor Counter, RPN, Harvey Balls",
+	"description": "Plugin Size – calculate the extra weight",
+	"list": "readme",
+	"name": "Plugin Size",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "0.0.9"
+}

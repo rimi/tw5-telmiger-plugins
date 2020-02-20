@@ -1,0 +1,11 @@
+{
+	"title": "$:/plugins/telmiger/WMR",
+	"author": "Thomas Elmiger",
+	"core-version": ">=5.1.18",
+	"description": "Wikitext Markup Reference – WMR",
+	"list": "reference about",
+	"name": "Wikitext Markup Reference – WMR",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "0.3.4"
+}

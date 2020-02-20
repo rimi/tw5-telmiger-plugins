@@ -1,0 +1,11 @@
+created: 20181215155845743
+creator: Thomas Elmiger
+modified: 20200219124306076
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/ReaderMode/images/reader-button
+type: text/vnd.tiddlywiki
+
+<svg class="tc-image-reader-mode-button tc-image-button" width="22pt" height="22pt" viewBox="0 0 128 128">
+<path d="M8 0a8 8 0 0 0-8 8v112a8 8 0 0 0 8 8h112a8 8 0 0 0 8-8V8a8 8 0 0 0-8-8H8zm26 16a8 8 0 0 0-8 8v80a8 8 0 0 0 8 8h60a8 8 0 0 0 8-8V24a8 8 0 0 0-8-8H24z" fill-rule="evenodd"/>
+</svg>

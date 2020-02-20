@@ -1,0 +1,28 @@
+created: 20181124200507179
+creator: Thomas
+modified: 20200219150938591
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/special
+type: text/vnd.tiddlywiki
+
+<div class="wmr-input">
+
+```
+> block
+>> quotes
+>>> are easy
+```
+</div>
+
+> block
+>> quotes
+>>> are <br>easy
+
+
+<<wt "# mixed
+#* lists
+#; you
+#: know
+#> like so
+">>

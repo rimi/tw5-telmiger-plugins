@@ -1,0 +1,19 @@
+created: 20170625193036491
+creator: Thomas Elmiger
+modified: 20200219145317008
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/todonow/outlook/ToDoThisWeek
+type: text/vnd.tiddlywiki
+
+!!! <<telang "This-week">>
+
+<$set name="listfilter" value="""[all[]tag[ToDo]][all[]tag[ToDoNow]] +[days:todo-deadline[7]sort[todo-deadline]]""">
+
+<ul class="te-list">
+<$list filter=<<listfilter>> emptyMessage="<li class='todo-empty'><<telang 'Relax-Nothing-to-do'>></li>">
+   <<todonowShowListItem>>
+</$list>
+</ul>
+
+</$set>

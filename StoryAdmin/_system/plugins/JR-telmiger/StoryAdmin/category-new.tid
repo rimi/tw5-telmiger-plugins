@@ -1,0 +1,21 @@
+caption: StoryAdmin Add Category
+created: 20190102202106899
+creator: Thomas Elmiger
+modified: 20200219130956537
+modifier: Thomas Elmiger
+title: $:/plugins/JR-telmiger/StoryAdmin/category-new
+type: text/vnd.tiddlywiki
+
+<label>Category name: <$edit-text tag="input" tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" index="new-category"/></label> &nbsp; 
+<$set name="id" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##new-category}}>
+<$list filter="[<id>!has[title]]" emptyMessage="<br>This name is already taken.">
+<$button tooltip="Add category" class="tc-btn-invisible te-btn-mini">
+<$set name="base-tag" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##story-tag}}>
+<$action-createtiddler $basetitle=<<id>> tags=<<base-tag>> text="" caption=<<id>>/>
+<$action-setfield $tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" $index="new-category" $value=""/>
+{{$:/core/images/new-button}}
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/JR-telmiger/StoryAdmin/confirm-new-category"/>
+</$set>
+</$button>
+</$list>
+</$set>

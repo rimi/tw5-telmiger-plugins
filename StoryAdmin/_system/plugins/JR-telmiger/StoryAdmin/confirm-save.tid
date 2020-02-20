@@ -1,0 +1,10 @@
+created: 20190102110437983
+creator: Thomas Elmiger
+modified: 20200219130956499
+modifier: Thomas Elmiger
+title: $:/plugins/JR-telmiger/StoryAdmin/confirm-save
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/JR-telmiger/StoryAdmin/icon}}
+
+Story saved

@@ -1,0 +1,18 @@
+created: 20170629183744936
+creator: Thomas Elmiger
+modified: 20190426075256040
+modifier: Thomas Elmiger
+tags: $:/tags/Macro ToDoComponents
+title: $:/plugins/telmiger/lib/entities
+todo-done: 20160819011650
+type: text/vnd.tiddlywiki
+
+\define ldsbra() [[
+\define rdsbra() ]]
+
+<!-- !! Entities as Macro Definitions
+
+!!! Very short macros for use in other macros
+* ldsbra and rdsbra – left double square brackets and right //dsbra//
+
+-->

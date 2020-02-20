@@ -1,0 +1,45 @@
+created: 20170516112945356
+creator: Thomas Elmiger
+modified: 20190426075510696
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: $:/plugins/telmiger/todonow/user-filter
+type: text/vnd.tiddlywiki
+
+!! Define your own filter 
+You can filter tasks to show in the ToDo section of the list view:
+
+<div class="tc-search tc-advanced-search">
+<$vars uf="$:/temp/tdn/user-filter">
+<$edit-text tiddler=<<uf>> default="" type="search" tag="input" size="60" class=""/>
+<$reveal state=<<uf>> type="nomatch" text="">
+<$wikify name="reset" text=<<telang Reset>> >
+<$button tooltip=<<reset>> class="tc-btn-invisible">
+<$action-deletetiddler $tiddler=<<uf>>/>
+<$action-setfield $tiddler="$:/plugins/telmiger/todonow/settings" filter="" />
+{{$:/core/images/close-button}}
+</$button>
+</$wikify>
+</$reveal>
+<$button>
+<$action-setfield $tiddler="$:/plugins/telmiger/todonow/settings" filter={{$:/temp/tdn/user-filter}}/>
+Use filter
+</$button>
+</$vars>
+</div>
+
+The user-filter expression is saved in the //filter// field of the [[settings tiddler|$:/plugins/telmiger/todonow/settings]]. 
+
+!!! Filter examples
+Usually filter conditions will start with a plus sign `+` as your criteria are additional to a preceding filter `"[all[]] …"`. You could use …
+
+* `+[!tag[TagName]]` to //exclude// all tiddlers tagged with `TagName`. – Remove the exclamation mark `!` to //include// only tiddlers with that tag.
+* `+[field:priority[1]] [field:priority[2]]` to show only priorities 1 and 2.
+* `+[!field:priority[3]]` to hide priority 3.
+* `+[tag[Themes]tag[Projects]]` to find tasks tagged with //Themes// and //Projects//.
+* `+[days:created[-180]!days:created[-90]]` to find tasks created about 3 to 6 months back.
+
+!!! Filter button
+<$checkbox tiddler="$:/plugins/telmiger/todonow/settings" field="text" index="user-filter-on" checked="yes" unchecked="no"> Always show the filter button on ToDoNow</$checkbox>. 
+
+(As long as a filter is set, the button will be visible anyway.)

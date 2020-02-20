@@ -1,0 +1,13 @@
+created: 20150616003850226
+creator: Birthe
+modified: 20200219130956489
+modifier: Thomas Elmiger
+origin: Birthe
+title: $:/plugins/JR-telmiger/StoryAdmin/icon
+type: text/vnd.tiddlywiki
+
+<svg class="tc-image tc-image-button tc-image-Alist-button"  width="22pt" height="22pt" viewBox="0 0 414 390" enable-background="new 0 0 512 512" xml:space="preserve">
+     <path
+     id="tiddler-stack-icon"
+     d="m 90,0 0,300 320,0 L 412,0 90,0 Z M 362,248 l -220,0 0,-150 220,0 0,150 z m 0,140 0,-50 -312,0 0,-242 -50,0 0,292 362,0 z"/>
+</svg>

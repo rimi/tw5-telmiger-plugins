@@ -1,0 +1,113 @@
+caption: MyStory
+created: 20190101145705620
+creator: Thomas Elmiger
+e-name: MyStory Tab
+modified: 20190426131037407
+modifier: Thomas Elmiger
+tags: $:/tags/SideBar
+title: $:/plugins/telmiger/MyStory/tab
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+\define lingo-base() $:/language/CloseAll/
+
+\define editmode-icon() 
+<span class="tc-dirty-indicator" title="in edit mode">{{$:/core/images/edit-button}}</span>
+\end
+
+\define my-close-btn() 
+<$list filter="[all[current]!has[draft.of]]" variable="title" emptyMessage=<<editmode-icon>>>
+<$button tooltip={{$:/language/Buttons/Close/Hint}} aria-label={{$:/language/Buttons/Close/Caption}} class="tc-btn-invisible tc-btn-mini">
+<$action-listops $tiddler="$:/plugins/telmiger/MyStory/settings" $index="last-closed" $subfilter="+[[]] [<title>]"/>
+<$action-sendmessage $message="tm-close-tiddler"/>&times;</$button></$list>
+\end
+
+\define openMyTiddlers(filter)
+<$list filter=<<__filter__>> >
+<$action-navigate $to=<<currentTiddler>>/>
+</$list>
+\end
+
+\define reopenBtn()
+<$list filter="[{$:/plugins/telmiger/MyStory/settings##last-closed}minlength[1]]">
+<$set name="tt" value="reopen last closed element(s)">
+<$button tooltip=<<tt>> class="tc-btn-invisible my-story-reopen-btn">
+<$set name="qualstate" value="$:/config/Navigation/openLinkFromOutsideRiver">
+<$reveal type="match" state=<<qualstate>> text="bottom">
+<<openMyTiddlers "[enlist{$:/plugins/telmiger/MyStory/settings##last-closed}]">>
+</$reveal>
+<$reveal type="nomatch" state=<<qualstate>> text="bottom">
+<<openMyTiddlers "[enlist{$:/plugins/telmiger/MyStory/settings##last-closed}reverse[]]">>
+</$reveal>
+</$set>
+{{$:/plugins/telmiger/MyStory/left-arrow}}
+</$button>
+</$set>
+</$list>
+\end
+
+\define closeAllBtn()
+<$button class="tc-btn-invisible my-story-close-all-btn">
+<$set name="myStory" filter="[list[$:/StoryList]]" >
+<$action-setfield $tiddler="$:/plugins/telmiger/MyStory/settings" $index="last-closed" $value=<<myStory>>/>
+</$set>
+<$action-sendmessage $message="tm-close-all-tiddlers"/>
+<<lingo Button>>
+</$button>
+\end
+
+\define edit-btn()
+<$list filter="[[$:/plugins/telmiger/MyStory/settings]getindex[show-edit-button]removeprefix[no]] ~[all[current]!has[draft.of]]">
+<$list filter=[all[current]minlength[1]]>
+<span class="my-story-btn">
+<$button message="tm-edit-tiddler" tooltip={{$:/language/Buttons/Edit/Hint}} aria-label={{$:/language/Buttons/Edit/Caption}} class=<<tv-config-toolbar-class>>>
+{{$:/core/images/edit-button}}
+</$button>
+</span>
+</$list>
+</$list>
+\end
+
+\define clone-btn()
+<$list filter="[[$:/plugins/telmiger/MyStory/settings]getindex[show-clone-button]removeprefix[no]] ~[all[current]!has[draft.of]]">
+<$list filter=[all[current]minlength[1]]>
+<span class="my-story-btn">
+<$button message="tm-new-tiddler" param=<<currentTiddler>> tooltip={{$:/language/Buttons/Clone/Hint}} aria-label={{$:/language/Buttons/Clone/Caption}} class=<<tv-config-toolbar-class>>>
+{{$:/core/images/clone-button}}
+</$button>
+</span>
+</$list>
+</$list>
+\end
+
+\define drop-actions()
+<$action-listops $tiddler="$:/StoryList" $subfilter="+[insertbefore:currentTiddler<actionTiddler>]"/>
+\end
+
+<ul class="my-story te-nav-list">
+<$list filter="[list[$:/StoryList]]" history="$:/HistoryList" storyview="pop">
+<li><div style="position: relative;">
+<$droppable actions=<<drop-actions>>>
+<div class="tc-droppable-placeholder">
+&nbsp;
+</div>
+<div>
+<<my-close-btn>><<bookmark-icon>><<my-link>><<edit-btn>> <<clone-btn>>
+</div>
+</$droppable>
+</div>
+</li>
+</$list>
+</ul>
+<$tiddler tiddler="">
+<$droppable actions=<<drop-actions>>>
+<div class="tc-droppable-placeholder">
+&nbsp;
+</div>
+<footer class="my-story-footer">
+<<closeAllBtn>>
+<<reopenBtn>>
+</footer>
+</$droppable>
+</$tiddler>

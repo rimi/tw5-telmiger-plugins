@@ -1,0 +1,37 @@
+created: 20181124200219330
+creator: Thomas
+modified: 20200219150938627
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/new-lines
+type: text/vnd.tiddlywiki
+
+<<wt "Since
+new paragraphs
+need //two// linebreaks in TW5 ...
+
+You can also use:
+">>
+
+<div class="wmr-input">
+
+```
+"""
+tripple quotes to 
+force //hard// linebreaks
+like this.
+"""
+```
+</div>
+
+"""
+tripple quotes to 
+force hard linebreaks
+like this.
+"""
+
+<<wt "HTML tags: <br>
+as well as <br/> are //accepted.//
+">>
+
+Both result in a `<br>` when rendered.

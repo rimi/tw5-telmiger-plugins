@@ -1,0 +1,187 @@
+created: 20160816192735231
+creator: Thomas Elmiger
+list: 3 1 2
+modified: 20190426075256129
+modifier: Thomas Elmiger
+prio: 
+tags: ToDoComponents $:/tags/Macro MyMacros Listreveal
+title: $:/plugins/telmiger/lib/telements/buttons
+type: text/vnd.tiddlywiki
+
+\define teBtnSave(class:"te-btn-big")
+<$wikify name="myclass" text="te-btn-save $class$ <<tv-config-toolbar-class>>">
+<span>
+<$button message="tm-save-wiki" param={{$:/config/SaveWikiButton/Template}} tooltip={{$:/language/Buttons/SaveWiki/Hint}} aria-label={{$:/language/Buttons/SaveWiki/Caption}} class=<<myclass>>>
+<span class="tc-dirty-indicator">
+{{$:/core/images/save-button}}
+</span>
+</$button>
+</span>
+</$wikify>
+\end
+
+\define teBtnDelete(class:"")
+<$vars btnclass="te-btn-action te-btn-delete $class$">
+<$button message="tm-delete-tiddler" tooltip={{$:/language/Buttons/Delete/Hint}} aria-label={{$:/language/Buttons/Delete/Caption}} class=<<btnclass>>>
+{{$:/core/images/delete-button}}
+</$button>
+</$vars>
+\end
+
+\define teBtnHint(btntext,message,tooltip,tip,class:"")
+<$set name="btnclass" value="te-hint $class$">
+<$button class=<<btnclass>> tooltip="""$tooltip$""" message="$message$">
+$btntext$
+<span class="te-tip">$tip$</span>
+</$button>
+</$set>
+\end
+
+\define teBtnTagListops(btntext,add-remove,tooltip,tip:"_false_",class:"")
+<$vars tip="""$tip$""" btnclass="te-btn-action te-tag-listops $class$">
+<$set name="mytip" filter="[<tip>removeprefix[_false_]]" emptyValue="""<span class="te-tip">$tip$</span>""">
+<$button class=<<btnclass>> tooltip="""$tooltip$""">
+<<teTimestampPause>>
+<$action-listops $tags="$add-remove$" />
+<<teTimestampResume>>
+$btntext$
+<<mytip>>
+</$button>
+</$set>
+</$vars>
+\end
+
+\define teBtnEdit(sendmessage:"tm-edit-tiddler",class:"")
+<$wikify name="tt" text=<<telang Edit>>>
+   <$button tooltip=<<tt>> class="te-btn-action te-edit $class$">
+<$action-sendmessage $message="$sendmessage$" $param=<<currentTiddler>> />
+{{$:/core/images/edit-button}}
+</$button>
+</$wikify>
+\end
+
+\define teBtnEditShowModified(sendmessage:"tm-edit-tiddler",class:"")
+<$wikify name="tt" text=<<telang Edit>>>
+   <$button tooltip=<<tt>> class="te-btn-action te-edit $class$">
+<$action-sendmessage $message="$sendmessage$" $param=<<currentTiddler>> />
+{{$:/core/images/edit-button}}<span class="te-tip"><$view tiddler=<<currentTiddler>> field="modified" format="date" template="YYYY-0MM-0DD 0hh:0mm"/></span>
+</$button>
+</$wikify>
+\end
+
+\define tePrioBtnContent() <span class="te-prionr">$(priority)$</span>$(btntext)$
+
+\define teBtnPrio(btntext,priority,prioritylist:"$:/plugins/telmiger/lib/telements/buttons",tooltip,class:"")
+<$vars btntext="""$btntext$""" priority="""$priority$""">
+<$set name="nextprio" filter="""[list[$prioritylist$]nth[$priority$]]""">
+<$wikify name="next" text="$tooltip$ <<nextprio>>">
+<$button tooltip=<<next>> class="te-btn-action te-prio prio$priority$ $class$">
+<$action-listops $field="priority" $filter=<<nextprio>>/>
+<<tePrioBtnContent>>
+</$button>
+</$wikify>
+</$set>
+</$vars>
+\end
+
+\define teBtnPrioPopup(tiddler,btntext,priority,prioritylist:"$:/plugins/telmiger/lib/telements/buttons",tooltip:"change priority",class:"")
+<$vars btntext="""$btntext$""" priority="""$priority$""">
+<$set name="qualstate" value=<<qualify """$:/state/reveal_priopop_$tiddler$_""">> >
+<$reveal type="nomatch" state=<<qualstate>> text="show" class="te-btn-reveal">
+<$button tooltip="""$tooltip$""" set=<<qualstate>> setTo="show" class="te-btn-action te-prio prio$priority$ $class$">
+<<tePrioBtnContent>>
+</$button>
+</$reveal>
+<$reveal type="match" state=<<qualstate>> text="show" class="te-btn-reveal">
+<$button tooltip="close popup" class="te-btn-action te-prio prio$priority$ $class$">
+<$action-deletetiddler $tiddler=<<qualstate>>/>
+<<tePrioBtnContent>>
+</$button>
+</$reveal>
+<$reveal type="match" state=<<qualstate>> text="show">
+<$wikify name="tt" text="set prio">
+  <$macrocall $name="tePrioList" tiddler="""$tiddler$""" icon="{{$:/core/images/star-filled}}" priorityfield="priority" prioritylist="""$prioritylist$""" tooltip=<<tt>> class="" state=<<qualstate>>/>
+</$wikify>
+</$reveal>
+</$set>
+</$vars>
+\end
+
+\define tePrioList(tiddler,prioritylist:"_false_",priorityfield:"_false_",icon:"{{$:/core/images/star-filled}}",state)
+<$vars priotid="""$prioritylist$""" tid="""$tiddler$""">
+<$set name="prioOld" filter="[<currentTiddler>get[$priorityfield$]]">
+<div class="te-prio-popup">
+<ul class="te-prio-list">
+<$list filter="[list<priotid>sort[]] -[<prioOld>]" variable="prio" emptyValue="error: no priorities in list field of $tiddler$">
+<li>
+    <$macrocall $name="teBtnPrioSet" tiddler=<<tid>> priority=<<prio>> priorityfield="""$priorityfield$""" tooltip="set as prio" icon="""$icon$""" class="" state="""$state$"""/>
+</li>
+</$list>
+</ul>
+</div>
+</$set>
+</$vars>
+\end
+
+\define teBtnPrioSet(tiddler,priority,priorityfield,tooltip,icon,class:"",state)
+<$vars prio="""$priority$""" qualstate="""$state$""">
+<$button tooltip="""$tooltip$""" class="te-btn-action te-prio prio$priority$ $class$">
+<<teTimestampPause>>
+<$action-listops $tiddler="""$tiddler$""" $field=$priorityfield$ $filter=<<prio>>/>
+<<teTimestampResume>>
+<$action-deletetiddler $tiddler=<<qualstate>>/>
+<span class="te-prionr"><<prio>></span>$icon$
+</$button>
+</$vars>
+\end
+
+\define teBtnClone(tiddler,class:"")
+<$button message="tm-new-tiddler" param="""$tiddler$""" tooltip={{$:/language/Buttons/Clone/Hint}} aria-label={{$:/language/Buttons/Clone/Caption}} class="te-btn-action te-clone $class$">
+{{$:/core/images/clone-button}}
+</$button>
+\end
+
+\define teBtnIcons(label,icon,hovericon)
+<span class="te-btn-label">"""$label$"""</span>
+<span class="te-btn-icon"><$transclude tiddler="""$icon$"""/></span>
+<span class="te-btn-hovericon"><$transclude tiddler="""$hovericon$"""/></span>
+\end
+
+\define teTimestampPause()
+<$action-setfield $tiddler="$:/temp/te/TimestampBefore" $value={{$:/config/TimestampDisable}}/>
+<$action-setfield $tiddler="$:/config/TimestampDisable" $value="yes"/>
+\end
+
+\define teTimestampResume()
+<$action-setfield $tiddler="$:/config/TimestampDisable" $value={{$:/temp/te/TimestampBefore}}/>
+\end
+
+
+<!-- !! Macros to produce nice buttons
+
+Optimize: Rewire field "priority" to a variable $saveto$?
+
+* teBtnSave
+* teBtnDelete
+** delete a given tiddler – show a confirmation request first
+* teBtnHint(btntext,message,tooltip,tip,class:"")
+** add a message
+* teBtnTagListops(btntext,add-remove,tooltip,tip,class:"")
+** add-remove: add and remove tags in one statement "addthis -removethat"
+** does not update the modification date as of TW 5.1.14
+* teBtnEdit(sendmessage:"tm-edit-tiddler",class:"") 
+** tiddler is currentTiddler
+* teBtnEditShowModified(sendmessage:"tm-edit-tiddler",class:"") – used in  $:/plugins/telmiger/listreveal/readme 
+** shows modified timestamp on hover
+** tiddler is currentTiddler
+* teBtnPrio(btntext,priority,prioritylist:"$:/plugins/telmiger/lib/telements/buttons",tooltip,class:"")
+** let the user cycle through a list of choices (priorities) from the //list// field of a tiddler  
+* teBtnPrioPopup(tiddler,btntext,priority,prioritylist:"$:/plugins/telmiger/lib/telements/buttons",tooltip:"change priority",class:"")
+** let the user select a priority from a list of choices saved in the //list// field of a tiddler  
+* tePrioList – a helper macro for teBtnPrioPopup
+* teBtnPrioSet – a helper macro for teBtnPrioPopup
+* teBtnClone(tiddler,class:"") – a button to clone a tiddler from the list
+* teBtnIcons(label,icon,hovericon) – create a set of spans for buttons with icons
+* teTimestampPause() and teTimestampResume()
+** put these before and after e.g. tag manipulations to stop/restart timestamp updates
+-->

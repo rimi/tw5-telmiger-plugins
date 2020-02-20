@@ -1,0 +1,90 @@
+created: 20160811053433681
+creator: Thomas Elmiger
+datetime: 
+modified: 20190426075256112
+modifier: Thomas Elmiger
+tags: $:/tags/Macro Listreveal
+title: $:/plugins/telmiger/listreveal/lr
+type: text/vnd.tiddlywiki
+
+\define listrevealButton(title,tooltip:"Details",close:"Close",class:"")
+<$vars showclass="""listreveal-btn-show te-noprint $class$""" hideclass="""listreveal-btn-hide te-noprint $class$""">
+<$set name="qualstate" value=<<qualify """$:/config/listreveal_$title$_""">> >
+<$reveal type="nomatch" state=<<qualstate>> text="visible" animate="yes" class="listreveal">
+   <$button set=<<qualstate>> setTo="visible" class=<<showclass>> tooltip="$tooltip$">…</$button></$reveal>
+<$reveal type="match" state=<<qualstate>> text="visible" animate="yes" class="listreveal">
+   <$button class=<<hideclass>> tooltip="$close$">&times;<$action-deletetiddler $tiddler=<<qualstate>> />
+   </$button></$reveal>
+</$set>
+</$vars>
+\end
+
+\define listrevealContent(title,mode:"block",datetime:"YYYY-MM-DD",state:"_false_",tagExclude:"")
+<$vars state="""$state$""">
+<$set name="qualstate" filter="[<state>!prefix[_false_]]" value=<<state>> emptyValue=<<qualify """$:/config/listreveal_$title$_""">> >
+<$reveal type="match" state=<<qualstate>> text="visible" animate="yes" class="listreveal-open">
+<<listreveal-tags $tagExclude$>>
+<span class="listreveal-content">
+<$reveal type="nomatch" state="$:/config/listreveal-mode" text="edit">
+   <$transclude tiddler="""$title$""" mode="$mode$"/>
+</$reveal>
+<$reveal type="match" state="$:/config/listreveal-mode" text="edit">
+   <$edit tiddler="""$title$""" class="listreveal-edit-text"/>
+</$reveal>
+</span>
+   <$macrocall $name="listreveal-meta" tiddler="""$title$""" datetime="""$datetime$"""/>
+</$reveal>
+</$set>
+</$vars>
+\end
+
+\define listreveal-meta(tiddler,datetime)
+<span class="listreveal-meta te-flex-item">
+   <span class="te-created">{{$:/core/images/file}}<span class="te-tip"><$view tiddler="""$tiddler$""" field="creator"/></span><$view tiddler="""$tiddler$""" field="created" format="date" template="""$datetime$"""/></span>
+   <span class="te-separator"></span>
+<<listreveal-showmodified """$tiddler$""" """$datetime$""">>
+\end
+
+\define listreveal-showmodified(tiddler,datetime)
+<span class="te-modified">{{$:/core/images/edit-button}}<span class="te-tip"><$view tiddler="""$tiddler$""" field="modifier"/></span><$view tiddler="""$tiddler$""" field="modified" format="date" template="""$datetime$"""/></span>
+\end
+
+\define listrevealBtnEdit(class:"")
+<$reveal type="nomatch" state="$:/config/listreveal-mode" text="edit">
+<$wikify name="tt" text=<<telang Switch-to-edit-mode>>>
+<$button set="$:/config/listreveal-mode" setTo="edit" tooltip=<<tt>> class="te-btn-big locked $class$">{{$:/core/images/locked-padlock}}</$button>
+</$wikify>
+</$reveal><$reveal type="match" state="$:/config/listreveal-mode" text="edit">
+<$wikify name="tt" text=<<telang Switch-to-safe-mode>>>
+<$button set="$:/config/listreveal-mode" setTo="locked" tooltip=<<tt>> class="te-btn-big unlocked $class$"><$action-sendmessage $message="tm-auto-save-wiki"/><span class="tc-dirty-indicator">{{$:/core/images/unlocked-padlock}}</span></$button>
+</$wikify>
+</$reveal>
+\end
+
+
+<!-- !! Listreveal Plugin Macros
+
+!!! Macros to reveal listed tiddlers
+* listrevealButton(title,tooltip:"Details",close:"Close",class:"")
+** produce a button to show/hide tiddler content
+*** parameters: tooltips for show/hide actions and a CSS-class
+*  listrevealContent(title,mode:"block",datetime:"YYYY-MM-DD",state:"_false_")
+** show the content of a listed tiddler
+** use the state parameter if you don’t want tu use the standard button
+*** set the state to //visible// to show tiddler content 
+
+!!! Optional macro
+* listrevealBtnEdit(class:"")
+** produce a button to 
+*** put all listed tiddlers in edit mode (wikitext editor)
+*** lock the tiddlers and auto-save the wiki after editing
+
+!!! Helper macros for listrevealContent
+* listreveal-meta(tiddler,datetime)
+** show meta information of a tiddler: dates for created/modified and creator/modifier (on hover)
+*** datetime: a [[date format|http://tiddlywiki.com/#DateFormat]] string 
+* listreveal-showmodified(tiddler,datetime)
+** show modified timestamp and modifier name (on hover)
+*** datetime: a [[date format|http://tiddlywiki.com/#DateFormat]] string 
+
+-->

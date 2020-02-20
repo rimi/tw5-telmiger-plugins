@@ -1,0 +1,70 @@
+created: 20170222232934553
+creator: Thomas Elmiger
+modified: 20190426075256075
+modifier: Thomas Elmiger
+tags: Listreveal
+title: 01 Listreveal List Setup
+type: text/vnd.tiddlywiki
+
+Explanations for the code of $:/plugins/telmiger/listreveal/readme – you can clone the linked tiddler and adapt it step by step to create your own listreveal project. The filter statement is a good point to start:
+
+```
+<$set name="listfilter" 
+   value="""[tag[Listreveal]!is[system]sort[title]]""">
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+```
+Always use a variable called //listfilter// to create your list. The list-based tag manager (see [[03 Context Tagging]]) is depending on this convention.
+
+It is recommended to use the CSS classes you see in this example – add your own to change the looks.
+
+```
+<$set name="tidTitle" value={{!!title}}>
+   <li class="todo-item te-flex-item">
+      <span class="te-flex-item te-flex-half-full">
+         <span class="te-flex-item te-flex-content te-flex-left">
+   <$link to={{!!title}}><$view field="title"/></$link>
+         </span>
+      </span>
+```
+The styling relies on [[CSS3 flexbox|https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties]]. These spans help to make your list as mobile friendly as possible.
+
+```
+      <span class="te-flex-item te-flex-half-full">
+         <span class="te-flex-item te-flex-content te-flex-right">
+            <<teBtnEditShowModified>>
+```
+This macro produces an edit button. It shows the tiddler’s modified date when the mouse hovers over it.
+
+```
+<$wikify name="cl" text=<<telang close>> >
+<$wikify name="tt" text=<<telang Details>> >
+   <$macrocall $name="listrevealButton" title=<<tidTitle>> tooltip=<<tt>> close=<<cl>>/>
+</$wikify>
+</$wikify>
+```
+This macrocall produces the button on the right side that opens and closes the tiddlers.
+
+The variables //cl// and //tt// get predefined translations from the language tiddlers that are part of this plugin. You can replace the tooltip for opening (attribute //tooltip//) and closing (attribute //close//) with your own texts.
+
+```
+         </span>
+      </span>
+<$wikify name="tpl" text=<<telang date-created-tmpl>> >
+   <$macrocall $name="listrevealContent" title=<<tidTitle>> datetime=<<tpl>>/>
+</$wikify>
+```
+This macrocall produces the text content and some details of your tiddler.
+
+Again the variable //tpl// gets a predefined translation from the integrated language tiddlers. It is used as a [[date format template|http://tiddlywiki.com/#DateFormat]] when the created and modified timestamps of the tiddler are displayed. This attribute is optional.
+
+//tidTitle// is the variable for the title of your list elements (your tiddlers). It is set at the beginning (see second snippet).
+
+```
+   </li>
+</$set>
+</$list>
+</ul>
+</$set>
+```
+The whole list is presented as an unordered HTML list `<ul>` with tiddlers as list items `<li>`.

@@ -1,0 +1,235 @@
+created: 20160816052415397
+creator: Thomas Elmiger
+modified: 20190426075256103
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet Listreveal ToDoComponents
+title: $:/plugins/telmiger/listreveal/lr.css
+type: text/vnd.tiddlywiki
+
+/* listreveal styles */
+/* === optimised for: ul class="te-list" and li class="te-flex-item" === */
+
+/* list RENAME listreveal-list? */
+
+ul.te-list > li {
+	padding-top: calc(.125rem + 1px);
+	padding-left: .5rem;
+	padding-right: .25rem;
+	padding-bottom: 0;
+	color: <<colour foreground>>;
+	background-color: transparent;
+}
+
+ul.te-list > li > * {
+	padding-bottom: 1px;
+}
+
+ul.te-list > li:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* link hack for Safari Mobile: */
+
+.te-list .te-flex-item a.tc-tiddlylink-resolves { 
+	word-break: break-all;
+}
+
+@media (min-width: 28rem) {
+	.te-list .te-flex-item a.tc-tiddlylink-resolves { 
+		word-break: inherit;
+	}
+}
+
+
+/* buttons */
+
+.te-list .listreveal-btn-show {
+	border: 1px solid;
+	border-radius: 0;
+	border-color: rgba(0, 0, 0, 0.5);
+	padding: 0;
+	background: none;
+	margin: 0 0.125rem 0.1rem 0.5rem;
+	height: 1.5rem;
+	width: 2.35rem;
+	color: <<colour foreground>>;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.listreveal-btn-show:hover {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.te-list .listreveal-btn-hide {
+	border: 1px solid;
+	border-bottom-width: 0;
+	border-radius: 0;
+	border-color: rgba(0, 0, 0, 0.5);
+	padding: 0;
+	background: none;
+	margin: 0 0.125rem 0 0.25rem;
+	width: 2.60rem;
+	height: 1.66rem;
+	color: <<colour foreground>>;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+.listreveal-btn-hide:hover {
+	background-color: <<colour tiddler-background>>;
+}
+
+
+/* tiddler content */
+
+.listreveal-open {
+	margin-left: -.5rem;
+	margin-right: -.25rem;
+	width: calc(100% + .75rem);
+	height: auto; 
+	margin-bottom: -1px;
+	transition: none 0s ease 0s;
+}
+
+.listreveal-content {
+	display: block;
+	color: <<colour foreground>>;
+	border: none;
+	line-height: 1.5;
+   padding: 1rem;
+	-webkit-animation: expanditem 1s ease-in-out 0s running;
+	animation-name: expanditem;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-delay: 0s;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+}
+
+
+/* edit mode */
+
+.listreveal-edit-text {
+	width: 100%;
+	border: 1px solid gray;
+	padding: 1em;
+}
+
+/* edit caption */
+
+.lr-set-caption input {
+   width: 20rem;
+}
+
+/* separate colour for title than caption */
+
+a .lr-is-title {
+   color: <<colour external-link-foreground>>;
+}
+
+
+/* meta info */
+
+.listreveal-tags, .listreveal-meta {
+   font-size: 0.875rem;
+	border-top: 0;
+	border-bottom: 0;
+	color: <<--black .5>>;
+	fill: <<--black .5>>;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: .25rem;
+}
+.listreveal-tags {
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	border-color: rgba(0, 0, 0, 0.5);
+	padding-bottom: 0;
+}
+.listreveal-meta {
+	border-top: 1px solid;
+	border-bottom: none;
+	border-color: rgba(0, 0, 0, 0.5);
+	padding-right: 0.5rem;
+}
+.listreveal-meta svg {
+	margin-right: 0.25rem;
+}
+
+
+/* tags info */
+
+.listreveal-tags .te-tags span.tc-tag-label:hover {
+	
+}
+
+.listreveal-tags .te-tags span.tc-tag-label {
+
+}
+
+.listreveal-tags .tc-block-dropdown {
+   position: absolute;
+   padding: .75rem .5rem 0 .5rem;
+   margin-top: -.25rem;
+   margin-right: 1rem;
+   max-width: 100%;
+}
+
+.lr-tag-popup {
+   margin-left: 1em;
+}
+.lr-tag-popup ul {
+   margin: 0;
+   padding: 0 1em 1em 0;
+   line-height: 1.75;
+   list-style: none;
+   font-weight: 600;
+}
+.lr-tag-popup ul li:hover{
+   color: <<colour tiddler-link-foreground>>;
+}
+.lr-tag-popup ul.lr-tags-remove li:hover{
+   color: <<colour dirty-indicator>>;
+}
+.lr-tags-add li button::before {
+   content: "+&#8197;";
+   font-size: 1.2em;
+   color: <<colour tiddler-link-foreground>>;
+}
+.lr-tags-remove li button::before {
+   content: "&#215;&#8197; ";
+   font-size: 1.2em;
+   color: <<colour dirty-indicator>>;
+}
+
+@media (max-width: 960px) {
+}
+
+
+/* listreveal animation */
+
+@keyframes expanditem {
+  0% { 
+      height: 0;
+      opacity: 0;
+  }
+  80.0% {
+      height: 60%;
+      opacity: 0.9;
+  }
+  100.0% {
+      height: 100%;
+      opacity: 1;
+  }
+}
+
+@-webkit-keyframes expanditem {
+  0% { 
+      height: 0;
+      opacity: 0;
+  }
+  100.0% {
+      height: 100%;
+      opacity: 1;
+  }
+}

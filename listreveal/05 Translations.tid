@@ -1,0 +1,21 @@
+created: 20170224202239839
+creator: Thomas Elmiger
+modified: 20190426075256055
+modifier: Thomas Elmiger
+tags: Listreveal Translation
+title: 05 Translations
+type: text/vnd.tiddlywiki
+
+The following language tiddlers are shipped with this plugin: 
+
+<ul>
+<$list filter="""[all[tiddlers+shadows]prefix[$:/plugins/telmiger/lib/languages/]sort[]]""">
+<li>
+{{##ID}}:  <$link to={{!!title}}><$view field="title"/></$link>
+</li>
+</$list>
+</ul>
+
+Set your language in $:/plugins/telmiger/lib/language (I hope I will find a way to use the language from the TW settings in the future).
+
+To implement a new language you could clone and adapt one of them. They are used for other plugins too, this is why they contain way more text than needed for listreveal.

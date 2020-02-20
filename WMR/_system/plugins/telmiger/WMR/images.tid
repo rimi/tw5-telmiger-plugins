@@ -1,0 +1,32 @@
+created: 20181124203347203
+creator: Thomas
+modified: 20200219150938658
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/images
+type: text/vnd.tiddlywiki
+wmr-source-link: https://tiddlywiki.com/#Images%20in%20WikiText
+
+!!! Internal images
+
+Images saved in the wiki:
+
+<<wt """[img width=128 [CircleJack.svg]]
+[img width=64 [title/tooltip|CircleJack.svg]]
+[img width=32 [CircleJack.svg]]
+[img width=32 class="red" [CircleJack.svg]]
+""">>
+
+
+!!! Images from the web
+
+<<wt """[img[https://tiddlywiki.com/favicon.ico]]
+""">>
+
+
+!!! Images in separate files
+
+<<wt """[img[path/image.jpg]]
+""">>
+
+Solutions can be found in the user group ...

@@ -1,0 +1,36 @@
+created: 20170705203414697
+creator: Thomas Elmiger
+example-1: 20001231230000000
+modified: 20190426075256047
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]] $:/tags/Macro
+title: $:/plugins/telmiger/lib/dates-then
+type: text/vnd.tiddlywiki
+
+\define yearValue(field,tiddler) <<dateValue YYYY $field$ """$tiddler$""">>
+\define monthValue(field,tiddler) <<dateValue MM $field$ """$tiddler$""">>
+\define dayValue(field,tiddler) <<dateValue DD $field$ """$tiddler$""">>
+\define hoursValue(field,tiddler) <<dateValue 0hh $field$ """$tiddler$""">>
+\define minutesValue(field,tiddler) <<dateValue 0mm $field$ """$tiddler$""">>
+\define secondsValue(field,tiddler) <<dateValue 0ss $field$ """$tiddler$""">>
+
+\define dateValue(template:"YYYY-0MM-0DD",field:"modified",tiddler) 
+<$set name="tid" filter="""[field:title[$tiddler$]]""" value="""$tiddler$""" emptyValue=<<currentTiddler>>><$view tiddler=<<tid>> field="""$field$""" format="date" template="""$template$"""/></$set>
+\end
+
+
+<!-- !! Macros for Dates from fields
+Output dates from fields in TW [[Date Field Format|http://tiddlywiki.com/#Date%20Fields]]
+
+* dateValue(template:"YYYY-0MM-0DD",field:"modified",tiddler) – return a value from a date string via  the view widget
+** field: where the date string is stored
+** tiddler: where the date string is stored, defaults to currentTiddler
+* yearValue(field,tiddler) – return the year
+** monthValue, dayValue, hoursValue, minutesValue, secondsValue – guess what ;–)
+
+-->
+
+Syntax: `<<hoursValue example-1>>`
+
+Result: <<hoursValue example-1>>
+

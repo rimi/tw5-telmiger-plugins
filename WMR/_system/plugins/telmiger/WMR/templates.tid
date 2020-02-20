@@ -1,0 +1,33 @@
+created: 20181129173332986
+creator: Thomas
+modified: 20200219150938545
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/templates
+type: text/vnd.tiddlywiki
+wmr-source-link: https://tiddlywiki.com/#Transclusion%20with%20Templates
+
+[[Transclude|https://tiddlywiki.com/#Transclusion%20in%20WikiText]] tiddler `.../foo` applying [[template|https://tiddlywiki.com/#TemplateTiddlers]] `.../tmpl-code`:
+
+<<wt "{{$:/plugins/telmiger/WMR/foo||$:/plugins/telmiger/WMR/tmpl-code}}">>
+
+Use template `Bar` for the [[Current Tiddler|https://tiddlywiki.com/#Current%20Tiddler]] (default):
+
+<div class="wmr-input">
+
+```
+{{||Bar}}
+```
+</div>
+
+---
+
+A template can show different fields of a tiddler. While the list of tiddlers tagged `Foo` shows the content of the field `title` ...
+
+<<wt "{{{ [tag[Foo]] }}}
+">>
+
+... the same for tag `Bar` displayed through the template $:/core/ui/ViewTemplate/subtitle shows the content of the fields `modifier` and `modified`:
+
+<<wt "{{{ [tag[Bar]]||$:/core/ui/ViewTemplate/subtitle }}}
+">>

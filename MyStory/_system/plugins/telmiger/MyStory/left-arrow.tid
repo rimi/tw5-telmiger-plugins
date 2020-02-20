@@ -1,0 +1,13 @@
+caption: left arrow in circle
+created: 20190106110559867
+creator: Thomas Elmiger
+e-name: left arrow in circle
+modified: 20190426131037432
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/MyStory/left-arrow
+type: text/vnd.tiddlywiki
+
+<svg class="tc-image tc-image-button tc-image-my-story-icon"  width="22pt" height="22pt" viewBox="0 0 22 22">
+<circle cx="11" cy="11" r="10" fill-opacity=".2"/><path d="M9 12.4l1.7 1.5a1.4 1.4 0 1 1-2 2l-3.9-4c-.5-.5-.5-1.4 0-1.9l4-3.9a1.4 1.4 0 1 1 1.9 2L9 9.6h7.1c.8 0 1.4.6 1.4 1.4 0 .7-.6 1.4-1.4 1.4H9z"/>
+</svg>

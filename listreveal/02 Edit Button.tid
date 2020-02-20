@@ -1,0 +1,14 @@
+created: 20170222233632994
+creator: Thomas Elmiger
+modified: 20190426075256069
+modifier: Thomas Elmiger
+tags: Listreveal
+title: 02 Edit Button
+type: text/vnd.tiddlywiki
+
+Optionally you can add a lock/unlock button to switch your list into edit mode (all listreveal lists in your wiki to be precise). This presents the tiddler content in an editor field where you can change it using wikitext formatting. 
+
+```
+Use this button to enable editing: <<listrevealBtnEdit>>
+```
+Add your own parameter `class:"your-class"` for styling and positioning via CSS. The icon has a so called dirty indicator implemented: it turns red if you have unsaved changes.

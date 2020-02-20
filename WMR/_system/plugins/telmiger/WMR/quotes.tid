@@ -1,0 +1,19 @@
+created: 20181129204618410
+creator: Thomas
+modified: 20200219150938607
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/quotes
+type: text/vnd.tiddlywiki
+
+!!! [[Quotes and citations|https://tiddlywiki.com/#Block%20Quotes%20in%20WikiText]]
+
+<<wt "<<<
+We are the ones we have been waiting for. 
+<<< Hopi wisdom
+">>
+
+<<wt "<<<.tc-big-quote
+We are the ones we have been waiting for. 
+<<< Hopi wisdom
+">>

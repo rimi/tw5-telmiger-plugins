@@ -1,0 +1,77 @@
+created: 20170201215840974
+creator: Thomas Elmiger
+modified: 20190426075256138
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet Listreveal ToDoComponents
+title: $:/plugins/telmiger/lib/telements-print.css
+type: text/vnd.tiddlywiki
+
+/* print optimisation for (t)elements */
+
+@media print {
+
+.te-noprint, 
+.te-btn-action, .te-btn-action.muted, 
+.te-btn-big,
+.te-edit, .te-to-top { 
+   display: none;
+}
+
+/* header */
+
+header {
+   background-color: transparent;
+}
+
+/* show buttons? reset display */
+/* big buttons */
+
+/* action buttons */
+
+.te-btn-action.todo-deadline, .te-btn-action.te-prio {
+   display: initial;
+}
+
+.te-btn-action.te-prio.prio1 span.te-prionr, 
+.te-btn-action.te-prio.prio1 {
+   color: #efefef;
+}
+
+.te-btn-action.te-prio span.te-prionr, .te-btn-action.te-prio.prio2 span.te-prionr, 
+.te-btn-action.te-prio.prio3 span.te-prionr, .te-btn-action.te-prio.prio4 span.te-prionr {
+   color: #ddd;
+}
+
+.te-btn-action.te-prio {
+   background-color: #ddd;
+   border: 3px solid black;
+}
+.te-btn-action.te-prio.prio2 {
+   background-color: #bbb;
+}
+.te-btn-action.te-prio.prio3 {
+   background-color: #999;
+}
+.te-btn-action.te-prio.prio4 {
+   background-color: #777;
+}
+
+/* date picker button */
+
+.te-btn-action.deadline span svg {
+   opacity: 0.66;
+}
+
+/* text */
+
+/* meta info */
+
+/* images */
+
+.te-created svg, .te-modified svg {
+   opacity: 0.6;
+}
+
+
+/* **** END of print optimisation **** */
+}

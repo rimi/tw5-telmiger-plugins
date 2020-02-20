@@ -1,0 +1,13 @@
+caption: Clear Search
+created: 20190101210749466
+creator: Thomas Elmiger
+modified: 20190426081734654
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/simple-search/ui/Buttons/clear-search
+type: text/vnd.tiddlywiki
+
+<$button class="tc-btn-invisible" tooltip="clear search field" aria-label="reset search">
+<$action-setfield $tiddler="$:/temp/advancedsearch" text="" />
+{{$:/core/images/close-button}}
+</$button>

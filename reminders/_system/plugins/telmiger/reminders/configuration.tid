@@ -1,0 +1,23 @@
+created: 20170712182809734
+creator: Thomas Elmiger
+modified: 20190426132422011
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/reminders/configuration
+type: text/vnd.tiddlywiki
+
+!! Configuration 
+
+!!! Reminders
+Show a reminder 
+<$edit-text tiddler="$:/plugins/telmiger/reminders/settings" field="text" index="show" tag="input" size="3" class=""/> ''minutes'' before the deadline is reached. – Leave empty if you want to see alerts only. 
+
+!!! Disable Alerts
+Set the reminder value above to ''no'' instead of a number if you don’t want to see alerts or reminders at all. You could also disable the plugin in this case.
+
+!!! Timestamp Field and Tag
+The presets used for alerts and reminders are borrowed from ToDoNow: This plugin saves deadlines in a field named ''todo-deadline'' and the tag <<tag ToDo>> is used for tasks. In case you want to get alerts and reminders for another field and/or tag, enter your values below.
+
+<$edit-text tiddler="$:/plugins/telmiger/reminders/settings" field="text" index="field" tag="input"/> Fieldname
+
+<$edit-text tiddler="$:/plugins/telmiger/reminders/settings" field="text" index="tag" tag="input"/> Tagname

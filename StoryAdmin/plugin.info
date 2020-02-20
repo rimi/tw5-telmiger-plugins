@@ -1,0 +1,11 @@
+{
+	"title": "$:/plugins/JR-telmiger/StoryAdmin",
+	"author": "Jan und Thomas",
+	"core-version": ">=5.1.18",
+	"description": "Story Admin – save and load story lists",
+	"list": "readme",
+	"name": "StoryAdmin – save and load story lists",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "0.1.3"
+}

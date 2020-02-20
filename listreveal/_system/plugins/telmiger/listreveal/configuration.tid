@@ -1,0 +1,45 @@
+created: 20180423195037840
+creator: Thomas Elmiger
+modified: 20190426075256120
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: $:/plugins/telmiger/listreveal/configuration
+type: text/vnd.tiddlywiki
+
+!! Configuration
+
+!!! Language
+
+<table>
+  <tr>
+    <th align="left">Choose your language</th>
+    <td>
+<$select tiddler="$:/plugins/telmiger/lib/language" field="text">
+<$list filter="""[all[shadows+tiddlers]removeprefix[$:/plugins/telmiger/lib/languages/]sort[]]""" variable="code">
+<$wikify name="lang" text="$:/plugins/telmiger/lib/languages/<<code>>">
+<option value=<<lang>>><<code>></option>
+</$wikify>
+</$list>
+</$select>
+    </td>
+    <td>
+    	ISO code (language-country)
+    </td>
+  </tr>
+</table>
+
+Active: {{$:/plugins/telmiger/lib/language}}
+
+---
+
+!!! Translations, date and time format
+
+# Clone one of the following language tiddlers, set a new ending for the title, e.g. …/de-foo (do not change the rest of the title): <ul>
+<$list filter="[all[shadows+tiddlers]prefix[$:/plugins/telmiger/lib/languages/]]">
+<li><<currentTiddler>></li>
+</$list>
+</ul>
+
+# Adapt the [[formatting of dates and time|http://tiddlywiki.com/#DateFormat]], translate terms if desired.
+
+# Select your newly created language in the dropdown above.

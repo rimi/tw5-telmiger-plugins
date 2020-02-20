@@ -1,0 +1,13 @@
+caption: Simple Search
+created: 20190101192116785
+creator: Thomas Elmiger
+modified: 20190426081734727
+modifier: Thomas Elmiger
+tags: $:/tags/SearchResults
+title: $:/plugins/telmiger/simple-search/SearchResultsList
+type: text/vnd.tiddlywiki
+
+<div tabindex="0">
+{{$:/plugins/telmiger/simple-search/SearchResultsTop}}
+{{$:/plugins/telmiger/simple-search/SearchResultsOther}}
+</div>

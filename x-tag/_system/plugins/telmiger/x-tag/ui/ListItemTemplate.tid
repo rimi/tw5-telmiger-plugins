@@ -1,0 +1,18 @@
+caption: x-tag ListItemTemplate
+created: 20190104063500385
+creator: Thomas Elmiger
+modified: 20200219154944276
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/x-tag/ui/ListItemTemplate
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+\define my-link-text()
+<$transclude field=<<field>>><$transclude field="caption"><$view field="title"/></$transclude></$transclude>&#8202;
+\end
+
+<div class="tc-menu-list-item">
+<$link tooltip=<<currentTiddler>>><$set name="tv-show-missing-links" value="no"><$set name="tv-wikilinks" value="no"><<my-link-text>></$set></$set>&nbsp;</$link>
+</div>

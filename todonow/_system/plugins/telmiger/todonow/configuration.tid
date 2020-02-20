@@ -1,0 +1,87 @@
+created: 20170628180341282
+creator: Thomas Elmiger
+modified: 20190426075510636
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: $:/plugins/telmiger/todonow/configuration
+type: text/vnd.tiddlywiki
+
+!! Configuration
+
+!!! Priorities
+In list view, users can select a predefined priority value from a list. Use the following field to edit the list:
+
+<$edit-text tiddler="$:/plugins/telmiger/todonow/settings" field="list" class=""/> –&nbsp;use single numbers or characters separated by a space.
+
+---
+
+!!! Language and display
+
+<table>
+  <tr>
+    <th>Show ToDoNow in headless mode</th>
+    <td style="text-align:right">
+        <$checkbox tiddler="$:/config/ToDoNow/MainTiddler/headless" field="text"
+            checked="yes" unchecked="no" default="no"></$checkbox>
+    </td>
+    <td>
+    	yes (hide title, author, modified date)
+    </td>
+  </tr>
+  <tr>
+    <th align="left">Choose your language</th>
+    <td>
+    	<$linkcatcher to="$:/plugins/telmiger/todonow/configuration">
+<$select tiddler="$:/plugins/telmiger/lib/language" field="text">
+<$list filter="""[all[shadows+tiddlers]removeprefix[$:/plugins/telmiger/lib/languages/]sort[]]""" variable="code">
+<$wikify name="lang" text="$:/plugins/telmiger/lib/languages/<<code>>">
+<option value=<<lang>>><<code>></option>
+</$wikify>
+</$list>
+</$select>
+    	</$linkcatcher>
+    </td>
+    <td>
+    	ISO code (language-country)
+    </td>
+  </tr>
+</table>
+
+---
+
+
+!!! Translations, date and time format
+
+# Clone one of the following language tiddlers, set a new ending for the title, e.g. …/de-foo (do not change the rest of the title): <ul>
+<$list filter="[all[shadows+tiddlers]prefix[$:/plugins/telmiger/lib/languages/]]">
+<li><<currentTiddler>></li>
+</$list>
+</ul>
+
+# Adapt the [[formatting of dates and time|http://tiddlywiki.com/#DateFormat]], translate terms if desired.
+
+# Select your newly created language in the dropdown above.
+
+---
+
+!!! Task template
+Enter the text you wish to find in a newly created task:
+
+!!!! Author
+
+Creator
+<$edit-text tiddler="ToDo Item"  field="creator" class="listreveal-edit-text"/> 
+
+[[User/Modifier|$:/status/UserName]] – from Control Panel, Info tab
+<$edit-text tiddler="$:/status/UserName"  tag=input class="listreveal-edit-text"/> 
+
+!!!! Content
+<$edit-text tiddler="ToDo Item" class="listreveal-edit-text"/> 
+
+!!!! Preview for new tasks:
+
+---
+
+@@.tc-subtitle <a>{{$:/status/UserName}}</a> <<now YYYY-0MM-0DD>>@@
+
+{{ToDo Item}}

@@ -1,0 +1,9 @@
+created: 20170917200920825
+creator: Thomas Elmiger
+modified: 20200219110755498
+modifier: Thomas Elmiger
+tags: 
+title: $:/config/ShortcutInfo/clipboard
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/telmiger/Clipboard/EditorToolbar/cb!!description}}

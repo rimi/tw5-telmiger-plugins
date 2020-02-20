@@ -1,0 +1,57 @@
+created: 20181104092840050
+creator: Thomas Elmiger
+modified: 20190426081734681
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/simple-search/settings
+type: text/vnd.tiddlywiki
+
+\define lingo-base() $:/language/ControlPanel/Basics/
+
+!! Settings
+
+!!! Design
+
+''Layer animation:'' Simple Search feels rather slow for values above 150, so make sure to adapt this TW setting. <br>
+<$link to="$:/config/AnimationDuration"><<lingo AnimDuration/Prompt>></$link> <$edit-text tiddler="$:/config/AnimationDuration" default="" tag="input"/>
+
+''Search box border:'' Adapt the colour to the design of your wiki. Use //transparent// if you don’t want a border. <br>
+[[Border colour:|$:/plugins/telmiger/simple-search/settings/border-colour]] <$edit-text tiddler="$:/plugins/telmiger/simple-search/settings/border-colour" tag="input"/> <$edit-text tiddler="$:/plugins/telmiger/simple-search/settings/border-colour" type="color" tag="input"/>
+
+
+!!! Show button
+
+<$checkbox tiddler="$:/config/PageControlButtons/Visibility/$:/plugins/telmiger/simple-search/ui/Buttons/search" field="text" checked="show" unchecked="hide" default="show"> Page Toolbar (in the sidebar)</$checkbox>
+
+<$checkbox tiddler="$:/plugins/telmiger/simple-search/ui/Buttons/search" tag="$:/tags/TopRightBar"> Top Right Bar (besides the sidebar toggle, permanently visible)</$checkbox>
+
+
+!!! Create new tiddlers
+
+The next field defines a template for generating the title and caption for new tiddlers based on search terms. The default value `{{$:/temp/advancedsearch}}` uses just the search term.
+
+<label>''Title template:'' <$edit-text tiddler="$:/plugins/telmiger/simple-search/settings/new-tpl" size="20" tag="input"/></label>
+
+Use the following field to add tags to tiddlers created via Simple Search. Don’t forget to add brackets to tags containing spaces, e.g. `[[My Tag]] Foo Bar`.
+
+<label>''Tag template:'' <$edit-text tiddler="$:/plugins/telmiger/simple-search/settings/new-tags" size="20" tag="input"/></label>
+
+
+!!! Minimal search term length
+
+<label><$edit-text tiddler="$:/config/Search/MinLength" size="3" tag="input"/> ''characters''</label>
+
+
+!!! Fields to search
+
+<label>''Field list:'' <$edit-text tiddler="$:/plugins/telmiger/simple-search/filter-other" size="20" tag="input"/></label>
+
+This list defines, which fields are relevant for the secondary result list (“Other”). The default value `-caption,title` leads to searches in all fields except caption and title. See [[search operator documentation|https://tiddlywiki.com/#search%20Operator]] for more info.
+
+---
+
+!!! Edit mode 
+
+Would you like to edit the tiddler $:/Search? Activate edit mode here:
+
+<$checkbox tiddler="$:/plugins/telmiger/simple-search/settings/edit" field="text" checked="yes" unchecked="no"> Show edit icon in lower left corner of the screen.</$checkbox>

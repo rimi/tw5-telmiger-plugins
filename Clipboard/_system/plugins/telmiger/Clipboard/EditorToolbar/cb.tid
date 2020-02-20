@@ -1,0 +1,23 @@
+button-classes: tc-text-editor-toolbar-item-start-group te-cb-btn
+caption: Clipboard
+condition: [<targetTiddler>]
+created: 20170214204617746
+creator: Thomas Elmiger
+custom-icon: yes
+description: Show/Hide clipboard
+icon: $:/plugins/telmiger/Clipboard/icons/unfold
+modified: 20200219110755849
+modifier: Thomas Elmiger
+shortcuts: ((clipboard))
+tags: $:/tags/EditorToolbar Clipboard
+title: $:/plugins/telmiger/Clipboard/EditorToolbar/cb
+type: text/vnd.tiddlywiki
+
+<$reveal state="$:/plugins/telmiger/Clipboard/settings/show" type="match" text="yes" tag="span">
+{{$:/plugins/telmiger/Clipboard/icons/fold}}
+<$action-setfield $tiddler="$:/plugins/telmiger/Clipboard/settings/show" $value="no"/>
+</$reveal>
+<$reveal state="$:/plugins/telmiger/Clipboard/settings/show" type="nomatch" text="yes" tag="span">
+{{$:/plugins/telmiger/Clipboard/icons/unfold}}
+<$action-setfield $tiddler="$:/plugins/telmiger/Clipboard/settings/show" $value="yes"/>
+</$reveal>

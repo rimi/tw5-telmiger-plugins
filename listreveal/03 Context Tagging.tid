@@ -1,0 +1,13 @@
+created: 20170224195102124
+creator: Thomas Elmiger
+modified: 20190426075256065
+modifier: Thomas Elmiger
+tags: Listreveal
+title: 03 Context Tagging
+type: text/vnd.tiddlywiki
+
+When you look inside a tiddler in the list using the ellipsis (…) button on the right, you see the tiddler’s tags, text and timestamps. 
+
+{{$:/core/images/tag-button}}
+
+The tags can be changed using the tag label icon. A unique feature called context tagging or list-based tagging appears in a popup. From there you are able to add suggested tags based on the other tiddlers in your list or remove single tags from the tiddler. 

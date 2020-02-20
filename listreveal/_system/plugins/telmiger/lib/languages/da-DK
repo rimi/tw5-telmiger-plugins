@@ -1,0 +1,76 @@
+ID:Dansk
+<!-- date formats: dato format starter her -->
+date-created-tmpl: {{$:/language/Tiddler/DateFormat}}
+date-created-tmpl: DD. MMM YYYY, kl. 0hh:0mm
+date-deadline-tmpl: 0DD.0MM.YYYY
+<!-- titles: titler starter her -->
+title-Do: Nu
+title-Waiting: Senere
+title-Done: Udført
+<!-- motivation: motiverende slogans starter her -->
+Motivation-Don’t-do-it: Don’t have to do it? – Say it’s done!
+Motivation-single-task: Do the right ''one'' thing. – Then check & save.
+<!-- strings: texter starter her -->
+Add-tag: Tilføj tag
+Add-tags-from-the-list: Tilføj tags fra listen
+all: alle
+all-projects: alle projekter
+archive: arkiv
+Are-you-sure?: Er du sikker?
+Change-deadline: Ændre slutdato
+change-priority: Ændre prioritet
+change-priority-to: sæt prioritet til
+Click-to-edit-title: Klik på titlen for at redigere!
+close: luk
+Close: Luk
+days-back: dage tilbage
+Details: Vis detaljer
+Do-it-again: Gør det igen
+Do-now: Udfør nu
+Done: Udført
+Edit: Redigér
+Hide-list: Skjul liste
+late: senere
+Manage-tags: Tag-Manager
+Move-down: Flyt ned
+Move-up: Flyt op
+New-ToDo-Item: Ny opgave
+no.: nr.
+Nothing-to-do-?: Intet at lave? Beskriv en ny opgave med denne knap
+Open-all: Åbn alle
+Pick-a-task-: Vælg en opgave fra listen nedenunder med denne knap
+Print-window-hint: Åbn i nyt vindue for at printe ud
+Project: Projekt
+Recycle: Genbrug
+Relax-Nothing-to-do: Slap af. Der er ikke noget at lave.
+Remove-deadline: Fjern slutdato
+Remove-tags?: Fjern tags?
+Reset: Reset
+search: søg …
+Send-it-down: ikke endnu
+Set-deadline: Sæt slutdato
+Show-list: Vis liste
+Sort-by-deadline: Sortér efter slutdato
+Sort-by-modification: Sortér efter sidste ændring
+Sort-by-priority: Sortér alle efter prioritet
+Sort-by-title: Sortér alle efter titel
+sorted-by-deadline: sorteret efter slutdato
+sorted-by-modification: sorteret efter sidste ændring
+sorted-by-priority: sorteret efter prioritet
+sorted-by-title: sorteret efter titel
+Switch-to-edit-mode: Slå redigering til
+Switch-to-safe-mode: Slå redigering fra
+Take-it-up: Tag det op!
+This-is-done: Dette er udført
+This-week: I&nbsp;denne uge
+today: i&nbsp;dag
+Today: I&nbsp;dag
+ToDo: ToDo
+ToDo-template-title: Ny opgave
+ToDo-template-text: Motivation: Beskrivelse * Tests/Accept kriterier
+Tomorrow: I&nbsp;morgen
+Uuups: Uuups!
+<!-- comments: Kommentarer -->
+<!-- credits: Tusind tak til Birthe for den oprindelige oversættelse! -->
+<!-- translation requires: $:/plugins/telmiger/lib/telang  -->
+<!-- use translated term: <<telang term>> -->

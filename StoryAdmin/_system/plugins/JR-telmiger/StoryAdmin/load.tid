@@ -1,0 +1,52 @@
+caption: StoryAdmin Load
+created: 20160603122604407
+creator: JR
+modified: 20200219130956480
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/JR-telmiger/StoryAdmin/load
+type: text/vnd.tiddlywiki
+
+\define loadStoryButton() <$macrocall $name="loadStoryBtn" snap={{!!title}}/>
+
+\define loadStoryBtn(snap)
+<$list filter="""[<__snap__>has[story]]""" emptyMessage="Story not found.">
+<$button class="tc-btn-invisible">
+<$action-setfield $tiddler="$:/StoryList" list={{{ [<__snap__>get[story]] }}}/>{{$:/plugins/JR-telmiger/StoryAdmin/icon}} Load: <$set name="tv-wikilinks" value="no">//$snap$//</$set>
+<$action-setfield $tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" $index="save-storyname" $value=<<__snap__>>/>
+<$action-setfield $tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" $index="save-storycat" $value=$(storycat)$/>
+<$action-navigate $to={{{ [list[$:/StoryList]first[]] }}}/>
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/JR-telmiger/StoryAdmin/confirm-load"/>
+</$button>
+</$list>
+\end
+
+\define chooseCat(index)
+<span title="Select category/tag"><$select tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" index=<<__index__>> default="select a category">
+<$list filter="[tag{$:/plugins/JR-telmiger/StoryAdmin/settings##story-tag}]" variable="currentIndex">
+<option value=<<currentIndex>>><<currentIndex>></option>
+</$list>
+</$select>
+</span>
+\end
+
+\define chooseStory(index)
+<span title="Select story"><$select tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" index=<<__index__>> default="select a story">
+<$list filter="[tag[$(storycat)$]has[story]]" variable="currentIndex">
+<option value=<<currentIndex>>><<currentIndex>></option>
+</$list>
+</$select>
+</span>
+\end
+
+<$set name="snap" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##load-storyname}}>
+<$set name="storycat" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##load-storycat}}>
+
+<<chooseCat "load-storycat">>
+
+<<chooseStory "load-storyname">>
+
+<$macrocall $name="loadStoryBtn" snap=<<snap>>/>
+
+</$set>
+</$set>

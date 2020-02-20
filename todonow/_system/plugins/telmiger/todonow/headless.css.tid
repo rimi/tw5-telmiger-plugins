@@ -1,0 +1,37 @@
+created: 20180309063437708
+creator: Thomas Elmiger
+modified: 20190426075510623
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet
+title: $:/plugins/telmiger/todonow/headless.css
+type: text/vnd.tiddlywiki
+
+/*
+** Headless ToDoNow
+** (c) Thomas Elmiger
+** """ 
+*/
+
+/*
+** SectionTitle
+*/
+
+<$reveal state="$:/config/ToDoNow/MainTiddler/headless" type="match" text="yes">
+
+[data-tags*="ToDoMain"] .tc-titlebar,
+[data-tags*="ToDoMain"] .tc-fold-banner,
+[data-tags*="ToDoMain"] .tc-subtitle,
+[data-tags*="ToDoMain"].tc-tiddler-view-frame > div > .tc-tags-wrapper
+{
+   display: none;
+   margin: 0;
+   padding: 0;
+}
+
+[data-tags*="ToDoMain"].tc-tiddler-frame {
+   padding-top: 0;
+}
+
+</reveal>
+
+/* End """ */

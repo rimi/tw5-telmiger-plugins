@@ -1,0 +1,11 @@
+{
+	"title": "$:/plugins/telmiger/todonow/outlook",
+	"author": "Thomas Elmiger",
+	"core-version": ">=5.1.14",
+	"description": "ToDoNow Outlook Addon",
+	"dependents": "$:/plugins/telmiger/todonow",
+	"name": "ToDoNow-Outlook",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "0.1.2"
+}

@@ -1,0 +1,38 @@
+created: 20181124191754197
+creator: Thomas
+modified: 20200219150938582
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/special-chars
+type: text/vnd.tiddlywiki
+
+<<wt "Dashes come in two sizes---the longer is the em dash (HTML: &mdash;).
+
+The en dash (HTML: &ndash;) is for ranges (2000--2018) and connections (London--New York) 
+">>
+
+<<wt "---
+horizontal rules: line with `---` only or HTML:
+<hr>
+">>
+
+
+<<wt "2 &times; 5&thinsp;m = 10&thinsp;m
+
+&aelig; – &aring; – &oelig; – &oslash; –  &AElig; – &Aring; – &OElig; – &Oslash;
+">>
+
+<<wt "* a&#160;non breaking space:&nbsp;entity
+* a&#8239;narrow no-break space: (no entity available)
+* a&#8194;en space:&ensp;entity
+* a&#8195;em space:&emsp;entity
+* a&#8196;3-per-em space:&emsp13;entity
+* a&#8197;4-per-em space:&emsp14;entity
+* a&#8198;6-per-em space: (no entity available)
+* a&#8199;figure space&numsp;entity
+* a&#8200;punctuation space:&puncsp;entity
+* a&#8201;thin space:&thinsp;entity
+* a&#8202;hair space:&hairsp;entity
+">>
+
+[[More Unicode characters and HTML entities|https://www.key-shortcut.com/en/character-tables/unicode-2000-2fff/]]

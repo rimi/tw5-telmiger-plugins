@@ -1,0 +1,71 @@
+created: 20181128064053957
+creator: Thomas
+modified: 20200219150938682
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/variables
+type: text/vnd.tiddlywiki
+
+\define animal1() lion
+\define animals1()
+seal <br>
+penguin
+\end
+
+
+!!! Set the value of a variable
+
+To use a local variable in a single tiddler, insert a definition at the very top of the tiddler:
+
+`\define animal1() lion`
+
+To use a variable in a limited part of a tiddler, use the [[set widget|https://tiddlywiki.com/#SetWidget]]: 
+
+<$macrocall $name="wt" wikitext="""<$set name="animal2" value="zebra">
+<<animal1>> eats <<animal2>>
+</$set>
+"""/>
+
+!!! Multi-line variables
+
+```
+\define animals1()
+seal <br>
+penguin
+\end
+
+<<animals1>>
+```
+
+<<animals1>>
+
+<$macrocall $name="wt" wikitext="""<$set name="animals2" value="
+* zebra
+* gnu
+* antelope
+">
+
+<<animals2>>
+</$set>
+"""/>
+
+
+!!! Variables as parameters
+
+<$tiddler tiddler="$:/plugins/telmiger/WMR/foo">
+
+<$macrocall $name="wt" wikitext="""<$set name="mywidth" value={{!!wmr-example}}>
+[img width=<<mywidth>> [CircleJack.svg]]
+</$set>
+"""/>
+
+</$tiddler>
+
+!!!! Change the value
+
+<$macrocall $name="wt" wikitext="""<$edit-text tiddler="$:/plugins/telmiger/WMR/foo" field="wmr-example"/>
+"""/>
+
+Hint: We also use the [[tiddler widget|https://tiddlywiki.com/#TiddlerWidget]] above to set $:/plugins/telmiger/WMR/foo as the current tiddler in the context of the image. This makes sure that the [[text reference|https://tiddlywiki.com/#TextReference]] `!!wmr-example` points to the right field.
+
+The edit text widget should ''not'' be used to edit a field of the tiddler that contains it to ommit unwanted side effects. 

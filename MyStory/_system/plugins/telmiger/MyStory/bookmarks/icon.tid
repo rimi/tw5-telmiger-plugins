@@ -1,0 +1,10 @@
+created: 20190115223227712
+creator: Thomas Elmiger
+modified: 20190426131037308
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/MyStory/bookmarks/icon
+type: text/vnd.tiddlywiki
+
+<svg class="em-icon my-bookmark" xmlns="http://www.w3.org/2000/svg" fill="#eee" viewBox="0 0 22 22" width="1em" height="1em" role="img" aria-labelledby="title desc"><title id="title">{{$:/language/Bookmarks/Remove-title}}</title><desc id="desc">{{$:/language/Bookmarks/Remove-desc}}</desc>
+<path d="M22 2v18H9A9 9 0 0 1 9 2h13z" fill="currentColor"/><path class="vertical-line" d="M9.6 6.2v9.6c0 .8.6 1.4 1.4 1.4.8 0 1.4-.6 1.4-1.4V6.2c0-.8-.6-1.4-1.4-1.4-.8 0-1.4.6-1.4 1.4z"/><path d="M15.8 9.6H6.2c-.8 0-1.4.6-1.4 1.4 0 .8.6 1.4 1.4 1.4h9.6c.8 0 1.4-.6 1.4-1.4 0-.8-.6-1.4-1.4-1.4z"/></svg>

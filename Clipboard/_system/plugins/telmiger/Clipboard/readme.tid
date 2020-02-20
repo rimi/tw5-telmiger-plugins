@@ -1,0 +1,49 @@
+created: 20170216155009811
+creator: Thomas Elmiger
+modified: 20200219110755583
+modifier: Thomas Elmiger
+tags: Clipboard
+title: $:/plugins/telmiger/Clipboard/readme
+type: text/vnd.tiddlywiki
+
+!! Clipboard Plugin
+This plugin adds some handy elements to the editor interface of TiddlyWiki. Via settings you can control the appearance of:
+
+* two additional fields to store universally accessible information
+* five editor toolbar buttons (with friendly background color)
+** show/hide clipboard: ctrl+shift+C
+** show/hide preview: ctrl+shift+V
+** insert text: ctrl+shift+1
+** insert title link: ctrl+shift+2
+** insert title transclusion: ctrl+shift+3
+* a copy-title button
+** {{$:/plugins/telmiger/Clipboard/TitleTemplate!!description}}: ctrl+shift+T
+
+Via the plugin’s settings you have full control over all elements, so you can use a selection that fits in your workflow. Now see what they can do for you!
+
+!!! Clipboard Field
+Below the tags of the tiddler you can access the //Clipboard//. Here you store information you wish to access from other tiddlers you will edit later. This field is like a window to another independent tiddler: the clipboard tiddler. It is saved whenever the wiki is saved. It’s content can be inserted in the tiddlers text by clicking a button (see below).
+
+!!! Title Clipboard Field
+Here you can store – well, the title of a tiddler. You can insert it in any other tiddler you edit later on with the click of a single button – as a link or as a transclusion (see below). 
+
+!!! Copy-Title Button
+Next to the title input field resides a button that copies the title of your draft to the //Title Clipboard//. 
+
+!!! Editor Toolbar Buttons
+Show up to five buttons in the editor toolbar:
+
+<span class="te-btn-list">
+
+* {{$:/plugins/telmiger/Clipboard/icons/unfold}} Show/Hide clipboard fields 
+* {{$:/plugins/telmiger/Clipboard/icons/file}} Show/Hide clipboard preview: if you have stored a transclusion in your //Clipboard//, this button will produce a preview of the rendered content. Maybe you want to copy from there? Ort try to transclude `{{$:/AdvancedSearch}}` in the //Clipboard//. Very useful.
+* {{$:/plugins/telmiger/Clipboard/icons/clip}} Insert text from clipboard: transfers the //Clipboard’s// content to the position of the cursor in the editor.
+* {{$:/plugins/telmiger/Clipboard/icons/link}} Insert clipboard title as link: puts the content of the //Title Clipboard// in double square brackets and places the result at the cursor position.
+* {{$:/plugins/telmiger/Clipboard/icons/transclude}} Insert clipboard title as transclusion: the same as above, but with curly brackets.
+
+</span>
+
+!!! Tips for Advanced Users
+* Want to test a filter? Put `{{$:/AdvancedSearch}}` in your clipboard and use the fully functional preview. No need to leave your workspace.
+* Want to see the source (wikitext) of another tiddler? Put an `<$edit-text …/>` widget in the clipboard and preview … 
+* Would you rather have a preview of your work as an overlay instead of side-by-side? Write `{{Draft of 'Your Tiddler Title'}}` in the clipboard – et voilà!

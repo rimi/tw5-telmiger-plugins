@@ -1,0 +1,30 @@
+caption: MyStory Macros
+created: 20190118063746061
+creator: Thomas Elmiger
+e-name: MyStory Macro Collection
+modified: 20190426131037428
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/telmiger/MyStory/macros
+type: text/vnd.tiddlywiki
+
+\define my-link-text()
+<$transclude field={{$:/plugins/telmiger/MyStory/settings##default-label}}><$transclude field="caption"><$view field="title"/></$transclude></$transclude>&#8202;
+\end
+
+\define my-link()
+<$link to=<<currentTiddler>> tooltip=<<currentTiddler>>><$set name="tv-wikilinks" value="no"><<my-link-text>></$set></$link>
+\end
+
+\define bookmark-icon()
+<$list filter="[all[current]tag[MyMark]]"><span class="my-bookmark-icon">{{$:/plugins/telmiger/MyStory/bookmarks/icon}}</span></$list>
+\end
+
+\define MyStoryBkmrkBtn()
+<$list filter="[all[current]!tag[MyMark]]">
+<$checkbox tag="MyMark" class="te-btn-inactive">{{$:/plugins/telmiger/MyStory/bookmarks/icon-off}}</$checkbox>
+</$list>
+<$list filter="[all[current]tag[MyMark]]">
+<$checkbox tag="MyMark" class="te-btn-active">{{$:/plugins/telmiger/MyStory/bookmarks/icon}}</$checkbox>
+</$list>
+\end

@@ -1,0 +1,113 @@
+created: 20170708102934894
+creator: Thomas Elmiger
+modified: 20190426132422035
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]] $:/tags/Stylesheet
+title: $:/plugins/telmiger/reminders/reminders.css
+type: text/vnd.tiddlywiki
+
+/* reminders */
+
+.te-reminders {
+	height: 1px;
+	max-height: 1px;
+	width: 1px;
+	max-width: 1px;
+}
+
+.te-reminders .te-list li {
+	border: none;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+
+.te-reminders .todo-item:hover {
+    color: unset;
+    background-color: unset;
+    border-top: none;
+    border-bottom: none;
+}
+
+.te-reminder {
+    position: fixed;
+    background-color: rgba(255,255,0,0.95);
+    margin: 5em 5em;
+    top: calc(50vh - 15em);
+    padding: 1em 4em 2em 4em;
+    border: 2px dashed;
+    border-radius: 1em;
+    box-shadow: 0.5em 0.5em 1em gray;
+    z-index: 101;
+    text-align: center;
+    right: calc(50vw - 17em);
+    left: calc(50vw - 17em);
+    width: 26em;
+    max-width: 100%;
+}
+
+.te-reminder p:last-of-type {
+    margin-bottom: 1rem;
+}
+
+.te-reminder.reminder {
+    background-color: rgba(150,255,150,0.93);
+}
+
+.te-reminder.yesterday {
+    background-color: rgba(255, 235, 150, 0.97);
+}
+
+.te-reminder.hide {
+    display: none;
+}
+
+.te-reminder h3 a {
+    font-weight: 600;
+    color: #3b5296;
+}
+
+/* icons for reminders */
+
+.tc-topbar button.te-btn-action {
+	border: none;
+	border-radius: 0;
+	background: none;
+	height: 1.33em;
+	width: 1.33em;
+	margin: 5px 0 0 0;
+	padding: 0;
+}
+
+.tc-topbar .te-tip button.te-btn-action {
+    margin: 0;
+        margin-left: 0px;
+    padding-bottom: 25px;
+    margin-left: 0.4em;
+}
+
+
+.tc-topbar .te-btn-action svg {
+    fill: #333;
+}
+
+
+/* hide urgent indicator on icon */
+.te-reminder .urgent {
+    display: none;
+}
+
+.te-reminder .te-flex-item {
+    display: inline-flex;
+    padding-top: 0.5em;
+    width: 13em;
+}
+
+/* very small screens */
+
+@media (max-width: 500px) {
+   .te-reminder {
+      padding: 1em 2em 2em 2em;
+   }
+}

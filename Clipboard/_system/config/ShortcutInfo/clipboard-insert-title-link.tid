@@ -1,0 +1,8 @@
+created: 20170917204944259
+creator: Thomas Elmiger
+modified: 20200219110755899
+modifier: Thomas Elmiger
+title: $:/config/ShortcutInfo/clipboard-insert-title-link
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert-title-link!!description}}

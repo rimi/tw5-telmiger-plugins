@@ -1,0 +1,30 @@
+created: 20170711095822373
+creator: Thomas Elmiger
+modified: 20200219145317057
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/todonow/outlook/controls
+type: text/vnd.tiddlywiki
+
+<small class="todo-right outlook-controls">
+<$reveal type="nomatch" state="$:/state/todotoday" text="show">
+<$button set="$:/state/todotoday" setTo="show" class="tc-btn-invisible tc-tiddlylink"><<telang "Today">></$button>
+</$reveal>
+<$reveal type="match" state="$:/state/todotoday" text="show">
+<$button set="$:/state/todotoday" setTo="hide" class="tc-btn-invisible tc-tiddlylink"><<telang "Close">> <<telang "Today">></$button>
+</$reveal>
+ – 
+<$reveal type="nomatch" state="$:/state/todotomorrow" text="show">
+<$button set="$:/state/todotomorrow" setTo="show" class="tc-btn-invisible tc-tiddlylink"><<telang "Tomorrow">></$button>
+</$reveal>
+<$reveal type="match" state="$:/state/todotomorrow" text="show">
+<$button set="$:/state/todotomorrow" setTo="hide" class="tc-btn-invisible tc-tiddlylink"><<telang "Close">> <<telang "Tomorrow">></$button>
+</$reveal>
+ – 
+<$reveal type="nomatch" state="$:/state/todothisweek" text="show">
+<$button set="$:/state/todothisweek" setTo="show" class="tc-btn-invisible tc-tiddlylink"><<telang "This-week">></$button>
+</$reveal>
+<$reveal type="match" state="$:/state/todothisweek" text="show">
+<$button set="$:/state/todothisweek" setTo="hide" class="tc-btn-invisible tc-tiddlylink"><<telang "Close">> <<telang "This-week">></$button>
+</$reveal>
+</small>

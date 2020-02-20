@@ -1,0 +1,14 @@
+caption: x-tag macro
+created: 20190104063037271
+creator: Thomas Elmiger
+modified: 20200219154944390
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/telmiger/x-tag/x-tag
+type: text/vnd.tiddlywiki
+
+\define x-tag(tag,label:{{$:/plugins/telmiger/x-tag/settings##default-label}})
+<$vars field=$label$>
+{{$tag$||$:/plugins/telmiger/x-tag/ui/TagTemplate}}
+</$vars>
+\end

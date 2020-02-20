@@ -1,0 +1,41 @@
+created: 20181124205512397
+creator: Thomas
+modified: 20200219150938560
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/tables
+type: text/vnd.tiddlywiki
+
+!!! Positioning
+
+<<wt """| highClass |k
+|!Left | !Center | !Right|
+|^NW   |^ N      |^    NE|
+|W     |    ✦    |      E|
+|,SW |, S |, SE|
+""">>
+
+!!! Cells
+
+<<wt """|!merge cells|<|<|
+| 1 | 2 | 3 |
+|to the |< left |<|
+|and|also| vertical <br>~ (up) |
+|>| right >|~|
+
+""">>
+
+!!! Header, Footer, Caption, Style
+<<wt """|!header 1 |!header 2|
+| Footer |<|f
+| cell 1 | cell 2 |
+|This is a caption |c
+| red |k
+""">>
+
+<style>
+.highClass td {
+   height: 2.75rem;
+   min-width: 3.75rem; 
+}
+</style>

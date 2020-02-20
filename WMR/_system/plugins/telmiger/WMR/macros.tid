@@ -1,0 +1,71 @@
+created: 20181124210017691
+creator: Thomas
+modified: 20200219150938635
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/macros
+type: text/vnd.tiddlywiki
+
+<div class="wikitext-examples">
+
+<div class="wmr-input">
+
+```
+\define run(foo:'bar') [[$foo$]]
+
+<<run "foo bar">>
+```
+</div>
+
+» defines macro `run`<br>
+» with parameter `foo`<br>
+» whose value defaults to `bar`<br>
+» outputs a link to value of param:<br>
+&nbsp;&nbsp;[[foo bar]]
+
+<div class="wmr-input">
+
+```
+\define test()
+I am $(x)$.
+\end
+
+<$set name="x" value="y
+of z">
+<<test>>
+</$set>
+```
+</div>
+
+» defines macro test which<br>
+» outputs value of variable x<br><br>
+
+» sets variable x to: "y<br>
+&nbsp;&nbsp;of z" //(multiline allowed)//<br>
+» runs macro test which outputs:<br>
+&nbsp;&nbsp;"I am y of z."
+
+<div class="wmr-input">
+
+```
+\define test(x, y, z:'0')
+$x$ $y$ $z$
+\end
+
+<$macrocall
+$name="test"
+x=<<version>>
+y={{!!title}}/>
+```
+</div>
+
+» defines macro test<br>
+» outputs 3 params<br><br>
+
+» calls test via macrocall widget<br>
+» using macro version as param x<br>
+» and transclusion as param y<br><br>
+
+» output: <<version>> {{!!title}} 0
+
+</div>

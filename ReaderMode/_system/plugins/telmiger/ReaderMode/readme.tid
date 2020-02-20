@@ -1,0 +1,60 @@
+created: 20181215214533889
+creator: Thomas Elmiger
+modified: 20200219124306063
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/ReaderMode/readme
+type: text/vnd.tiddlywiki
+
+!! Reader Mode
+
+''Display the story river as a flow of content, without any meta info or functions. A nice, clean document for reading.''
+
+To support the impression of one single frame, the background of the story is set to the same colour as the tiddler background.
+
+This plugin provides two buttons:
+
+* The ''Reader mode button'' {{$:/plugins/telmiger/ReaderMode/ui/Buttons/toggle}} to hide elements of your choice (see configuration below) that usually separate tiddlers in the story: 
+** tiddler frame, border and shadow
+** title and buttons (tiddler controls)
+** subtitle (date and author/modifier)
+** tags
+* The ''Drag mode button'' {{$:/plugins/telmiger/ReaderMode/ui/Buttons/drag}} to enable and disable dragging of elements within/from the story: 
+** drag an element within the story to positions nearby 
+** drag from story to sidebar or from sidebar to story to bring elements to distant positions
+** elements are always moved (not duplicated)
+
+!!! Button configuration
+
+Where to show the Drag Mode button: <br>
+<$checkbox tiddler="$:/plugins/telmiger/ReaderMode/ui/Buttons/drag" tag="$:/tags/TopLeftBar"> Top left bar</$checkbox><br>
+<$checkbox tiddler="$:/plugins/telmiger/ReaderMode/ui/Buttons/drag" tag="$:/tags/TopRightBar"> Top right bar</$checkbox><br>
+<$checkbox tiddler="$:/plugins/telmiger/ReaderMode/ui/Buttons/drag" tag="$:/tags/PageControls"> Page controls</$checkbox>
+
+Where to show the Reader Mode button: <br>
+<$checkbox tiddler="$:/plugins/telmiger/ReaderMode/ui/Buttons/toggle" tag="$:/tags/TopLeftBar"> Top left bar</$checkbox><br>
+<$checkbox tiddler="$:/plugins/telmiger/ReaderMode/ui/Buttons/toggle" tag="$:/tags/TopRightBar"> Top right bar</$checkbox><br>
+<$checkbox tiddler="$:/plugins/telmiger/ReaderMode/ui/Buttons/toggle" tag="$:/tags/PageControls"> Page controls</$checkbox>
+
+
+!!! Story configuration
+
+By default, the button {{$:/plugins/telmiger/ReaderMode/ui/Buttons/toggle}} hides/shows tiddler titles and subtitles (author and timestamp) via CSS. This way they are still present in the HTML code. Tiddler controls are displayed much smaller.
+
+Additionally you can exclude elements from being rendered at all in the next section.
+
+!!!! Exclude from rendering
+
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!title[$:/core/ui/ViewTemplate/body]!list[$:/plugins/telmiger/ReaderMode/blocked]]">
+<$checkbox tiddler="$:/temp/ReaderMode/dummy" field=<<currentTiddler>> checked="YES" unchecked="NO" default="NO" actions="""<$action-listops $tiddler="$:/plugins/telmiger/ReaderMode/blocked" $subfilter=<<currentTiddler>> /><$action-deletetiddler $tiddler="$:/temp/ReaderMode/dummy"/>"""> <$text text={{!!title}}/></$checkbox><br>
+</$list>
+
+---
+
+<$list filter="[all[shadows+tiddlers]list[$:/plugins/telmiger/ReaderMode/blocked]]">
+<$wikify name="unblock" text="-<<currentTiddler>>">
+<$checkbox  tiddler="$:/temp/ReaderMode/dummy" field=<<currentTiddler>> checked="YES" unchecked="NO" default="YES" actions="""<$action-listops $tiddler="$:/plugins/telmiger/ReaderMode/blocked" $subfilter=<<unblock>> /><$action-deletetiddler $tiddler="$:/temp/ReaderMode/dummy"/>"""> <$text text={{!!title}}/></$checkbox><br>
+</$wikify>
+</$list>
+
+Excluding elements from rendering is possible using a modified [[view template|$:/core/ui/ViewTemplate]] and a [[list of blocked elements|$:/plugins/telmiger/ReaderMode/blocked]].

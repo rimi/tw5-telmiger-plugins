@@ -1,0 +1,33 @@
+created: 20170120065256377
+creator: Thomas Elmiger
+modified: 20190426075510642
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: $:/plugins/telmiger/todonow/ToDoByTitle
+type: text/vnd.tiddlywiki
+
+<$wikify name="listfilter" text="[all[]] {{$:/plugins/telmiger/todonow/settings!!filter}} +[tag[ToDo]tag{$:/config/listreveal/ProjectSelect/ToDo}!has[draft.of]!tag[ToDoDone]!title[ToDo Item]search{$:/config/listreveal/Search/ToDo}sort[title]]">
+
+<div class="lr-search-count">
+<$wikify name="after" text=<<telang sorted-by-title>>>
+   <$macrocall $name="listrevealCounter" textafter=<<after>>/> 
+</$wikify>
+<span class="todo-move-list"></span>
+<span class="todo-sort-list">
+<$wikify name="tt" text=<<telang Sort-by-priority>>>
+<$button set="$:/plugins/telmiger/todonow/settings##sort-list" setTo="priority" tooltip=<<tt>> class="te-btn-action muted">
+{{$:/core/images/star-filled}}</$button>
+</$wikify> 
+<$wikify name="tt" text=<<telang Sort-by-deadline>>>
+<$button set="$:/plugins/telmiger/todonow/settings##sort-list" setTo="deadline" tooltip=<<tt>> class="te-btn-action todo-deadline muted">
+<$action-setfield $tiddler="$:/plugins/telmiger/todonow/settings" $index="show-list-deadline" $value="top"/>
+{{$:/plugins/telmiger/lib/icons/stopwatch.svg}}</$button>
+</$wikify>
+</span>
+</div>
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+   <<todonowShowListItem "ToDo">>
+</$list>
+</ul>
+</$wikify>

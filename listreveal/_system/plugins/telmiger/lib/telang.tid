@@ -1,0 +1,14 @@
+created: 20160917153627850
+creator: Thomas Elmiger
+modified: 20190426075256142
+modifier: Thomas Elmiger
+priority: 2
+tags: ToDoDone ToDoComponents $:/tags/Macro
+title: $:/plugins/telmiger/lib/telang
+todo-deadline: 
+todo-done: 20160820234641 20160821004547
+type: text/vnd.tiddlywiki
+
+\define telang(term)
+<$transclude tiddler={{$:/plugins/telmiger/lib/language}} index="$term$"><$transclude tiddler="$:/plugins/telmiger/lib/languages/en-GB" index="$term$"/></$transclude>
+\end

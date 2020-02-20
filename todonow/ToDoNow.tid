@@ -1,0 +1,87 @@
+created: 20160821105639629
+creator: Thomas Elmiger
+modified: 20190426075510668
+modifier: Thomas Elmiger
+tags: ToDoMain ToDoComponents
+title: ToDoNow
+type: text/vnd.tiddlywiki
+
+\define teBigNewTaskButton(class:"te-big-task")
+<span>
+<$wikify name="tt" text=<<telang New-ToDo-Item>>><$button tooltip=<<tt>> message="tm-new-tiddler" param="ToDo Item" class="te-btn-big te-create $class$">{{$:/core/images/new-button}}</$button></$wikify>
+</span>
+\end
+
+<section class="todo-now">
+
+!! <<telang title-Do>> <span class="te-flex-item te-flex-content te-flex-right"><<teBtnSave>> <<listrevealBtnEdit>> <<teBigNewTaskButton>></span>
+
+<$set name="listfilter" value="[tag[ToDoNow]!has[draft.of]!sort[modified]]">
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+   <<todonowShowListItem "ToDoNow">>
+</$list>
+</ul>
+<$set name="hint" filter=<<listfilter>> emptyValue="show">
+<$list filter="""[<hint>suffix[show]]""">
+<<telang Pick-a-task->>: <button class='te-btn-action' title='Take it up!'>{{$:/core/images/chevron-up}}</button>
+<br><br>
+</$list>
+</$set>
+</$set>
+<div class="te-flex-item">
+<small><<telang Motivation-single-task>></small>
+{{$:/plugins/telmiger/todonow/outlook/controls}}
+</div>
+</section>
+
+{{$:/plugins/telmiger/todonow/outlook/display}}
+
+<section class="todo-waiting">
+
+!! <<telang title-Waiting>> <span class="te-flex-item te-flex-content te-flex-right"><<teBtnSave>> <<listrevealBtnEdit>> <$reveal type="nomatch" state="$:/state/ToDo" text="visible">
+<$wikify name="tt" text=<<telang Show-list>>>
+<$button set="$:/state/ToDo" setTo="visible" tooltip=<<tt>> class="te-btn-big folding te-first">
+{{$:/core/images/unfold-button}}</$button>
+</$wikify>
+</$reveal><$reveal type="match" state="$:/state/ToDo" text="visible">
+<$wikify name="tt" text=<<telang Hide-list>>>
+<$button set="$:/state/ToDo" setTo="hidden" tooltip=<<tt>> class="te-btn-big folding">
+{{$:/core/images/fold-button}}</$button>
+</$wikify> 
+</$reveal></span>
+
+<$reveal type="match" state="$:/state/ToDo" text="visible">
+
+{{ToDo}}
+
+</$reveal>
+</section>
+
+<section class="todo-done">
+
+!! <<telang title-Done>> <span class="te-flex-item te-flex-content te-flex-right"><<teBigSaveButton>> <<listrevealBtnEdit>> <$reveal type="nomatch" state="$:/state/ToDoDone" text="visible">
+<$wikify name="tt" text=<<telang Show-list>>>
+<$button set="$:/state/ToDoDone" setTo="visible" tooltip=<<tt>> class="te-btn-big folding te-first">
+{{$:/core/images/unfold-button}}</$button>
+</$wikify>
+</$reveal><$reveal type="match" state="$:/state/ToDoDone" text="visible">
+<$wikify name="tt" text=<<telang Hide-list>>>
+<$button set="$:/state/ToDoDone" setTo="hidden" tooltip=<<tt>> class="te-btn-big folding te-first">
+{{$:/core/images/fold-button}}</$button>
+</$wikify>
+</$reveal></span>
+
+<$reveal type="match" state="$:/state/ToDoDone" text="visible">
+
+{{ToDoDone}}
+
+</$reveal>
+
+</section>
+
+@@.te-noprint
+<<tag "ToDo Addons">>
+
+<<tag ToDo>> <<tag ToDoDone>> <<tag ToDoNow>> <<tag ToDoArchive>> <<tag ToDoComponents>>
+@@

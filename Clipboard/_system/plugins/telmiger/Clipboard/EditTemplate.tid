@@ -1,0 +1,21 @@
+created: 20170214212009656
+creator: Thomas Elmiger
+list-after: $:/core/ui/EditTemplate/tags
+modified: 20200219110755855
+modifier: Thomas Elmiger
+tags: $:/tags/EditTemplate Clipboard
+title: $:/plugins/telmiger/Clipboard/EditTemplate
+type: text/vnd.tiddlywiki
+
+<$reveal type="match" text="yes" state="$:/plugins/telmiger/Clipboard/settings/show" class="te-cb-clipboard" tag="div">
+<$reveal type="match" text="yes" state="$:/plugins/telmiger/Clipboard/settings/show-text">
+   <$edit-text tiddler="$:/plugins/telmiger/Clipboard/cb" placeholder="Clipboard" default="This is your clipboard." rows="2" minHeight="2em" class="te-cb-edittext"/>
+</$reveal>
+<$reveal type="match" text="yes" state="$:/plugins/telmiger/Clipboard/settings/show-list">
+   <$edit-text tiddler="$:/plugins/telmiger/Clipboard/cb" field="list" placeholder="Title Clipboard" default="Title Clipboard" rows="1" minHeight="1em" class="te-cb-edittext"/>
+</$reveal>
+</$reveal>
+
+<!--
+Show the clipboard
+-->

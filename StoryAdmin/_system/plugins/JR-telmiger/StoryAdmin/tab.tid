@@ -1,0 +1,42 @@
+caption: {{$:/plugins/JR-telmiger/StoryAdmin/icon}} Admin
+created: 20160527011630710
+creator: JR
+modified: 20200219130956402
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/JR-telmiger/StoryAdmin/tab
+type: text/vnd.tiddlywiki
+
+<div class="story-manager">
+
+!!! Load story
+
+{{$:/plugins/JR-telmiger/StoryAdmin/load}}
+{{$:/plugins/JR-telmiger/StoryAdmin/append}}
+
+</div>
+<div class="story-manager">
+
+!!! Save story
+
+{{$:/plugins/JR-telmiger/StoryAdmin/save}}
+
+</div>
+
+!!! Stories overview
+
+<div class="tc-table-of-contents">
+
+<$macrocall $name="toc-selective-expandable" tag={{$:/plugins/JR-telmiger/StoryAdmin/settings##story-tag}}/>
+
+</div>
+
+Use the arrow icon to expand a category.
+
+<div class="story-manager">
+
+!!! Add category
+
+{{$:/plugins/JR-telmiger/StoryAdmin/category-new}}
+
+</div>

@@ -1,0 +1,18 @@
+created: 20190128212533801
+creator: Thomas Elmiger
+modified: 20190426131037339
+modifier: Thomas Elmiger
+tags: $:/tags/ViewTemplate
+title: $:/plugins/telmiger/MyStory/InStoryControls/ViewTemplate
+type: text/vnd.tiddlywiki
+
+\define config-title()
+$:/config/InStoryControls/Visibility/$(listItem)$
+\end
+<$set name="setting" filter="[[$:/plugins/telmiger/MyStory/settings]getindex[in-story-controls]removeprefix[hide]]" value="hide" emptyValue="show">
+<$reveal type="match" text="show" default=<<setting>>>
+<div class="te-footerbar">
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/InStoryControls]!has[draft.of]]" variable="listItem"><$reveal type="nomatch" state=<<config-title>> text="hide"><$set name="tv-config-toolbar-class" filter="[<tv-config-toolbar-class>] [<listItem>encodeuricomponent[]addprefix[tc-btn-]]"><$transclude tiddler=<<listItem>>/></$set></$reveal></$list>
+</div>
+</$reveal>
+</$set>

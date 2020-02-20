@@ -1,0 +1,53 @@
+created: 20181124205928499
+creator: Thomas
+modified: 20200219150938697
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/transclusion
+type: text/vnd.tiddlywiki
+wmr-source-link: http://tiddlywiki.com/#Transclusion%20in%20WikiText
+
+!!! Display content from other tiddlers
+
+Transclude [[text|$:/plugins/telmiger/WMR/foo]] and [[images|$:/core/images/home-button]] from the main content (text field): 
+
+<<wt "{{$:/plugins/telmiger/WMR/foo}}">>
+
+<<wt "{{$:/core/images/home-button}}">>
+
+
+!!! Content of tiddler fields
+
+<div class="wmr-input">
+
+```
+{{Foo!!bar}}
+{{!!bar}}
+```
+</div>
+
+* field `bar` of tiddler `Foo`
+* field `bar` of the Current Tiddler
+
+!!! Data tiddler entries
+
+<div class="wmr-input">
+
+```
+{{Foo##index}}
+{{##index}}
+```
+</div>
+
+* `index` of [[datatiddler|https://tiddlywiki.com/#DataTiddlers]] titled `Foo`
+* `index` of `CurrentTiddler`
+
+---
+
+!!! Transclude widget
+
+Try the [[transclude widget|https://tiddlywiki.com/#TranscludeWidget]] if you have to set the parsing mode manually.
+
+<<wt 'Story: <$transclude tiddler="$:/plugins/telmiger/WMR/foo" mode="block"/>'>>
+
+<<wt 'Story: <$transclude tiddler="$:/plugins/telmiger/WMR/foo" mode="inline"/>'>>

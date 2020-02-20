@@ -1,0 +1,108 @@
+created: 20170215224423410
+creator: Thomas Elmiger
+modified: 20200219110755516
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet Clipboard
+title: $:/plugins/telmiger/Clipboard/style/cb.css
+type: text/vnd.tiddlywiki
+
+/* buttons */
+
+.tc-editor-toolbar button.te-cb-btn, button.te-cb-title {
+	background-color: {{$:/plugins/telmiger/Clipboard/style/colors##button-background}};
+}
+
+.tc-editor-toolbar button.te-cb-btn:hover, button.te-cb-title:hover {
+	background-color: {{$:/plugins/telmiger/Clipboard/style/colors##button-background-hover}};
+}
+
+.te-cb-title:hover {
+	fill: #ffffff;
+}
+
+/* icons */
+
+.te-rotate-icon svg {
+	transform: rotate(180deg);
+}
+
+/* readme */
+
+.te-btn-list svg {
+	max-height: 1em;
+}
+
+.te-btn-list li {
+	margin-bottom: 0.5em;
+	list-style: none;
+	margin-left: 0em;
+	text-indent: -2.25em;
+}
+
+/* preview */
+
+.tc-text-editor-toolbar-clipboard {
+	max-width: 40em;
+	white-space: initial;
+}
+
+.tc-text-editor-toolbar-clipboard textarea {
+	width: 100%;
+}
+
+/* settings */
+
+.te-settings-list ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1.25em;
+	line-height: 2;
+}
+
+/* editor */
+
+.tc-edit-tags {
+	margin-bottom: 1rem;
+}
+
+.te-cb-clipboard {
+	margin-bottom: .5rem;
+}
+
+button.te-cb-title {
+	position: absolute;
+	right: 1rem;
+	margin-top: -.875rem;
+	padding-bottom: .25rem;
+	width: 2rem;
+	height: 2rem;
+	font-size: 1.33em;
+	fill: <<colour tiddler-controls-foreground-selected>>;
+	border-radius: .5rem;
+	text-align: center;
+}
+
+@media (min-width: 30em) {
+	button.te-cb-title { right: .125rem; margin-top: -3.25rem; }
+}
+@media (min-width: 42em) {
+	button.te-cb-title { right: 1rem; margin-top: -3.25rem; }
+}
+
+.te-cb-edittext {
+	width: 100%;
+	margin-bottom: .5rem;
+	padding: .5rem;
+	border: 1px solid <<colour tiddler-editor-border>>;
+}
+
+.te-cb-select-title {
+	margin-top: .5rem;
+	margin-bottom: .5rem;
+	font-size: .875rem;
+}
+
+.tc-btn-invisible.te-cb-reset-titles {
+	padding-left: .5rem;
+	font-size: 1rem;
+}

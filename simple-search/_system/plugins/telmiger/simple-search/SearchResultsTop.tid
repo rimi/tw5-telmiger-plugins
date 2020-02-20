@@ -1,0 +1,16 @@
+caption: Simple Search Top
+created: 20190101201620497
+creator: Thomas Elmiger
+modified: 20190426081734719
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/simple-search/SearchResultsTop
+type: text/vnd.tiddlywiki
+
+\define top()
+<small>//Caption/Title//</small>
+<ul class="te-nav-list">
+<$list filter="[!is[system]search:caption,title{$(searchTiddler)$}sort[caption]limit[250]]" template="$:/plugins/telmiger/simple-search/ui/ListItemTemplate"/>
+</ul>
+\end
+<<top>>

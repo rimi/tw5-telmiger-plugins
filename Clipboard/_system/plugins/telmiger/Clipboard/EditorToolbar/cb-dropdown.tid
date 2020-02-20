@@ -1,0 +1,15 @@
+created: 20170214221240856
+creator: Thomas Elmiger
+modified: 20200219110755843
+modifier: Thomas Elmiger
+tags: Clipboard
+title: $:/plugins/telmiger/Clipboard/EditorToolbar/cb-dropdown
+type: text/vnd.tiddlywiki
+
+<div class="tc-text-editor-toolbar-clipboard">
+<$set name="clipboard" filter="""[[$:/plugins/telmiger/Clipboard/cb]get[text]]""" value="{{$:/plugins/telmiger/Clipboard/cb}}" emptyValue="Clipboard is empty.">
+
+<<clipboard>>
+
+</$set>
+</div>

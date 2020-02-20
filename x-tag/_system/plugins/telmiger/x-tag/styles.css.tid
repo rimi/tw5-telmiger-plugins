@@ -1,0 +1,17 @@
+caption: x-tag Styles
+created: 20190105131552219
+creator: Thomas Elmiger
+modified: 20200219154944311
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet
+title: $:/plugins/telmiger/x-tag/styles.css
+type: text/vnd.tiddlywiki
+
+.x-tag span.tc-tag-label {
+   border-radius: 0 1em 1em 0;
+   padding-left: 0.43em;
+}
+
+.x-tag.tc-tag-list-item {
+   margin-right: 2px;
+}

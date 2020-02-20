@@ -1,0 +1,197 @@
+created: 20160817210934598
+creator: Thomas Elmiger
+modified: 20190426075510717
+modifier: Thomas Elmiger
+tags: MyMacros $:/tags/Macro ToDoComponents
+title: $:/plugins/telmiger/todonow/tdn
+todo-done: 20160819011650
+type: text/vnd.tiddlywiki
+
+\define todonowShowListItem(tagExclude:"")
+<li class="todo-item te-flex-item">
+<$set name="todoTitle" value={{!!title}}>
+<span class="te-flex-item te-flex-half-full">
+<span class="te-flex-item te-flex-content te-flex-left">
+<$macrocall $name="todoBtnDone" add-remove="ToDoDone -ToDoNow -ToDo"/>
+   <$link to={{!!title}} tooltip={{!!description}}><$view field="title"/></$link>
+</span>
+</span>
+<span class="te-flex-item te-flex-half-full">
+<span class="te-flex-item te-flex-content te-flex-right">
+<<todoShowDeadline>> 
+<<todoBtnDeadline muted>>
+<<todoBtnPriority>>
+<<teBtnEdit>>
+<$list filter="[all[current]tag[ToDoNow]]">
+<$wikify name="tt" text=<<telang Send-it-down>>>
+<$wikify name="tip" text=<<telang Uuups>>>
+   <$macrocall $name="teBtnTagListops" btntext="{{$:/core/images/chevron-down}}" add-remove="ToDo -ToDoNow" tooltip=<<tt>> tip=<<tip>> class="muted"/>
+</$wikify>
+</$wikify>
+</$list>
+<$list filter="[all[current]tag[ToDo]]">
+<<todoBtnDoNow>>
+</$list>
+<$wikify name="cl" text=<<telang close>> >
+<$wikify name="tt" text=<<telang Details>> >
+   <$macrocall $name="listrevealButton" title=<<todoTitle>> tooltip=<<tt>> close=<<cl>>/>
+</$wikify>
+</$wikify>
+</span>
+</span>
+<$wikify name="tpl" text=<<telang date-created-tmpl>> >
+   <$macrocall $name="listrevealContent" title=<<todoTitle>> datetime=<<tpl>> tagExclude="""$tagExclude$"""/>
+</$wikify>
+</$set>
+</li>
+\end
+
+\define tododoneShowListItem()
+<li class="todo-item te-flex-item">
+<span class="te-item-checked">{{$:/core/images/done-button}}</span>
+   <$link to={{!!title}} tooltip={{!!description}}><$view field="title"/></$link>
+<span class="te-flex-item">
+<span class="te-text right">
+<$wikify name="tpl" text=<<telang date-deadline-tmpl>> >
+   ~~<$view field="todo-done" format="date" template=<<tpl>>/>~~
+</$wikify>
+<span class="te-tip">
+ <$view field="todo-done" format="date" template="0hh:0mm"/>
+</span>
+</span>
+<$wikify name="tt" text=<<telang Do-it-again>>>
+   <$macrocall $name="teBtnTagListops" btntext="{{$:/core/images/refresh-button}}" add-remove="ToDo -ToDoDone" tooltip=<<tt>> tip=<<telang Recycle>>/>
+</$wikify>
+<$wikify name="tt" text=<<telang archive>>>
+   <$macrocall $name="teBtnTagListops" btntext="{{$:/core/images/folder}}" add-remove="ToDoArchive -ToDoDone" tooltip=<<tt>>/>
+</$wikify>
+</span>
+<$set name="myTitle" value={{!!title}}>
+<$wikify name="tpl" text=<<telang date-created-tmpl>> >
+   <$macrocall $name="listreveal" title=<<myTitle>> mode="block" datetime=<<tpl>>/>
+</$wikify>
+</$set>
+</li>
+\end
+
+\define todoBtnDoNow()
+<$wikify name="tip" text=<<telang Do-now>>>
+<$wikify name="tt" text=<<telang Take-it-up>>>
+   <$macrocall $name="teBtnTagListops" btntext="{{$:/core/images/chevron-up}}" add-remove="ToDoNow -ToDo" tooltip=<<tt>> tip=<<tip>>/>
+</$wikify>
+</$wikify>
+\end
+
+\define todoBtnDone(add-remove,class:"")
+<$wikify name="tt" text=<<telang This-is-done>>>
+<$wikify name="timestamp" text=<<now YYYY0MM0DD0hh0mm0ss>>>
+<$button class="""todo-btn-invisible $class$""" tooltip=<<tt>> >
+<$action-listops $tags="$add-remove$"/>
+<$action-listops $field="todo-done" $subfilter="[list{<currentTiddler>!!todo-done}] +[prepend<timestamp>]"/>
+{{$:/core/images/full-screen-button}}
+</$button>
+</$wikify>
+</$wikify>
+\end
+
+\define todoBtnPriority(class:"")
+<$set name="tid" value=<<currentTiddler>>>
+<$wikify name="tt" text=<<telang change-priority>>>
+  <$macrocall $name="teBtnPrioPopup" tiddler=<<tid>> btntext="{{$:/core/images/star-filled}}" priority={{!!priority}} prioritylist="$:/plugins/telmiger/todonow/settings" tooltip=<<tt>> class="$class$"/>
+</$wikify>
+</$set>
+\end
+
+\define todoShowDeadline()
+<span class="te-text">
+<$wikify name="tpl" text=<<telang date-deadline-tmpl>> >
+   <$view field="todo-deadline" format="date" template=<<tpl>>/>
+</$wikify>
+<span class="te-tip"><<todoBtnRemoveDeadline>> <$view field="todo-deadline" format="date" template="0hh:0mm"/></span>
+</span>
+\end
+
+\define todoBtnRemoveDeadline(class:"",icon:"$:/plugins/telmiger/lib/icons/stopwatch.svg")
+<$wikify name="tip" text="<<telang Remove-deadline>>">
+<$button class="""te-btn-action todo-deadline $class$""">
+<span class="te-tip"><<tip>></span>
+<$action-deletefield $field="todo-deadline"/>
+<$macrocall $name="teBtnIcons" label=<<tip>> icon="""$icon$""" hovericon="$:/plugins/telmiger/lib/icons/stopwatch-stop.svg"/>
+</$button>
+</$wikify>
+\end
+
+\define todoBtnDeadline(class:"")
+<span class="te-btn-action todo-deadline $class$">
+<$set name="checkPlugin" filter="[[$:/plugins/kixam/datepicker]get[title]removesuffix[$:/plugins/kixam/datepicker]]" value="todoBtnSetDeadline" emptyValue="noplugin">
+<$set name="output" filter="[all[current]has:value[todo-deadline]]" value="todoBtnChangeDeadline" emptyValue=<<checkPlugin>> >
+<$macrocall $name=<<output>> class="""$class$"""/>
+</$set>
+</$set>
+</span>
+\end
+
+\define todoBtnSetDeadline(class:"",icon:"$:/plugins/telmiger/lib/icons/stopwatch-empty.svg")
+<span class="te-tip"><<telang Set-deadline>></span>
+<$edit-date field="todo-deadline" icon="""$icon$""" tag="span" showTime use24hour firstDay=1 /><$list filter="[<currentTiddler>days:todo-deadline[0]]">@@.urgent.today <<telang today>>@@</$list><$list filter="[<currentTiddler>!days:todo-deadline[-1]]">@@.urgent.late <<telang late>>@@</$list>
+\end
+
+\define todoBtnChangeDeadline(class:"",icon:"$:/plugins/telmiger/lib/icons/stopwatch.svg")
+<$set name="checkPlugin" filter="[[$:/plugins/kixam/datepicker]get[title]removesuffix[$:/plugins/kixam/datepicker]]" value="ShowBtnChangeDeadline" emptyValue="noplugin">
+<$macrocall $name=<<checkPlugin>>/>
+</$set>
+<$wikify name="tid" text="<<currentTiddler>>"> 
+<$list filter="[<tid>!tag[ToDoDone]!tag[ToDoArchive]]">
+<$macrocall $name="lateCheck" tiddler=<<tid>> deadline-field="todo-deadline"/>
+</$list>
+<$macrocall $name="dayCheck" tiddler=<<tid>> deadline-field="todo-deadline"/>
+</$wikify>
+\end
+\define ShowBtnChangeDeadline(class:"",icon:"$:/plugins/telmiger/lib/icons/stopwatch.svg")
+<span class="te-tip"><<telang Change-deadline>></span>
+<$edit-date field="todo-deadline" icon="""$icon$""" tag=div showTime use24hour firstDay=1 />
+\end
+
+\define lateCheck(tiddler,deadline-field)
+<$vars tiddler="""$tiddler$""" deadline="""$deadline-field$""">
+<$wikify name="checkfilter" text="""<<ldsbra>>$tiddler$]!days:$deadline-field$[-1<<rdsbra>>""">
+<$list filter=<<checkfilter>>>@@.urgent.late <<telang late>>@@</$list>
+</$wikify>
+</$vars>
+\end
+
+\define dayCheck(tiddler,deadline-field)
+<$vars tiddler="""$tiddler$""" deadline="""$deadline-field$""">
+<$wikify name="checkfilter" text="""<<ldsbra>>$tiddler$]days:$deadline-field$[0<<rdsbra>>""">
+<$list filter=<<checkfilter>>>@@.urgent.today <<telang today>>@@</$list>
+</$wikify>
+</$vars>
+\end
+
+\define noplugin(class:"do nothing, plugin missing ",icon)
+<span class="$class$"></span>
+\end
+
+
+<!-- !! ToDoNow Plugin Macros
+
+!!! Macros for To-Do-Lists
+* todonowShowListItem / tododoneShowListItem
+** produce a list item for a tiddler with the tag <<tag ToDoNow>> or <<tag ToDo>> / <<tag ToDoDone>>
+*  todoBtnDoNow
+** show a button that removes the tag <<tag ToDo>> and adds <<tag ToDoNow>> instead
+* todoBtnDone
+** produce a checkbox-like button – clicking this marks task-tiddler as done and puts a datestamp in front of the todo-done field of the tiddler
+* todoBtnPriority
+** produce a priority button using the star image from the core
+* todoShowDeadline
+** show a task’s deadline date (and time on mouse hover)
+* todoBtnRemoveDeadline
+** show a button to remove the deadline
+* todoBtnDeadline – produce one of these deadline buttons:
+** todoBtnSetDeadline
+** todoBtnChangeDeadline
+*** show urgency hints: today/late
+* noplugin – produce an empty span (if the required plugin is missing)
+
+-->

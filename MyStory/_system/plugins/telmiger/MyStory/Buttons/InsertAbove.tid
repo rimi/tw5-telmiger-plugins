@@ -1,0 +1,19 @@
+caption: {{$:/language/Buttons/InsertAbove/Caption}}
+created: 20190128201124494
+creator: Thomas Elmiger
+description: {{$:/language/Buttons/InsertAbove/Hint}}
+modified: 20190426131037352
+modifier: Thomas Elmiger
+tags: $:/tags/InStoryControls
+title: $:/plugins/telmiger/MyStory/Buttons/InsertAbove
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+<span class="my-story-btn">
+<$button tooltip={{$:/language/Buttons/InsertAbove/Hint}} aria-label={{$:/language/Buttons/InsertAbove/Caption}} class=<<tv-config-toolbar-class>>>
+<$action-createtiddler $basetitle={{$:/language/DefaultNewTiddlerTitle}} $savetitle="$:/temp/new-tiddler-above"/>
+<$action-listops $tiddler="$:/StoryList" $subfilter="+[insertbefore:currentTiddler{$:/temp/new-tiddler-above}]"/>
+<$action-sendmessage $message="tm-edit-tiddler" $param={{$:/temp/new-tiddler-above}}/>
+{{$:/plugins/telmiger/MyStory/ui/icons/insert-above}}
+</$button>
+</span>

@@ -1,0 +1,46 @@
+created: 20170214201824205
+creator: Thomas Elmiger
+modified: 20200219110755576
+modifier: Thomas Elmiger
+tags: Clipboard
+title: $:/plugins/telmiger/Clipboard/settings
+type: text/vnd.tiddlywiki
+
+!! Settings
+!!! Editor: Show Clipboard Fields
+<div class="te-settings-list">
+
+* <$checkbox tiddler="$:/plugins/telmiger/Clipboard/settings/show" field="text" checked="yes" unchecked="no"> Show clipboard</$checkbox>
+** <$checkbox tiddler="$:/plugins/telmiger/Clipboard/settings/show-text" field="text" checked="yes" unchecked="no"> text field</$checkbox>
+** <$checkbox tiddler="$:/plugins/telmiger/Clipboard/settings/show-list" field="text" checked="yes" unchecked="no"> title clipboard</$checkbox>
+
+</div>
+
+!!! Editor Toolbar: Activate Buttons for the Clipboard
+<div class="te-settings-list">
+
+* <$checkbox tiddler="$:/config/EditorToolbarButtons/Visibility/$:/plugins/telmiger/Clipboard/EditorToolbar/cb" field="text" checked="show" unchecked="hide" default="show"> fold/unfold</$checkbox>
+* <$checkbox tiddler="$:/config/EditorToolbarButtons/Visibility/$:/plugins/telmiger/Clipboard/EditorToolbar/cb-preview" field="text" checked="show" unchecked="hide" default="show"> clipboard preview popup</$checkbox>
+* <$checkbox tiddler="$:/config/EditorToolbarButtons/Visibility/$:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert" field="text" checked="show" unchecked="hide" default="show"> insert text</$checkbox>
+* <$checkbox tiddler="$:/config/EditorToolbarButtons/Visibility/$:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert-title-link" field="text" checked="show" unchecked="hide" default="show"> insert title as link</$checkbox>
+* <$checkbox tiddler="$:/config/EditorToolbarButtons/Visibility/$:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert-title-transclude" field="text" checked="show" unchecked="hide" default="show"> insert title as transclusion</$checkbox>
+
+</div>
+
+!!! Editor Title: Show Copy-Button
+<div class="te-settings-list">
+
+* <$checkbox tiddler="$:/plugins/telmiger/Clipboard/settings/title-button" field="text" checked="yes" unchecked="no"> Show copy-title button</$checkbox>
+
+</div>
+
+<$button message="tm-save-wiki" param={{$:/config/SaveWikiButton/Template}} tooltip={{$:/language/Buttons/SaveWiki/Hint}} aria-label={{$:/language/Buttons/SaveWiki/Caption}} class=<<tv-config-toolbar-class>>>
+<span class="tc-dirty-indicator">
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/core/images/save-button}} {{$:/language/Buttons/SaveWiki/Hint}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/language/Buttons/SaveWiki/Caption}}/></span>
+</$list>
+</span>
+</$button>

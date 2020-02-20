@@ -1,0 +1,23 @@
+created: 20170903212721502
+creator: Thomas Elmiger
+modified: 20190426132422042
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/reminders/readme
+type: text/vnd.tiddlywiki
+
+!! Readme 
+
+This is a BETA version – there is no guarantee that the plugin works as expected!
+
+!!! Alerts
+While you are active in your wiki, an ''alert'' will pop up if …
+
+* a deadline was set in the field specified in the //configuration// tab
+* the deadline of a tiddler tagged "ToDo" has been missed.
+
+!!! Reminders
+This plugin can show a reminder before a deadline is reached. Set the time span for this in the //configuration// tab.
+
+!!! Designed for ToDoNow
+''//No alert or reminder//'' is shown for the task in the ''Do'' section tagged <<tag ToDoNow>> – it is assumed that you are working on it.

@@ -1,0 +1,7 @@
+created: 20190105155944201
+modified: 20200219154944175
+tags: 
+title: $:/plugins/telmiger/x-tag/icon
+type: text/vnd.tiddlywiki
+
+{{$:/core/images/tag-button}}

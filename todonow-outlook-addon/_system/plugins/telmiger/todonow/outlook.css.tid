@@ -1,0 +1,42 @@
+created: 20170711221850244
+creator: Thomas Elmiger
+modified: 20200219145316965
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]] $:/tags/Stylesheet
+title: $:/plugins/telmiger/todonow/outlook.css
+type: text/vnd.tiddlywiki
+
+/* Outolook on tasks for today, tomorrow and the next week */
+
+.todo-outlook {
+    background-color: #ffc;
+    padding-bottom: 1em;
+    border-radius: .25em;
+    border: 1px solid gray;
+    padding: 0.25rem 1em 1em 1em;
+    margin-bottom: 0.66em;
+}
+
+.todo-outlook h2 {
+    margin-left: 0.4em;
+}
+
+.tc-tiddler-body .todo-outlook h3 {
+    margin-top: 1rem;
+}
+
+.todo-outlook ul {
+    background-color: #eee;
+}
+
+.todo-outlook .todo-empty {
+    padding-left: 0.66em;
+}
+
+/* Printing */
+
+@media print {
+   .outlook-controls {
+      display: none;
+   }
+}

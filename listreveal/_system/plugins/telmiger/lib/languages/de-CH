@@ -1,0 +1,74 @@
+ID:Deutsch (Schweiz)
+<!-- date formats: Datums-Formatierung startet hier -->
+date-created-tmpl: {{$:/language/Tiddler/DateFormat}}
+date-created-tmpl-info: DD. MMM YYYY, 0hh:0mm Uhr
+date-deadline-tmpl: 0DD.0MM.YYYY
+<!-- titles: Titel starten hier -->
+title-Do: Jetzt
+title-Waiting: Später
+title-Done: Erledigt
+<!-- motivation: Motivationstexte starten hier -->
+Motivation-Don’t-do-it: Don’t have to do it? – Say it’s done!
+Motivation-single-task: Do the right ''one'' thing. – Then check & save.
+<!-- strings: Text-Schnippsel starten hier -->
+Add-tag: Tag hinzufügen
+Add-tags-from-the-list: Tags aus der Liste hinzufügen
+all-projects: alle Projekte
+archive: archivieren
+Are-you-sure?: Bist du sicher?
+Change-deadline: Fälligkeit ändern
+change-priority: Priorität ändern
+change-priority-to: Priorität ändern auf
+Click-to-edit-title: Auf Titel klicken zum Bearbeiten!
+close: Schliessen
+Close: Schliesse
+days-back: Tage zurück
+Details: Details
+Do-it-again: Mach’s nochmal
+Do-now: Jetzt erledigen
+Done: Erledigt
+Edit: bearbeiten
+Hide-list: Liste ausblenden
+late: später
+Manage-tags: Tag-Manager
+Move-down: Nach unten
+Move-up: Nach oben
+New-ToDo-Item: Neue Aufgabe
+no.: Anz.
+Nothing-to-do-?: Nichts zu tun? Erstelle eine Aufgabe mit diesem Knopf
+Open-all: alle öffnen
+Pick-a-task-: Wähle eine Aufgabe aus der Liste unten mit diesem Knopf
+Print-window-hint: In neuem Fenster öffnen für Druck
+Project: Projekt:
+Recycle: Nochmals verwenden
+Relax-Nothing-to-do: Schön. Es gibt nichts zu tun.
+Remove-deadline: Fälligkeit löschen
+Remove-tags?: Tags entfernen?
+Reset: Zurücksetzen
+search: Suche …
+Send-it-down: doch nicht jetzt
+Set-deadline: Termin festlegen
+Show-list: Liste anzeigen
+Sort-by-deadline: Nach Termin sortieren
+Sort-by-modification: Nach letzter Änderung sortieren
+Sort-by-priority: Alle nach Priorität sortieren
+Sort-by-title: Alle nach Titel sortieren
+sorted-by-deadline: sortiert nach Enddatum
+sorted-by-modification: sortiert nach letzter Änderung
+sorted-by-priority: sortiert nach Priorität
+sorted-by-title: sortiert nach Titel
+Switch-to-edit-mode: Bearbeiten ermöglichen
+Switch-to-safe-mode: Bearbeiten ausschalten
+Take-it-up: Rauf damit!
+This-is-done: Das ist erledigt
+today: heute
+Today: Heute
+ToDo: ToDo
+ToDo-template-title: ToDo Item
+ToDo-template-text: Motivation: Description * Tests/Acceptance criteria
+This-week: Diese Woche
+Tomorrow: Morgen
+Uuups: Hoppla!
+<!-- comments: Kommentare -->
+<!-- translation requires: $:/plugins/telmiger/lib/telang  -->
+<!-- use translated term: <<telang term>> -->

@@ -1,0 +1,49 @@
+caption: x-tag Readme
+created: 20190105133632079
+creator: Thomas Elmiger
+modified: 20200219154944325
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/x-tag/readme
+type: text/vnd.tiddlywiki
+
+!! Tags with Superpowers: x-tag
+
+Use the contents of a field to label your tags.
+
+<label>Default field name: <$edit-text tiddler="$:/plugins/telmiger/x-tag/settings" index="default-label" size="20" tag="input"/></label> – `caption` might be a good choice to start. (The field //title// is used if this is left empty.)
+
+
+!!! Usage
+
+Default label: `<<x-tag "Tag">>`
+
+Different label: `<<x-tag "Tag" label:"field-name">>`
+
+
+!!! Styling
+
+Example (label: //caption//) <<x-tag "$:/tags/SideBar" "caption">> vs. the normal tag macro <<tag "$:/tags/SideBar">>
+
+<$checkbox tiddler="$:/plugins/telmiger/x-tag/styles.css" tag="$:/tags/Stylesheet"> activate special styling for x-tags</$checkbox> via $:/plugins/telmiger/x-tag/styles.css
+
+
+!!! Display on tiddlers
+
+Activate desired tag types here:
+
+<$checkbox tiddler="$:/plugins/telmiger/x-tag/ui/ViewTemplate/tags" tag="$:/tags/ViewTemplate"> activate ''x-tag'' display</$checkbox>
+
+<$checkbox tiddler="$:/core/ui/ViewTemplate/tags" tag="$:/tags/ViewTemplate"> activate ''standard tag'' display </$checkbox>
+
+
+!!! Editing
+
+Would you like to see x-tags when editing tiddlers? The //x-tag picker// finds and shows tags labeled by your default field. 
+
+Activate desired elements here:
+
+<$checkbox tiddler="$:/plugins/telmiger/x-tag/ui/EditTemplate/x-tags" tag="$:/tags/EditTemplate"> activate ''x-tag'' picker</$checkbox>
+
+<$checkbox tiddler="$:/core/ui/EditTemplate/tags" tag="$:/tags/EditTemplate"> activate ''standard tag'' picker</$checkbox>
+

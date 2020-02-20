@@ -1,0 +1,14 @@
+caption: Simple to Advanced Search
+created: 20190101210358315
+creator: Thomas Elmiger
+modified: 20190426081734658
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/simple-search/ui/Buttons/advanced-search
+type: text/vnd.tiddlywiki
+
+<$button tooltip={{$:/language/Buttons/AdvancedSearch/Hint}} aria-label={{$:/language/Buttons/AdvancedSearch/Caption}} class="tc-btn-invisible">
+<<simple-search-closeSearch>>
+<$action-navigate $to="$:/AdvancedSearch"/>
+{{$:/core/images/advanced-search-button}}
+</$button>

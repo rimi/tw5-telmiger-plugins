@@ -1,0 +1,11 @@
+{
+	"title": "$:/plugins/telmiger/MyStory",
+	"author": "Thomas Elmiger",
+	"core-version": ">=5.1.18",
+	"description": "MyStory – replacement sidebar tab for Open",
+	"list": "readme support",
+	"name": "MyStory",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "0.1.4"
+}

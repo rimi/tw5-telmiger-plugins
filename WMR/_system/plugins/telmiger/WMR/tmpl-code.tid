@@ -1,0 +1,9 @@
+caption: Bar
+created: 20181130195051148
+creator: Thomas Elmiger
+modified: 20200219150938537
+modifier: Thomas Elmiger
+title: $:/plugins/telmiger/WMR/tmpl-code
+type: text/vnd.tiddlywiki
+
+<pre><code>{{!!text}}</code></pre>

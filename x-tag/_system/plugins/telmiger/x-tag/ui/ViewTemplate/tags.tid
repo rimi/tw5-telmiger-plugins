@@ -1,0 +1,13 @@
+created: 20181231143101362
+creator: Thomas Elmiger
+list-before: $:/core/ui/ViewTemplate/body
+modified: 20200219154944200
+modifier: Thomas Elmiger
+title: $:/plugins/telmiger/x-tag/ui/ViewTemplate/tags
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" stateTitle=<<folded-state>> text="hide" tag="div" retain="yes" animate="yes">
+<$set name="field" filter="[{$:/plugins/telmiger/x-tag/settings##default-label}minlength[1]] ~[[title]]">
+<div class="tc-tags-wrapper"><$list filter="[all[current]tags[]sort[title]]" template="$:/plugins/telmiger/x-tag/ui/TagTemplate" storyview="pop"/></div>
+</$set>
+</$reveal>

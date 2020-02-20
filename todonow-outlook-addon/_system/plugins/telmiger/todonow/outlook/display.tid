@@ -1,0 +1,29 @@
+created: 20170711100050962
+creator: Thomas Elmiger
+modified: 20200219145317048
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/todonow/outlook/display
+type: text/vnd.tiddlywiki
+
+<$reveal type="match" state="$:/state/todotoday" text="show">
+<section class="todo-outlook">
+
+{{$:/plugins/telmiger/todonow/outlook/ToDoToday}}
+
+</section>
+</$reveal>
+<$reveal type="match" state="$:/state/todotomorrow" text="show">
+<section class="todo-outlook">
+
+{{$:/plugins/telmiger/todonow/outlook/ToDoTomorrow}}
+
+</section>
+</$reveal>
+<$reveal type="match" state="$:/state/todothisweek" text="show">
+<section class="todo-outlook">
+
+{{$:/plugins/telmiger/todonow/outlook/ToDoThisWeek}}
+
+</section>
+</$reveal>

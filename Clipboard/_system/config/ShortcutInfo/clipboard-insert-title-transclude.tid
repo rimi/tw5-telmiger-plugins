@@ -1,0 +1,9 @@
+created: 20170917210718697
+creator: Thomas Elmiger
+modified: 20200219110755894
+modifier: Thomas Elmiger
+tags: 
+title: $:/config/ShortcutInfo/clipboard-insert-title-transclude
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert-title-transclude!!description}}

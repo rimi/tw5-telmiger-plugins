@@ -1,0 +1,31 @@
+created: 20190114200812402
+creator: Thomas Elmiger
+modified: 20200219124306025
+modifier: Thomas Elmiger
+tags: 
+title: $:/core/ui/ViewTemplate
+type: text/vnd.tiddlywiki
+
+\define drop-actions()
+<$action-listops $tiddler="$:/StoryList" $subfilter="+[insertbefore:currentTiddler<actionTiddler>]"/>
+\end
+\define drop-below-actions()
+<$action-listops $tiddler="$:/StoryList" $subfilter="[<actionTiddler>] +[putafter<currentTiddler>]"/>
+\end
+\define frame-classes()
+tc-tiddler-frame tc-tiddler-view-frame $(missingTiddlerClass)$ $(shadowTiddlerClass)$ $(systemTiddlerClass)$ $(tiddlerTagClasses)$ $(userClass)$
+\end
+\define folded-state()
+$:/state/folded/$(currentTiddler)$
+\end
+<$vars storyTiddler=<<currentTiddler>> tiddlerInfoState=<<qualify "$:/state/popup/tiddler-info">> userClass={{!!class}}><$tiddler tiddler=<<currentTiddler>>><div data-tiddler-title=<<currentTiddler>> data-tags={{!!tags}} class=<<frame-classes>>><$set name="qualstate" value="$:/state/ReaderMode-Drag">
+<$reveal type="match" state=<<qualstate>> text="active">
+<div style="position: relative;"><$droppable actions=<<drop-actions>>><div class="tc-droppable-placeholder">
+&nbsp;
+</div>
+<div class="my-story-drag-handle"><$draggable tiddler=<<currentTiddler>>><$set name="includeFilter" filter="[[$:/state/ReaderMode]get[text]removeprefix[active]]" value="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!list[$:/plugins/telmiger/ReaderMode/blocked]!has[draft.of]]" emptyValue="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!has[draft.of]]"><$list filter=<<includeFilter>> variable="listItem">
+<div><$transclude tiddler=<<listItem>>/></div></$list></$set></$draggable></div></$droppable></div></$reveal>
+<$reveal type="nomatch" state=<<qualstate>> text="active">
+<$set name="includeFilter" filter="[[$:/state/ReaderMode]get[text]removeprefix[active]]" value="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!list[$:/plugins/telmiger/ReaderMode/blocked]!has[draft.of]]" emptyValue="[all[shadows+tiddlers]tag[$:/tags/ViewTemplate]!has[draft.of]]"><$list filter=<<includeFilter>> variable="listItem"><$transclude tiddler=<<listItem>>/></$list>
+</$set></$reveal></$set>
+</div></$tiddler></$vars>

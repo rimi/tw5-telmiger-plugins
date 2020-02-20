@@ -1,0 +1,5 @@
+<!-- allowed values for show: number [minutes], [empty] for alerts only, "no" for off -->
+show: 15
+<!-- allowed value for field/tag: a field/tag name -->
+field: todo-deadline
+tag: ToDo

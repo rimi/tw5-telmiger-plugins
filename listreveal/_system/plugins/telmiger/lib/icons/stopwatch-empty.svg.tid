@@ -1,0 +1,12 @@
+created: 20170506112920842
+creator: Thomas Elmiger
+modified: 20190426075256036
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/lib/icons/stopwatch-empty.svg
+type: text/vnd.tiddlywiki
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="currentColor" class="te-stopwatch-button tc-image-button">
+<path d="M64.075 11.522c-32.17 0-58.25 26.082-58.25 58.25s26.08 58.25 58.25 58.25c32.175 0 58.25-26.082 58.25-58.25S96.25 11.52 64.076 11.52zm0 100.5c-23.336 0-42.25-18.914-42.25-42.25 0-23.33 18.914-42.25 42.25-42.25 23.337 0 42.25 18.92 42.25 42.25 0 23.336-18.913 42.25-42.25 42.25zM55.53 10.022c-2.763 0-5-2.24-5.002-5-.003-2.756 2.24-5 5-5h16.988c2.76 0 5 2.24 5 5 .005 2.757-2.24 5-5 5H55.53z"/>
+<path fill="#000" d="M55 60h18v18H55z"/>
+</svg>

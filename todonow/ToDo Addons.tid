@@ -1,0 +1,11 @@
+created: 20170204214629529
+creator: Thomas Elmiger
+modified: 20190426075510686
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: ToDo Addons
+type: text/vnd.tiddlywiki
+
+Every user can implement add-on functionality according to his or her own needs. TiddlyWiki is a flexible and powerful base for that. As an example, the author provides a basic [[Work-Report]] that gives you a nice, printable overview over activities of the last few days.
+
+Want to create something new? Contact the author via thomas(.)elmiger(@)gmail(.)com

@@ -1,0 +1,19 @@
+button-classes: te-cb-btn
+caption: Insert text from clipboard
+condition: [<targetTiddler>]
+created: 20170215174235845
+creator: Thomas Elmiger
+description: Insert text from clipboard
+icon: $:/plugins/telmiger/Clipboard/icons/clip
+modified: 20200219110755837
+modifier: Thomas Elmiger
+shortcuts: ((clipboard-insert-text))
+tags: $:/tags/EditorToolbar Clipboard
+title: $:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert
+type: text/vnd.tiddlywiki
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="replace-selection"
+	text={{$:/plugins/telmiger/Clipboard/cb}}
+/>

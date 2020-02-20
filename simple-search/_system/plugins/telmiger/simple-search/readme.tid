@@ -1,0 +1,45 @@
+created: 20170208062643245
+creator: Thomas Elmiger
+modified: 20190426081734695
+modifier: Thomas Elmiger
+tags: EditorCounter
+title: $:/plugins/telmiger/simple-search/readme
+type: text/vnd.tiddlywiki
+
+!! Simple Search 
+
+This plugin provides a nice and simple interface for searching your wiki. It is designed for mobile and desktop screens. 
+''Reduce to the max.'' The standard search input field in the sidebar is gone, instead there is a {{$:/plugins/telmiger/simple-search/ui/Buttons/search}} [[button|$:/plugins/telmiger/simple-search/ui/Buttons/search]].
+
+
+!!! Keyboard accessible
+
+* Press <kbd>Shift</kbd> + <kbd>Space</kbd> to ''launch and close'' Simple Search (new //global keyboard shortcut// for TW 5.1.18+). 
+* Jump to search results with <kbd>Tab</kbd>. Then, depending on your browser and settings, select a list item using <kbd>Tab</kbd> or arrow keys <kbd>up</kbd> and <kbd>down</kbd>.
+* Confirm with <kbd>Enter</kbd>.
+
+
+!!! Search in fields
+Primary results are listed for tiddlers containing the search term in the ''title'' OR the ''caption'' fields. 
+
+The secondary list finds results based on all other fields (not title nor caption). This can be adapted via settings.
+
+
+!!! Create tiddlers
+
+Empty result list? No problem. Create missing tiddlers using the search term as title and caption. 
+
+* Hit <kbd>Tab</kbd> until you reach the plus button (+).
+* Create a tiddler with <kbd>Enter</kbd>.
+
+See template options on the ''settings tab''. – Hat tip to //Diego Mesa// for inspiring this feature.
+
+
+!!! Settings
+
+Make sure to visit the ''settings tab'' to adjust your preferences.
+
+
+!! Core overruling
+
+This plugin overwrites $:/core/ui/SideBarSegments/search and nothing else.

@@ -1,0 +1,9 @@
+<!-- allowed values for sort-list: priority/deadline/title -->
+sort-list: deadline
+<!-- allowed values for sort-report: priority/modified -->
+sort-report: priority
+<!-- allowed values for user-filter-on: no/yes -->
+user-filter-on: no
+<!-- comments: Kommentare -->
+<!-- usage: <$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-list" text="priority"> -->
+show-list-deadline: top

@@ -1,0 +1,59 @@
+created: 20180429101307450
+creator: Thomas Elmiger
+datetime: 
+modified: 20190426075256108
+modifier: Thomas Elmiger
+tags: $:/tags/Macro Listreveal
+title: $:/plugins/telmiger/listreveal/lr-search
+type: text/vnd.tiddlywiki
+
+\define listrevealSearch(id:"search",focus:"false")
+<$vars tagsearchTiddler="$:/config/listreveal/Search/$id$">
+<$wikify name="placeholder" text=<<telang search>> >
+<div class="tc-search">
+<$edit-text tiddler=<<tagsearchTiddler>> type="search" tag="input" focus=$focus$ placeholder=<<placeholder>> default=""/>
+<$reveal state=<<tagsearchTiddler>> type="nomatch" text="">
+<$wikify name="reset" text=<<telang Reset>> >
+<$button tooltip=<<reset>> class="tc-btn-invisible">
+<$action-setfield $tiddler=<<tagsearchTiddler>> text="" />
+{{$:/core/images/close-button}}
+</$button>
+</$wikify>
+</$reveal>
+</div>
+</$wikify>
+</$vars>
+\end
+
+\define listrevealProjectSelect(mastertag:"ToDo")
+<$wikify name="tagfilter" text="""<<listfilter>> +[tags[]sort[title]] -[[$mastertag$]]""">
+<div class="lr-project-search">
+<$select tiddler='$:/config/listreveal/ProjectSelect/$mastertag$'>
+<option value='$mastertag$'><<telang all-projects>></option>
+<$list filter=<<tagfilter>>>
+   <option><$view field='title'/></option>
+</$list>
+</$select>
+</div>
+</$wikify>
+\end
+
+\define resultCounter(textafter:"")
+<$set name="resultCount" value='<$count filter="""$(listfilter)$"""/>'>
+<span class="lr-search-counter">
+{{$:/language/Search/Matches}} <small>$textafter$</small>
+</span>
+</$set>
+\end
+
+<!-- !! Listreveal Plugin Macros
+
+!!! Helper macros for searching the list
+* listrevealProjectSelect(mastertag:"ToDo")
+** show a select with all other tags from all tiddlers tagged with the mastertag
+* listrevealSearch(state:"search",id:"lr")
+** state: if you generate more than one list, use e.g. "active" and "inactive" here
+** id: an identifier for the list you want to search in
+* listrevealCounter(textafter:"")
+
+-->

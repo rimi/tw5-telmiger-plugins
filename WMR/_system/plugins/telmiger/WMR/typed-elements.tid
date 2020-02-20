@@ -1,0 +1,86 @@
+created: 20181124210140010
+creator: Thomas
+modified: 20200219150938690
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/typed-elements
+type: text/vnd.tiddlywiki
+
+<div class="wmr-input">
+
+```
+$$$text/unknown
+plain text, not //formatted//
+$$$
+```
+</div>
+
+$$$text/unknown
+plain text, not //formatted//
+$$$
+
+<br>
+These are [[Typed Blocks|https://tiddlywiki.com/#Typed%20Blocks%20in%20WikiText]]
+
+<div class="wmr-input">
+
+```
+$$$image/svg+xml
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100">
+  <circle cx="100" cy="50" r="40" stroke-width="0" fill="green" />
+</svg>
+$$$
+```
+</div>
+
+
+$$$image/svg+xml
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100">
+  <circle cx="100" cy="50" r="40" stroke-width="0" fill="green" />
+</svg>
+$$$
+
+<div class="wmr-input">
+
+```
+$$$.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100">
+  <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="blue" />
+</svg>
+$$$
+```
+</div>
+
+
+$$$.svg
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="100">
+  <circle cx="100" cy="50" r="40" stroke="black" stroke-width="2" fill="blue" />
+</svg>
+$$$
+
+
+<div class="wmr-input">
+
+```
+$$$text/vnd.tiddlywiki>text/html
+This is ''some'' wikitext
+$$$
+```
+</div>
+
+$$$text/vnd.tiddlywiki>text/html
+This is ''some'' wikitext
+$$$
+
+<div class="wmr-input">
+
+```
+$$$text/vnd.tiddlywiki>text/plain
+This is ''some'' wikitext
+$$$
+```
+</div>
+
+$$$text/vnd.tiddlywiki>text/plain
+This is ''some'' wikitext
+$$$

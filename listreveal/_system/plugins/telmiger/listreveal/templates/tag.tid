@@ -1,0 +1,31 @@
+created: 20180315065904040
+creator: Thomas Elmiger
+modified: 20190426075256083
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/listreveal/templates/tag
+type: text/vnd.tiddlywiki
+
+<span class="tc-tag-list-item">
+<$set name="transclusion" value=<<currentTiddler>>>
+<$wikify name="bg-color" text="<<colour sidebar-tab-background-selected>>">
+<$wikify name="fg-color" text="<<colour sidebar-tab-foreground-selected>>">
+<$macrocall $name="tag-pill-inner" tag=<<currentTiddler>> icon={{!!icon}} colour=<<bg-color>> fallbackTarget={{$palette$##tag-background}} colourA=<<fg-color>> colourB=<<bg-color>> element-tag="$button" element-attributes="""popup=<<qualify "$:/state/popup/tag">> dragFilter='[all[current]tagging[]]' tag='span'""" actions=""/>
+<$reveal state=<<qualify "$:/state/popup/tag">> type="popup" position="below" animate="yes" class="tc-drop-down">
+<$transclude tiddler="$:/core/ui/ListItemTemplate"/>
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/TagDropdown]!has[draft.of]]" variable="listItem"> 
+<$transclude tiddler=<<listItem>>/> 
+</$list>
+<hr>
+<$macrocall $name="list-tagged-draggable" tag=<<currentTiddler>>/>
+<!-- open-all -->
+<hr>
+<div class="tc-menu-list-item">
+<$button class="tc-btn-invisible tc-tiddlylink tc-tiddlylink-resolves"><$list filter="[all[current]tagging[]]"><$action-navigate $to=<<currentTiddler>> /></$list><<telang Open-all>></$button>
+</div>
+<!-- /open-all -->
+</$reveal>
+</$wikify>
+</$wikify>
+</$set>
+</span>

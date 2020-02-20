@@ -1,0 +1,55 @@
+caption: x-tag TagTemplate
+created: 20190104065201990
+creator: Thomas Elmiger
+modified: 20200219154944265
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/x-tag/ui/TagTemplate
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+\define openMyTiddlers(filter)
+<$list filter=<<__filter__>> >
+<$action-navigate $to=<<currentTiddler>> $scroll="no"/>
+</$list>
+\end
+
+\define openAll()
+<$button class="tc-btn-invisible">
+<$set name="qualstate" value="$:/config/Navigation/openLinkFromInsideRiver">
+<$reveal type="match" state=<<qualstate>> text="above">
+<<openMyTiddlers "[all[current]tagging[]]">>
+</$reveal>
+<$reveal type="match" state=<<qualstate>> text="below">
+<<openMyTiddlers "[all[current]tagging[]reverse[]]">>
+</$reveal>
+<$reveal type="match" state=<<qualstate>> text="top">
+<<openMyTiddlers "[all[current]tagging[]reverse[]]" "yes">>
+</$reveal>
+<$reveal type="match" state=<<qualstate>> text="bottom">
+<<openMyTiddlers "[all[current]tagging[]]">>
+</$reveal>
+</$set>
+Open All</$button>
+\end
+
+<span class="tc-tag-list-item x-tag">
+<$set name="transclusion" value=<<currentTiddler>>>
+<$macrocall $name="x-tag-pill-body" tag=<<currentTiddler>> icon={{!!icon}} colour={{!!color}} palette={{$:/palette}} element-tag="""$button""" element-attributes="""popup=<<qualify "$:/state/popup/tag">> dragFilter='[all[current]tagging[]]' tag='span'"""/>
+<$reveal state=<<qualify "$:/state/popup/tag">> type="popup" position="below" animate="yes" class="tc-drop-down">
+<$set name="tv-show-missing-links" value="yes">
+<$transclude tiddler="$:/plugins/telmiger/x-tag/ui/ListItemTemplate"/>
+</$set>
+<$list filter="[all[shadows+tiddlers]tag[$:/tags/TagDropdown]!has[draft.of]]" variable="listItem"> 
+xxx <$transclude tiddler=<<listItem>>/> 
+</$list>
+<hr>
+<$macrocall $name="list-tagged-draggable" tag=<<currentTiddler>> itemTemplate="$:/plugins/telmiger/x-tag/ui/ListItemTemplate"/>
+<hr>
+<div class="tc-menu-list-item">
+<<openAll>>
+</div>
+</$reveal>
+</$set>
+</span>

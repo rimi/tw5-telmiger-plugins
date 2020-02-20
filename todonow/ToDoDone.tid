@@ -1,0 +1,18 @@
+created: 20160821091004045
+creator: Thomas Elmiger
+modified: 20190426075510673
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: ToDoDone
+type: text/vnd.tiddlywiki
+
+<$set name="listfilter" value="[tag{$:/config/listreveal/ProjectSelect/ToDoDone}!has[draft.of]tag[ToDoDone]search{$:/config/listreveal/Search/ToDoDone}!sort[modified]] +[!sort[todo-done]]">
+<div class="lr-search te-flex-item">
+<<listrevealSearch ToDoDone>> <<listrevealProjectSelect ToDoDone>>
+</div>
+<ul class="te-list">
+<$list filter=<<listfilter>> emptyMessage="Nothing has been done yet that matches your criteria.">
+<<tododoneShowListItem>>
+</$list>
+</ul>
+</$set>

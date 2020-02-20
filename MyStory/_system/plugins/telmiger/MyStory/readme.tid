@@ -1,0 +1,39 @@
+caption: MyStory Readme
+created: 20190105223039966
+creator: Thomas Elmiger
+modified: 20190426131037424
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/MyStory/readme
+type: text/vnd.tiddlywiki
+
+!! My Story
+
+A story list on steroids. Adds bookmarking and alternative labels for story-elements in sidebar tabs: 
+
+* The [[MyMarks|$:/plugins/telmiger/MyStory/bookmarks/tab]] tab shows links to bookmarked elements.
+* The [[MyStory|$:/plugins/telmiger/MyStory/tab]] tab can replace the //Open// tab: The listing shows the title of a tiddler, if there is no caption field, the caption, if there is no other field as defined below.
+
+<label>Default field name: <$edit-text tiddler="$:/plugins/telmiger/MyStory/settings" index="default-label" size="20" tag="input"/></label> – `title` might be a good fallback :)
+
+!!! [[Usage settings|$:/plugins/telmiger/MyStory/settings]]
+
+Control active sidebar tabs: <br>
+<$checkbox tiddler="$:/plugins/telmiger/MyStory/tab" tag="$:/tags/SideBar"> <$text text={{$:/plugins/telmiger/MyStory/tab!!caption}}/></$checkbox> &nbsp; 
+<$checkbox tiddler="$:/plugins/telmiger/MyStory/bookmarks/tab" tag="$:/tags/SideBar"> <$text text={{$:/plugins/telmiger/MyStory/bookmarks/tab!!caption}}/></$checkbox> &nbsp; 
+<$checkbox tiddler="$:/core/ui/SideBar/Open" tag="$:/tags/SideBar"> {{$:/core/ui/SideBar/Open!!caption}}</$checkbox><br>
+<$checkbox tiddler="$:/core/ui/SideBar/Recent" tag="$:/tags/SideBar"> {{$:/core/ui/SideBar/Recent!!caption}}</$checkbox> &nbsp; <$checkbox tiddler="$:/core/ui/SideBar/Tools" tag="$:/tags/SideBar"> {{$:/core/ui/SideBar/Tools!!caption}}</$checkbox> &nbsp; <$checkbox tiddler="$:/core/ui/SideBar/More" tag="$:/tags/SideBar"> {{$:/core/ui/SideBar/More!!caption}}</$checkbox>
+
+Show small buttons for every list entry:<br>
+<$checkbox tiddler="$:/plugins/telmiger/MyStory/settings" index="show-edit-button" checked="yes" unchecked="no"> edit button </$checkbox><br>
+<$checkbox tiddler="$:/plugins/telmiger/MyStory/settings" index="show-clone-button" checked="yes" unchecked="no"> clone button </$checkbox>
+
+{{$:/core/ui/ControlPanel/Settings/DefaultSidebarTab}}
+
+Click the tag and arrange tabs via drag and drop:<br>
+<<tag "$:/tags/SideBar">>
+
+!! In-Story Controls
+
+Elements tagged <<tag $:/tags/InStoryControls>> can be added below every element (tiddler) in the story.<br>
+<$checkbox tiddler="$:/plugins/telmiger/MyStory/settings" index="in-story-controls" checked="show" unchecked="hide"> show in-story controls</$checkbox>

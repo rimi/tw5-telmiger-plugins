@@ -1,0 +1,28 @@
+button-classes: te-cb-btn
+caption: Insert clipboard title as link
+condition: [<targetTiddler>]
+created: 20170215221611123
+creator: Thomas Elmiger
+description: Insert clipboard title as link
+icon: $:/plugins/telmiger/Clipboard/icons/link
+modified: 20200219110755832
+modifier: Thomas Elmiger
+shortcuts: ((clipboard-insert-title-link))
+tags: $:/tags/EditorToolbar Clipboard
+title: $:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert-title-link
+type: text/vnd.tiddlywiki
+
+<$wikify name="cbTitle" text={{$:/plugins/telmiger/Clipboard/cb!!te-cb-title}}>
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="replace-selection"
+	text=<<cbTitle>>
+/>
+
+<$action-sendmessage
+	$message="tm-edit-text-operation"
+	$param="wrap-selection"
+	prefix="[["
+	suffix="]]"
+/>
+</$wikify>

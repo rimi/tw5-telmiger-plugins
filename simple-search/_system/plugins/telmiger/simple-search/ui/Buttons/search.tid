@@ -1,0 +1,36 @@
+caption: {{$:/plugins/telmiger/simple-search/images/search-button}} Search
+created: 20181031170153387
+creator: Thomas Elmiger
+description: Search
+modified: 20190426081734636
+modifier: Thomas Elmiger
+tags: $:/tags/PageControls
+title: $:/plugins/telmiger/simple-search/ui/Buttons/search
+type: text/vnd.tiddlywiki
+
+\define search-button-label()
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/telmiger/simple-search/images/search-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/plugins/telmiger/simple-search/ui/Buttons/search!!description}}/></span>
+</$list>
+\end
+
+\define control-panel-button-on(class)
+<$button tooltip={{$:/plugins/telmiger/simple-search/ui/Buttons/search!!description}} aria-label={{$:/plugins/telmiger/simple-search/ui/Buttons/search!!description}} class="""$(tv-config-toolbar-class)$ $class$""">
+<<simple-search-openSearch>>
+<<search-button-label>>
+</$button>
+\end
+
+\define control-panel-button-off(class)
+<$button tooltip="Close Search" aria-label="Hide tiddler Search" class="""$(tv-config-toolbar-class)$ $class$""">
+<<simple-search-closeSearch>>
+<<search-button-label>>
+</$button>
+\end
+
+<$list filter="[list[$:/StoryList]] +[field:title[$:/Search]]" emptyMessage=<<control-panel-button-on>>>
+<<control-panel-button-off "tc-selected">>
+</$list>

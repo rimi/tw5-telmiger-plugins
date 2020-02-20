@@ -1,0 +1,146 @@
+created: 20160915193628399
+creator: Thomas Elmiger
+datetime: 
+modified: 20190426075256091
+modifier: Thomas Elmiger
+tags: $:/tags/Macro ToDoComponents Listreveal
+title: $:/plugins/telmiger/listreveal/tags
+type: text/vnd.tiddlywiki
+
+\define lrTaglist(tiddler:"_false_")
+<$vars target="""$tiddler$""">
+<div class="lr-tag-popup">
+<$set name="add-tags-filter" value="""[list[$:/temp/lr-tags-$tiddler$!!lr-tagsinlist]sort[]] -[list[$:/temp/lr-tags-$tiddler$!!lr-tagstoremove]]""">
+<$set name="has-add-tags" value="""[list[$:/temp/lr-tags-$tiddler$!!lr-tagsinlist]sort[]] -[list[$:/temp/lr-tags-$tiddler$!!lr-tagstoremove]] +[limit[1]]""">
+<$list filter=<<has-add-tags>>>
+<<telang Add-tags-from-the-list>>
+<$wikify name="tt" text=<<telang Add-tag>>>
+<ul class="lr-tags-add">
+<$list filter=<<add-tags-filter>> variable="tag">
+<li>
+   <$macrocall $name="teBtnTagAddRemove" btntext=<<tag>> add=<<tag>> tiddler=<<target>> tooltip=<<tt>>/> 
+</li>
+</$list>
+</ul>
+</$wikify>
+</$list>
+</$set>
+</$set>
+<$set name="remove-tags-filter" value="""[list[$:/temp/lr-tags-$tiddler$!!lr-tagstoremove]sort[]] -[[$(exclude)$]]""">
+<$set name="has-remove-tags" value="""[list[$:/temp/lr-tags-$tiddler$!!lr-tagstoremove]sort[]] -[[$(exclude)$]] +[limit[1]]""">
+<$list filter=<<has-remove-tags>>>
+<<telang Remove-tags?>> 
+<$wikify name="tt" text=<<telang Are-you-sure?>>>
+<ul class="lr-tags-remove">
+<$list filter=<<remove-tags-filter>> variable="tag">
+<li>
+   <$macrocall $name="teBtnTagAddRemove" btntext=<<tag>> remove=<<tag>> tiddler=<<target>> tooltip=<<tt>>/> 
+</li>
+</$list>
+</ul>
+</$wikify>
+</$list>
+</$set>
+</$set>
+<hr/>
+<<lrTagPicker """$tiddler$""">>
+</div>
+</$vars>
+\end
+
+\define lrTagPicker(target)
+<div class="tc-edit-tags">
+<$vars lr-tag-picker-actions="""<$action-listops
+	$tiddler=<<currentTiddler>>
+	$field="tags"
+	$subfilter="[<tag>]"
+/>
+<$action-setfield $tiddler="$(popstate)$" $field="text" $value=""/>
+""">
+<$tiddler tiddler="""$target$""">
+<$macrocall $name="tag-picker" actions=<<lr-tag-picker-actions>>/>
+</$tiddler>
+</$vars>
+</div>
+\end
+
+\define teBtnTagAddRemove(btntext,add:"_false_",remove:"_false_",tooltip,class:"",tiddler:"_false_")
+<$vars tip="""$tip$""" tiddler="""$tiddler$""" btnclass="te-popup-action $class$" add="""$add$""" remove="""$remove$""">
+<$set name="actiontid" filter="[<tiddler>!prefix[_false_]]" value=<<tiddler>> emptyValue=<<currentTiddler>>>
+<$set name="subfilter" filter="[<add>!prefix[_false_]]" value="[[$add$]]" emptyValue="-[[$remove$]]">
+<$wikify name="at" text=<<actiontid>>>
+<$button class=<<btnclass>> tooltip="""$tooltip$""">
+<<teTimestampPause>>
+<$action-listops $tiddler=<<at>> $field="tags" $subfilter=<<subfilter>>/>
+<<teTimestampResume>>
+<$action-setfield $tiddler="""$(popstate)$""" $field="text" $value=""/>
+   <$text text="""$btntext$""">
+</$button>
+</$wikify>
+</$set>
+</$set>
+</$vars>
+\end
+
+\define lrBtnAddTags(tiddler,class:"")
+<$vars tiddler="""$tiddler$""" temptags="$:/temp/lr-tags-$tiddler$">
+<$wikify name="tt" text=<<telang Manage-tags>>>
+<$wikify name="tagfilter" text="<<listfilter>> +[tags[]sort[]]">
+<$button popup=<<qualify "$:/state/popup/lr-tags-$tiddler$">> class="""te-btn-action addtag $class$""" tooltip=<<tt>> >
+<$action-listops $tiddler=<<temptags>> $field="lr-tagsinlist" $filter=<<tagfilter>>/>
+<$action-listops $tiddler=<<temptags>> $field="lr-tagstoremove" $filter="[<tiddler>tags[]]"/>
+<$action-setfield $tiddler=<<temptags>> text=<<lrTaglist """$tiddler$""">>/>
+{{$:/core/images/tag-button}}
+</$button>
+</$wikify>
+</$wikify>
+\end
+
+\define lrTagsPopup(tiddler)
+<$set name="popstate" value=<<qualify "$:/state/popup/lr-tags-$tiddler$">>>
+<$reveal tag="div" class="tc-block-dropdown tc-popup-handle" state=<<popstate>> type="nomatch" text="" default="">
+{{$:/temp/lr-tags-$tiddler$}}
+</$reveal>
+</$set>
+\end
+
+\define lrBtnTags(class:"")
+<span class="lr-flex-wrapper">
+<$wikify name="tiddler" text=<<currentTiddler>>>
+   <$macrocall $name="lrBtnAddTags" tiddler=<<tiddler>> class="""$class$"""/>
+   <$macrocall $name="lrTagsPopup" tiddler=<<tiddler>>/>
+</$wikify>
+</span>
+\end
+
+\define listreveal-tags(exclude:"")
+<$vars exclude="""$exclude$""">
+<span class="listreveal-tags te-flex-item">
+<<lrBtnTags muted>>
+<span class="te-tags">
+<div class="tc-tags-listreveal"><$list filter="[all[current]tags[]sort[title]]" storyview="pop" template="$:/plugins/telmiger/listreveal/templates/tag"/>
+</div>
+</span>
+</span>
+</$vars>
+\end
+
+<!-- !! Listreveal Tags
+
+* lrTaglist
+** show a popup where tags can be added or removed
+** exclude one tag (e.g. master tag of your list)
+* lrTagPicker(tiddler)
+** add tags directly to a target tiddler (e.g. from view mode)
+* teBtnTagAddRemove
+** show a button to add/remove a tag from a tiddler 
+** does not update the modification date as of TW 5.1.14
+* lrBtnTags
+** lrBtnAddTags: show the button (and save the tags that could be added/removed)
+** lrTagsPopup: reveal or hide the popup
+* listreveal-tags
+** put this in your revealed section to show the button and the existing tags
+** muted tag design
+** open-all button
+
+-->

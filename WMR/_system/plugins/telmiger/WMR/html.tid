@@ -1,0 +1,70 @@
+created: 20181124205849430
+creator: Thomas
+modified: 20200219150938529
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/html
+type: text/vnd.tiddlywiki
+
+<div class="wmr-input">
+
+```
+<article class="hello">
+HTML tags work like that.
+<!-- even comments -->
+</article>
+```
+</div>
+
+<article class="hello">
+HTML tags work like that.
+<!-- even comments -->
+</article>
+
+
+<div class="wmr-input">
+
+```
+<a href={{TiddlerWithURL}}>link</a>
+<b class=<<getClass>>>bold</b>
+```
+</div>
+
+<a href={{TiddlerWithURL}}>link</a>
+<b class=<<version>>>bold</b>
+
+set attributes via transclusion or macro
+
+
+<div class="wmr-input">
+
+```
+<div address="""attribute,
+"quoted",
+with,
+linebreaks.""">inspect me!</div>
+```
+</div>
+
+<div address="""attribute,
+"quoted",
+with,
+linebreaks.""">inspect me!</div>
+
+
+<div class="wmr-input">
+
+```
+* nest<div>
+
+; via
+: html
+</div>
+```
+</div>
+
+*nest <div>
+
+;via
+:html
+</div>

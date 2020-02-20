@@ -1,0 +1,26 @@
+caption: StoryAdmin Append
+created: 20190109230425104
+creator: Thomas Elmiger
+modified: 20200219130956343
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/JR-telmiger/StoryAdmin/append
+type: text/vnd.tiddlywiki
+
+\define appendStoryBtn(snap)
+<$list filter="[<__snap__>has[story]]" emptyMessage="<span class='error-message' style='display:none'>Error: Story not found</span>">
+<$wikify name="story" text="{{{ [<__snap__>get[story]] }}}">
+<$button class="tc-btn-invisible" tooltip=<<story>>>
+<$list filter="[enlist<story>]">
+<$action-navigate $to=<<currentTiddler>> $scroll="no"/>
+</$list>
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/JR-telmiger/StoryAdmin/confirm-append"/>
+{{$:/core/images/new-button}} Append to story
+</$button>
+</$wikify>
+</$list>
+\end
+
+<$set name="snap" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##load-storyname}}>
+<$macrocall $name="appendStoryBtn" snap=<<snap>>/>
+</$set>

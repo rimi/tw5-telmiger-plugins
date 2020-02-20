@@ -1,0 +1,40 @@
+created: 20170714205116352
+creator: Thomas Elmiger
+modified: 20190426102400827
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/rpn/readme
+type: text/vnd.tiddlywiki
+
+!! Simple calculations
+
+//rpn// is a lightweight Javascript macro for basic math operations in TiddlyWiki. It is inspired by formerly popular calculators using Reverse Polish Notation (see [[Wikipedia|https://en.wikipedia.org/wiki/Reverse_Polish_notation]] for more info).
+
+`<<rpn 50 2.5 * 2 p>>` output: <<rpn 50 2.5 * 2 p>>
+
+* the macro takes two operands (//a// and //b//) as input – this may be macros or transclusions
+** operands are sent through a simplified [[wikify|http://tiddlywiki.com/#WikifyWidget]] function before calculation starts
+** use //pi// to get π (Math.PI)
+* standard operations: +, -, /, * 
+** advanced operations: modulus (%) and rounding (optional: Math.floor or Math.ceil)
+* output formatting
+** limit digits after comma (//decimals//), force //precision// display with //precision:"p"// (.toPrecision)
+** //locale// formatting (.toLocaleString)
+* string concatenation (&)
+** the resulting string is sent through the internal [[wikify|http://tiddlywiki.com/#WikifyWidget]] function 
+* random numbers in a range from a to b with //precision:"r"// (including both a and b)
+
+!!! New: Wikitext Macros
+* calculate using filters and tiddler fields, see //fields// tab (since version 0.7.1)
+
+!!! Installation
+The plugin available on https://tid.li/tw5/plugins.html includes the documentation.<br>
+If you want the functionality only, you can drag this tiddler to your wiki: $:/plugins/telmiger/rpn/rpn.js – then save and reload. 
+
+!!! Alternatives
+* https://evanbalster.com/tiddlywiki/formulas.html – process numbers and other data just like popular spreadsheet software, with the additional flexibility of functional programming for those who need it
+* http://mathcell.tiddlyspot.com/ – tries to replace spreadsheet applications and uses some identical operators as rpn
+* http://tobibeer.github.io/tb5/#calc – does calculations based on tiddler fields
+* eval – calc combined with ''math.js'' – a heavy math library
+** http://mklauber.github.io/tiddly-mathjs/ 
+** http://tobibeer.github.io/tw5-plugins/#math.js

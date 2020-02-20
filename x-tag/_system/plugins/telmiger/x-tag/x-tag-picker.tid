@@ -1,0 +1,55 @@
+caption: x-tag Editor tag picker
+created: 20190105140021052
+creator: Thomas Elmiger
+modified: 20200219154944377
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/telmiger/x-tag/x-tag-picker
+type: text/vnd.tiddlywiki
+
+\define x-tag-button()
+<$set name="field" filter="[{$:/plugins/telmiger/x-tag/settings##default-label}minlength[1]] ~[[title]]">
+<$button class="tc-btn-invisible" tag="a">
+$(actions)$
+<$action-deletetiddler $tiddler="$:/temp/NewTagName"/>
+<$macrocall $name="x-tag-pill" tag=<<tag>>/>
+</$button>
+</$set>
+\end
+
+\define x-tag-picker(actions)
+<$set name="actions" value="""$actions$""">
+<div class="tc-edit-add-tag x-tag">
+<span class="tc-add-tag-name">
+<$keyboard key="ENTER" actions=<<add-tag-actions>>>
+<$edit-text tiddler="$:/temp/NewTagName" tag="input" default="" placeholder={{$:/language/EditTemplate/Tags/Add/Placeholder}} focusPopup=<<qualify "$:/state/popup/tags-auto-complete">> class="tc-edit-texteditor tc-popup-handle x-tag"/>
+</$keyboard>
+</span> <$button popup=<<qualify "$:/state/popup/tags-auto-complete">> class="tc-btn-invisible" tooltip={{$:/language/EditTemplate/Tags/Dropdown/Hint}} aria-label={{$:/language/EditTemplate/Tags/Dropdown/Caption}}>{{$:/core/images/down-arrow}}</$button> <span class="tc-add-tag-button">
+<$set name="tag" value={{$:/temp/NewTagName}}>
+<$button set="$:/temp/NewTagName" setTo="" class="">
+$actions$
+<$action-deletetiddler $tiddler="$:/temp/NewTagName"/>
+{{$:/language/EditTemplate/Tags/Add/Button}}
+</$button>
+</$set>
+</span>
+</div>
+<div class="tc-block-dropdown-wrapper">
+<$reveal state=<<qualify "$:/state/popup/tags-auto-complete">> type="nomatch" text="" default="">
+<div class="tc-block-dropdown x-tag">
+<$wikify name="x-search" text="[search:{{$:/plugins/telmiger/x-tag/settings##default-label}}[{{$:/temp/NewTagName}}]]">
+<$list filter="[{$:/temp/NewTagName}minlength{$:/config/Tags/MinLength}limit[1]]" emptyMessage="""<div class="tc-search-results">{{$:/language/Search/Search/TooShort}}</div>""" variable="listItem">
+<$list filter="[tags[]!is[system]subfilter<x-search>sort[]] [tags[]is[system]subfilter<x-search>sort[]]" variable="tag">
+<<x-tag-button>>
+</$list></$list>
+</$wikify>
+<hr>
+<$list filter="[{$:/temp/NewTagName}minlength{$:/config/Tags/MinLength}limit[1]]" emptyMessage="""<div class="tc-search-results">{{$:/language/Search/Search/TooShort}}</div>""" variable="listItem">
+<$list filter="[tags[]is[system]search:title{$:/temp/NewTagName}sort[]]" variable="tag">
+<<x-tag-button>>
+</$list></$list>
+</div>
+</$reveal>
+</div>
+</$set>
+\end

@@ -1,0 +1,483 @@
+created: 20160816210925818
+creator: Thomas Elmiger
+modified: 20190426075256134
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet ToDoComponents Listreveal
+title: $:/plugins/telmiger/lib/telements.css
+type: text/vnd.tiddlywiki
+
+/* library of reusable (t)elements */
+
+/* header */
+
+header {
+	background-color: <<colour notification-background>>;
+	padding: 10px;
+	margin: 0 0 0 -10px;
+}
+
+/* te-summary as seen in extract macro */
+
+.te-summary {
+	width: 100%;
+	background-color: <<colour code-background>>;
+}
+
+/* flexbox layout */
+
+.te-flex-content {
+	width: 100%;
+}
+
+.te-flex-item {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	height: auto;
+}
+
+.te-flex-half-full {
+	flex-grow: 1;
+}
+
+.te-flex-left {
+	justify-content: flex-start;
+}
+
+.te-flex-right {
+	justify-content: flex-end;
+}
+
+h2 .te-flex-right, h2 .te-flex-right, h3 .te-flex-right {
+	justify-content: flex-end;
+	width: 33%;
+	max-width: 66%;
+}
+
+.te-tiddler-info {
+	order: 90;
+	margin-top: 2rem;
+}
+
+
+/* lists */
+
+.te-list {
+	list-style: outside none none;
+	margin: 0 0 1rem 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+}
+
+.te-list > li {
+	line-height: 1.5;
+}
+
+.te-list > li {
+	border-top: 1px solid; 
+	border-color: <<colour tab-border>>;
+}
+
+.te-list > li:last-of-type {
+	border-bottom: 1px solid; 
+}
+
+
+.te-list .te-flex-item a.tc-tiddlylink-resolves {
+	flex-grow: 3;
+	max-width: 100%;
+}
+
+.te-list-icon {
+	width: 1em;
+	height: 1em;
+	margin-right: .5rem;
+}
+
+
+/* buttons */
+/* big buttons */
+
+button.te-btn-big, .te-btn-big button {
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+	background: none;
+	display: inline-block;
+	position: relative;
+    vertical-align: middle;
+	top: -4px;
+	width: 3rem;
+	height: 2rem;
+	margin-left: .5rem;
+	border-radius: .25rem;
+	border: 1px solid;
+	border-color: rgba(0, 0, 0, 0.4);
+	background-color: rgba(0, 0, 0, 0.05);
+	font-size: 1.25rem;
+	text-align: center;
+}
+
+button.te-btn-big:hover,
+span.te-btn-big button:hover {
+   background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* standard save button */
+
+button.te-btn-save svg {
+	height: 1.25rem;
+    top: -1px;
+    position: relative;
+}
+
+/* color overlay hack */
+
+button.te-btn-big.te-create::before {
+   background-color: <<colour download-background>>;
+   content: "";
+   position: absolute;
+   top: 0; 
+   left: 0;
+   width: 100%; 
+   height: 100%;  
+   opacity: 0.33; 
+}
+button:hover.te-btn-big.te-create::before {
+   opacity: 0.66; 
+}
+
+.te-btn-big.unlocked {
+   background-color: rgba(0, 0, 0, 0.1);
+}
+.te-btn-big.unlocked:hover {
+   background-color: rgba(0, 0, 0, 0.05);
+}
+.te-btn-big.te-create {
+   background-color: unset;
+}
+.te-btn-big .tc-image-locked-padlock, 
+.te-btn-big .tc-image-unlocked-padlock {
+   margin-bottom: 3px;
+}
+.te-btn-big .tc-image-new-button {
+   margin-bottom: 2px;
+   margin-top: 1px;
+}
+.te-btn-big .tc-image-unfold, 
+.te-btn-big .tc-image-fold {
+   margin-top: 3px;
+}
+
+
+/* action buttons */
+
+button.te-btn-action {
+	border: none;
+	margin: 0;
+	padding: 0;
+	background: none;
+	font-size: 1em;
+	border-radius: .25rem;
+	height: 1.66rem;
+	width: 1.66rem;
+	margin-right: .25rem;
+}
+.te-btn-action svg {
+   fill: <<colour page-controls-foreground>>;
+}
+.te-btn-action.muted svg {
+   opacity:0.4;
+}
+.te-list .te-btn-action.muted svg {
+   opacity:0.4;
+}
+
+.te-list .te-btn-action:hover svg {
+   opacity:0.6;
+}
+
+.te-btn-action.addtag svg {
+   height: 1.5em;
+   width: 1.5em;
+}
+
+.te-btn-action.te-edit svg {
+   height: 1.25em;
+   width: 1.25em;
+   margin-bottom: -2px;
+}
+
+.te-btn-action.te-filter {
+	position: absolute;
+	left: calc(50% - 1rem);
+}
+
+.te-btn-action.te-filter:not(.muted) svg {
+	fill: <<colour dirty-indicator>>;
+}
+
+.te-btn-action.te-prio {
+   background-color: #777;
+   width: calc(1.66rem - 6px);
+   height: calc(1.66rem - 6px);
+   border: 3px solid white;
+   box-sizing: content-box;
+   border-radius: .25rem;
+   line-height: 1;
+}
+.te-btn-action.te-prio.prio2 {
+   background-color: #999;
+}
+.te-btn-action.te-prio.prio3 {
+   background-color: #bbb;
+}
+.te-btn-action.te-prio.prio4 {
+   background-color: #ddd;
+}
+
+
+/* action button in te-tip */
+
+.te-tip .te-btn-action {
+    margin-left: 0.4em;
+    padding-bottom: 25px;
+}
+
+
+/* delete button and delete popup */
+
+.te-btn-delete svg.tc-image-delete-button {
+   width: 1.1em;
+   height: 1.45em;
+}
+
+
+/* popup action buttons */
+
+.te-popup-action {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+/* date picker button */
+
+.te-btn-action.todo-deadline {
+	display: inline-block;
+	text-align: center;
+	width: 1.66rem;
+	height: 1.66rem;
+	margin-right: .25rem;
+	border-radius: .25rem;
+}
+
+.te-btn-action.todo-deadline:hover {
+	cursor: pointer;
+}
+.te-btn-action.todo-deadline span svg {
+	height: 1.25rem;
+	width: 1.25rem;
+	margin-top: 3px;
+	opacity: 0.6;
+}
+
+/* label and icons */
+.te-btn-label {
+   font-size: 0;
+   height: 1px;
+   overflow: hidden;
+   display: block;
+}
+.te-btn-icon {
+   display: block;
+}
+button:hover .te-btn-icon {
+   display: none;
+}
+.te-btn-hovericon {
+   display: none;
+}
+button:hover .te-btn-hovericon {
+   display: block;
+}
+
+/* urgent indicators */
+
+.te-btn-action .urgent {
+    display: table-cell;
+    position: relative;
+    margin-left: 0;
+    left: 0em;
+    top: -10px;
+    font-size: 0.75em;
+    line-height: 1.25;
+    padding: 0 0.1em 0 0.1em;
+    max-width: 3.25em;
+}
+
+.urgent.late {
+   background-color: red;
+   color: white;
+}
+.urgent.today {
+   background-color: yellow;
+   color: red;
+}
+
+
+/* priority buttons */
+
+.te-btn-action.te-prio svg {
+   position: relative;
+   height: 1.65rem;
+   width: 1.5rem;
+   opacity: 0;
+   margin-top: -2.25rem;
+}
+.te-btn-action.te-prio:hover svg {
+   opacity: 0.1;
+}
+.te-btn-action .te-prionr {
+	position: relative;
+	color: #fefefe;
+	font-size: 1.25rem;
+	font-weight: 600;
+}
+.te-btn-action.te-prio.prio1 .te-prionr, .te-btn-action.te-prio.prio2 .te-prionr,
+.te-btn-action.te-prio.prio3 .te-prionr {
+   color: #eee;
+}
+
+.te-prio-list {
+	list-style: none;
+	position: absolute;
+	z-index: 25;
+	border: 1px solid;
+	border-radius: 4px;
+	border-color: <<colour tab-border>>;
+	background-color: <<colour tab-background>>;
+}
+.te-list .te-prio-list {
+	width: 2.75rem;
+	margin: 1.55rem 0 0 -2.5rem;
+	padding: .5rem .5rem .25rem .5rem;
+}
+.te-list .te-prio-list li {
+	line-height: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.te-btn-reveal.tc-reveal {
+    height: 1em;
+}
+
+.te-linkbutton {
+   color: <<colour tiddler-link-foreground>>;
+   background-color: transparent;
+   border: 0;
+}
+
+/* checked icon */
+
+.te-item-checked svg {
+    position: relative;
+    top: .25rem;
+    margin-right: .5rem;
+}
+
+
+/* text */
+
+.te-text {
+   margin: 0 0.5rem 0 0.5rem;
+}
+.te-text.right {
+   margin-left: 1em;
+   margin-right: 0.5em;
+   right: 6em;
+}
+
+
+/* popup tip */
+
+.te-tip {
+   position: absolute;
+   display: none;
+   font-size: 0.875rem;
+   line-height: 1.5;
+   white-space: nowrap;
+   padding: 0.1rem 0.5rem 0.2rem 0.5rem;
+   border-radius: 3px;
+	color: <<colour notification-border>>;
+	border-color: <<colour notification-border>>;
+	background-color: <<colour notification-background>>;
+}
+
+.te-btn-big:hover .te-tip {
+   margin-left: -8em;
+   margin-top: -1.66em;
+   z-index: 500;
+   display: unset;
+}
+
+.te-btn-action:hover .te-tip,
+.te-created:hover .te-tip,
+.te-modified:hover .te-tip {
+   margin-left: -0.4em;
+   margin-top: -1.66rem;
+   z-index: 500;
+   display: unset;
+}
+
+a:hover .te-tip,
+.te-text:hover .te-tip {
+   display: inline-grid;
+   margin-left: -0.8em;
+   margin-top: -0.75em;
+   z-index: 100;
+   text-align: center;
+}
+
+.te-tip:hover span .te-tip, 
+.te-text:hover .te-tip button .te-tip, 
+.te-tip:hover button .te-tip {
+   display: none;
+}
+.te-tip:hover span:hover .te-tip, 
+.te-tip:hover button:hover .te-tip  {
+   margin-top: -1.25em;
+   z-index: 101;
+   display: unset;
+}
+.te-tip span span svg {
+   margin-top: 0.25em;
+}
+
+/* meta info */
+
+.te-created, .te-modified {
+   position: relative;
+}
+
+/* images */
+
+.te-created svg, .te-modified svg {
+   max-height: 1.25em;
+   opacity: 0.6;
+   margin-bottom: -0.2em;
+}
+
+/* very small screens */
+
+@media (max-width: 500px) {
+   .te-btn-action {
+      margin: 0.3em 0.8em 0 0.5em;
+   }
+}

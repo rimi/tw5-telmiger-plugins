@@ -1,0 +1,72 @@
+created: 20170224213250510
+creator: Thomas Elmiger
+modified: 20190426075510605
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: $:/plugins/telmiger/todonow/readme
+type: text/vnd.tiddlywiki
+
+!! Installation instructions
+See http://tid.li/tw5/plugins.html#ToDoNow%20Installation
+
+!!! ~ToDoNow needs Listreveal 
+ToDoNow extends the power of another plugin called //listreveal// to produce lists.
+
+<$list filter="[all[shadows]title[$:/plugins/telmiger/listreveal/readme]!has[text]]">
+[[Get Listreveal from tid.li/tw5/plugins.html|http://tid.li/tw5/plugins.html#Get%20More%20Plugins]]
+</$list>
+
+<$list filter="[all[shadows]title[$:/plugins/telmiger/listreveal/readme]has[text]]">
+Read more about Listreveal: $:/plugins/telmiger/listreveal/readme
+</$list>
+
+!! Feedback
+Found a bug or a feature? Report in the [[Google Group|https://groups.google.com/forum/?hl=de#!forum/tiddlywiki]].
+
+---
+
+!! Versions and updating
+You might want to delete tiddlers that override shadow tiddlers in the plugin. Go to the control panel, fold out the plugin using the down-arrow icon and open the contents tab. Tiddlers in bold are o.k. Tiddlers with names in normal style are dangerous and you might have to delete them to get the new version from the updated plugin.
+
+
+!!! Version 1.2.15
+* Fixed a bug on node.js, where ~$:/state tiddlers disappear on reload .
+* Added support tab and other minor improvements.
+
+!!! Version 1.2.9
+* Minor redesign with better icons, context sensitive colours, less whitespace and additional configuration options:
+** hide the header of ToDoNow
+** check and adjust author/creator info and task template
+** translate all text, date and time formats on ToDoNow via translation tiddlers
+*** you can leave the translation empty to save the space
+* independent save button (no longer a duplication of the core save button, so [[adding an accesskey to the core version|https://groups.google.com/forum/#!msg/tiddlywiki/OJQ0yRq4zog/DqCXRmWxAgAJ]] should not be a problem anymore)
+* listreveal updated to version 0.3.21
+* reminders updated to version 0.1.6
+
+Special thanks to Surya, Mark, Jasper and Josiah for feedback and suggestions!
+
+!!! Version 1.0.9
+* Quotes – single ' and double " – can be used in task titles now (do not put " at the end though)<br>//hint: a prime ′ is not a straight-apostrophe ' or a printer's apostrophe ’//
+* listreveal updated to version 0.2.1
+* reminders updated to version 0.1.4
+
+!!! Version 1.0.8
+* User filters are back – better than ever
+* Configuration info update – how to translate/adjust date and time formats
+
+!!! Version 1.0.7
+* New Addon: Outlook
+** Outlook shows tasks for today/tomorrow/next 7 days – comes with translations en, de, dk
+* Support for new/updated Plugins
+** Reminders: https://tid.li/tw5/plugins.html 
+** [[Datepicker|http://kixam.github.io/TW5-datePicker/]] 0.5.2 and moments.js [[(info)|http://momentjs.com/]] 2.18.1 by kixam
+** [[Checklist by Tony Grosinger|http://grosinger.net/tw5-checklist/]] in the great new version 0.0.14
+*** hint: use tab and space bar to navigate, activate and delete subtasks
+*** (removed unnecessary CSS)
+* Download options
+** Bundles for simple to sophisticated solutions
+** Demo/download page for the complete solution: https://tid.li/tw5/tdn.html
+* Plugin info: new tabs for configuration and usage 
+* Danish translation by Birthe (thank you!)
+* Documentation update
+* and possibly other cool features I forgot to list here

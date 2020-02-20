@@ -1,0 +1,19 @@
+created: 20170625200429837
+creator: Thomas Elmiger
+modified: 20200219145317065
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]]
+title: $:/plugins/telmiger/todonow/outlook/ToDoTomorrow
+type: text/vnd.tiddlywiki
+
+!!! <<telang Tomorrow>>
+
+<$set name="listfilter" value="""[all[]tag[ToDoNow]][all[]tag[ToDo]] +[days:todo-deadline[1]!days:todo-deadline[1]] +[sort[todo-deadline]]""">
+
+<ul class="te-list">
+<$list filter=<<listfilter>> emptyMessage="<li class='todo-empty'><<telang 'Relax-Nothing-to-do'>></li>">
+   <<todonowShowListItem>>
+</$list>
+</ul>
+
+</$set>

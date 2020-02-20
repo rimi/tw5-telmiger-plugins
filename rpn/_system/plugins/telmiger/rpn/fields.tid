@@ -1,0 +1,35 @@
+created: 20181111064908459
+creator: Thomas Elmiger
+modified: 20190426102400835
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/rpn/fields
+type: text/vnd.tiddlywiki
+
+!! Calculate with Field Values and RPN
+
+The //rpnFields// macro takes the value of a defined field from filtered tiddlers, applies the same operation to all and saves the result in a given tiddler. It produces a button to start the calculation and calculates using [[RPN|$:/plugins/telmiger/rpn]].
+
+
+!!! Attributes
+
+|!Attribute |!Description |!Default |
+|filter |a filter to select tiddlers – the macro makes sure to use only the ones containinig the specified //field// |all tiddlers except system tiddlers |
+|startvalue |a value to start with, e.g. the result of a preceding calculation |"0" |
+|field |the name of the field to take the (numeric) value from |"text" |
+|operation |operation to apply to all values |"+" |
+|saveTo |the tiddler to store the result in |$:/temp/telmiger/rpn/result |
+|saveField |the field to store the result in |"text" |
+|label |the label for the button |"Calculate" |
+
+!!! Usage
+
+```
+<<rpnFields "[prefix[yourCODE]]">>
+
+<<rpnFields filter:"[prefix[ZEIT:]]" field:"time_used" saveTo:"" saveField:"time_total" label:"Add all">>
+
+<<rpnFields filter:"[prefix[ZEIT:]]" startvalue:"1000" field:"time_used" operation:"-" label:"Remaining from 1000">>
+```
+
+{{rpnDemo}}

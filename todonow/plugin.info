@@ -1,0 +1,12 @@
+{
+	"title": "$:/plugins/telmiger/todonow",
+	"author": "Thomas Elmiger",
+	"core-version": ">=5.1.14",
+	"description": "ToDoNow – a simple, elegant todo list",
+	"dependents": "$:/plugins/telmiger/listreveal",
+	"list": "readme try-out usage configuration user-filter support",
+	"name": "ToDoNow",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "1.2.15"
+}

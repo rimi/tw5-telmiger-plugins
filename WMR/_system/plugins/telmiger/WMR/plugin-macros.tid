@@ -1,0 +1,46 @@
+created: 20181124191802720
+modified: 20200219150938617
+tags: $:/tags/Macro
+title: $:/plugins/telmiger/WMR/plugin-macros
+type: text/vnd.tiddlywiki
+
+\define wt(wikitext:"example")
+<$wikify name="in" text="""$wikitext$""" type="text/plain">
+<$set name="out" value="""
+
+$wikitext$
+
+""">
+<$macrocall $name="renderWT" input=<<in>> output=<<out>>/>
+</$set>
+</$wikify>
+\end
+
+\define renderWT(input,output)
+<div class="wmr-input">
+
+```
+$input$
+```
+</div>
+<div class="wmr-output">$output$</div>
+\end
+
+\define revealstate(tiddler,stateID)
+<$set name="qualstate" value=<<qualify "$:/state/wiki-markup/$stateID$">> >
+<$reveal type="nomatch" state=<<qualstate>> text="visible" animate="yes">
+   <$button set=<<qualstate>> setTo="visible" class="btnClosed">Show</$button>
+</$reveal>
+<$reveal type="match" state=<<qualstate>> text="visible" animate="yes">
+   <$button set=<<qualstate>> setTo="hidden" class="btnOpen">Hide section</$button>
+<article class="wikitext-examples">
+<$transclude tiddler="$tiddler$" mode="block"/>
+<footer>
+<$list filter="[{$tiddler$!!wmr-source-link}prefix[https://tiddlywiki.com]]">
+<a href={{$tiddler$!!wmr-source-link}}>More on tiddlywiki.com</a> | </$list>
+<$link to="$tiddler$">Open separately</$link>
+</footer>
+</article>
+</$reveal>
+</$set>
+\end

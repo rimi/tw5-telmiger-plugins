@@ -1,0 +1,16 @@
+created: 20170224200058192
+creator: Thomas Elmiger
+modified: 20190426075256060
+modifier: Thomas Elmiger
+priority: 2
+tags: Listreveal Usability Plugins
+title: 04 Checklists
+todo-deadline: 20160912220000000
+todo-done: 20160917214708
+type: text/vnd.tiddlywiki
+
+This plugin comes with CSS to support checklists generated via a plugin by Tony Grosinger – indentation and the display of user interface elements to add and delete items should be optimized for use inside of listreveal lists.
+
+[ ] Install the plugin from https://grosinger.net/tw5-checklist/
+[ ] Make your first checklist
+[x] Read these hints on checklists

@@ -1,0 +1,52 @@
+created: 20170222172249206
+creator: Thomas Elmiger
+modified: 20190426075256099
+modifier: Thomas Elmiger
+tags: Listreveal
+title: $:/plugins/telmiger/listreveal/readme
+type: text/vnd.tiddlywiki
+
+!! Good to Know
+
+A list of things you should know about this plugin. Click the ellipsis button on the right […] to see more.
+
+Use this button to enable editing: <<listrevealBtnEdit>>
+
+<p>&nbsp;</p>
+
+<$set name="listfilter" value="""[all[shadows]prefix[0]sort[title]]""">
+<ul class="te-list">
+<$list filter=<<listfilter>>>
+<$set name="tidTitle" value={{!!title}}>
+   <li class="todo-item te-flex-item">
+      <span class="te-flex-item te-flex-half-full">
+         <span class="te-flex-item te-flex-content te-flex-left">
+   <$link to={{!!title}}><$view field="title"/></$link>
+         </span>
+      </span>
+      <span class="te-flex-item te-flex-half-full">
+         <span class="te-flex-item te-flex-content te-flex-right">
+            <<teBtnEditShowModified>>
+<$wikify name="cl" text=<<telang close>> >
+<$wikify name="tt" text=<<telang Details>> >
+   <$macrocall $name="listrevealButton" title=<<tidTitle>> tooltip=<<tt>> close=<<cl>>/>
+</$wikify>
+</$wikify>
+         </span>
+      </span>
+<$wikify name="tpl" text=<<telang date-created-tmpl>> >
+   <$macrocall $name="listrevealContent" title=<<tidTitle>> datetime=<<tpl>>/>
+</$wikify>
+   </li>
+</$set>
+</$list>
+</ul>
+</$set>
+
+!! Version history
+
+!!! Version 0.3.30
+
+* Fixed a bug on node.js, where ~$:/state tiddlers disappear on reload.
+* Search fields do no longer get automatic focus – configurable via listrevealSearch’s parameter (id:"search",focus:''"yes"'')
+* Plugin support tab and other minor improvements.

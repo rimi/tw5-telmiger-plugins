@@ -1,0 +1,76 @@
+ID:English
+<!-- date formats: date formats start here -->
+date-created-tmpl: {{$:/language/Tiddler/DateFormat}}
+date-created-tmpl-info: DDth MMM YYYY at hh12:0mmpm
+date-deadline-tmpl: YYYY-0MM-0DD
+<!-- titles: titles start here -->
+title-Do: Do
+title-Waiting: Waiting
+title-Done: Done
+<!-- motivation: motivating slogans start here -->
+Motivation-Don’t-do-it: Don’t have to do it? – Say it’s done!
+Motivation-single-task: Do the right ''one'' thing. – Then check & save.
+<!-- strings: strigs start here -->
+Add-tag: Add tag
+Add-tags-from-the-list: Add tags from the list
+all: all
+all-projects: all projects
+archive: archive
+Are-you-sure?: Are you sure?
+Change-deadline: Change deadline
+change-priority: Change priority
+change-priority-to: set priority to
+Click-to-edit-title: Click the title to edit!
+close: Close
+Close: Close
+days-back: days back
+Details: Show details
+Do-it-again: Do it again
+Do-now: Do now
+Done: Done
+Edit: Edit
+Hide-list: Hide list
+late: late
+Manage-tags: Manage tags
+Move-down: Move down
+Move-up: Move up
+New-ToDo-Item: New ToDo Item
+Next week: Next week
+no.: no.
+Open-all: Open all
+Nothing-to-do-?: Nothing to do? Create a task using this button
+Pick-a-task-: Pick a task from the list below using this button
+Print-window-hint: Open in new window to print
+Project: Project
+Recycle: Recycle
+Relax-Nothing-to-do: Relax. Nothing to do.
+Remove-deadline: Remove deadline
+Remove-tags?: Remove tags?
+Reset: Reset
+search: search …
+Send-it-down: Send it down
+Set-deadline: Set deadline
+Show-list: Show list
+Sort-by-deadline: Sort by deadline
+Sort-by-modification: Sort by last modification
+Sort-by-priority: Sort all by priority
+Sort-by-title: Sort all by title
+sorted-by-deadline: sorted by deadline
+sorted-by-modification: sorted by last modification
+sorted-by-priority: sorted by priority
+sorted-by-title: sorted by title
+Switch-to-edit-mode: Switch to edit mode
+Switch-to-safe-mode: Switch to save mode
+Take-it-up: Take it up!
+This-is-done: This is done
+This-week: This week
+today: today
+Today: Today
+ToDo: ToDo
+ToDo-template-title: ToDo Item
+ToDo-template-text: Motivation: Description * Tests/Acceptance criteria
+Tomorrow: Tomorrow
+Uuups: Uuups!
+<!-- comments: comments -->
+<!-- translation requires: $:/plugins/telmiger/lib/telang  -->
+<!-- use translated term: <<telang term>> -->

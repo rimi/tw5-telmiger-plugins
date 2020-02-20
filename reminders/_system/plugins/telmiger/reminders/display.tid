@@ -1,0 +1,23 @@
+created: 20170708221154319
+creator: Thomas Elmiger
+modified: 20190426132421996
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]] $:/tags/TopRightBar
+title: $:/plugins/telmiger/reminders/display
+type: text/vnd.tiddlywiki
+
+<$reveal type="nomatch" state="$:/plugins/telmiger/reminders/settings##show" text="no">
+<$set name="field" value={{$:/plugins/telmiger/reminders/settings##field}}>
+<$set name="tag" value={{$:/plugins/telmiger/reminders/settings##tag}}>
+<$set name="span" value={{$:/plugins/telmiger/reminders/settings##show}}>
+<section class="te-reminders">
+<ul class="te-list">
+<$list filter="""[has<field>tag<tag>!tag[ToDoNow]!sort<field>]""" variable="tiddler">
+<li class="todo-item te-flex-item"><$macrocall $name="reminderCheck" reminder-field=<<field>> tiddler=<<tiddler>> reminderspan=<<span>>/></li>
+</$list>
+</ul>
+</section>
+</$set>
+</$set>
+</$set>
+</$reveal>

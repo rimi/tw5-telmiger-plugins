@@ -1,0 +1,54 @@
+created: 20170411185841380
+creator: Thomas Elmiger
+modified: 20190426075510662
+modifier: Thomas Elmiger
+tags: Reporting [[ToDo Addons]] Plugins
+title: Work-Report
+type: text/vnd.tiddlywiki
+
+<h2 tabindex="1" contenteditable="true">What I have been working on
+<$wikify name="tip" text=<<telang Click-to-edit-title>>>
+<$wikify name="tt" text=<<telang Print-window-hint>>>
+<$macrocall $name="teBtnHint" btntext="{{$:/core/images/file}}" message="tm-open-window" tooltip=<<tt>> tip=<<tip>> class="te-btn-big te-first"/>
+</$wikify>
+</$wikify>
+</h2>
+
+<$set name="reportDaysTiddler" value="$:/temp/report-days">
+<$linkcatcher to="$:/temp/report-days">
+
+@@.lr-search
+<div class="tc-search tdn-report-search">
+<$wikify name="placeholder" text=<<telang no.>> >
+<$edit-text tiddler=<<reportDaysTiddler>> type="search" tag="input" placeholder=<<placeholder>> default="1" size="2" focus="true"/>
+<$reveal state=<<reportDaysTiddler>> type="nomatch" text="">
+<$wikify name="reset" text=<<telang Reset>> >
+<$button tooltip=<<reset>> class="tc-btn-invisible">
+<$action-setfield $tiddler=<<reportDaysTiddler>> text="" />
+{{$:/core/images/close-button}}
+</$button>
+</$wikify>
+</$reveal>
+</$wikify>
+<<telang days-back>> 
+</div>
+@@
+
+</$linkcatcher>
+
+<$wikify name="rdays" text="-{{$:/temp/report-days}}">
+<$wikify name="rtag" text="{{$:/state/report-project}}">
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-report" text="priority" class="tdn-report-priority">
+   <<sortReportPriority>>
+</$reveal>
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##sort-report" text="modified" class="tdn-report-modified">
+   <<sortReportModified>>
+</$reveal>
+</$wikify>
+</$wikify>
+<$reveal state=<<reportDaysTiddler>> type="match" text="" class="tdn-report-empty">
+
+Welcome back!
+
+</$reveal>
+</$set>

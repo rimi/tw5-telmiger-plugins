@@ -1,0 +1,87 @@
+created: 20181128065322406
+creator: Thomas
+modified: 20200219150938468
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/filters
+type: text/vnd.tiddlywiki
+wmr-source-link: https://tiddlywiki.com/#Filter%20Expression
+
+
+!!! Display the result of a filter expression
+
+Use [[filter operators|https://tiddlywiki.com/#Filter%20Operators]] like `tag` to select tiddlers.
+
+List tiddlers tagged `Foo`:
+
+<<wt "{{{ [tag[Foo]] }}}
+">>
+
+List tiddlers tagged `Foo` OR `Bar`:
+
+<<wt "{{{ [tag[Foo]][tag[Bar]] }}}
+">>
+
+List tiddlers tagged `Foo` AND `Bar`:
+
+<<wt "{{{ [tag[Foo]] +[tag[Bar]] }}}
+">>
+
+List tiddlers tagged `Foo` NOT `Bar`:
+
+<<wt "{{{ [tag[Foo]] -[tag[Bar]] }}}
+">>
+
+---
+
+!!! Limit results
+
+<<wt "{{{ [tag[Foo]limit[1]] }}}
+">>
+
+---
+
+!!! Sorting
+
+Sort titles:
+
+<<wt "{{{ [tag[Foo]][tag[Bar]] +[sort[]] }}}
+">>
+
+Sort reverse:
+
+<<wt "{{{ [tag[Foo]][tag[Bar]] +[!sort[]] }}}
+">>
+
+Sort numbers:
+
+<<wt "{{{ [[1]][[10]][[2]][[3]] +[nsort[]] }}}
+">>
+
+First created:
+
+<<wt "{{{ [tag[Foo]][tag[Bar]] +[sort[created]] }}}
+">>
+
+Last modified:
+
+<<wt "{{{ [tag[Foo]][tag[Bar]] +[!sort[modified]] }}}
+">>
+
+---
+
+!!! Special effects
+
+!!!! If empty ... aka Else ~
+
+Since TW version 5.1.18
+
+<<wt "{{{ [tag[foo]] ~[[no foo]] }}}
+">>
+
+!!!! Range
+
+<<wt "{{{ [range[3,1,0.5]] }}}
+">>
+
+See https://tiddlywiki.com/#range%20Operator

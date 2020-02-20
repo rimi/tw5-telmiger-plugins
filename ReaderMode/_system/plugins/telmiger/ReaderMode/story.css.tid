@@ -1,0 +1,58 @@
+created: 20181215151220476
+creator: Thomas Elmiger
+modified: 20200219124306057
+modifier: Thomas Elmiger
+tags: $:/tagremoved/Stylesheet
+title: $:/plugins/telmiger/ReaderMode/story.css
+type: text/vnd.tiddlywiki
+
+/*
+** Reader Mode
+** (c) Thomas Elmiger
+** """ 
+*/
+
+
+body .tc-story-river {
+   background-color: <<colour tiddler-background>>;
+}
+
+body .tc-tiddler-view-frame,
+body .tc-tiddler-frame .tc-reveal.tc-tiddler-body {
+   margin-top: 0;
+   margin-bottom: 0;
+   padding-top: 0;
+   padding-bottom: 0;
+   border: 0;
+   box-shadow: none;
+   min-height: 1em;
+}
+
+body .tc-reveal.tc-tiddler-body:first-child {
+    margin-top: 2rem;
+}
+
+body .tc-tiddler-view-frame .tc-tiddler-body > section:first-child,
+body .tc-tiddler-view-frame .tc-tiddler-body > header:first-child,
+body .tc-tiddler-view-frame .tc-tiddler-body > h1:first-child,
+body .tc-tiddler-view-frame .tc-tiddler-body > h2:first-child {
+    margin-top: 4rem;
+}
+
+
+/* hide tiddler title */
+
+body .tc-tiddler-view-frame .tc-title,
+body .tc-tiddler-view-frame .tc-subtitle {
+   display: none;
+}
+
+body .tc-tiddler-view-frame .tc-tiddler-controls {
+   font-size: 1rem;
+   position: absolute;
+   right: 2rem;
+   margin-top: 2.5rem;
+}
+
+
+/* End """ */

@@ -1,0 +1,9 @@
+created: 20170917204424510
+creator: Thomas Elmiger
+modified: 20200219110755905
+modifier: Thomas Elmiger
+tags: 
+title: $:/config/ShortcutInfo/clipboard-insert-text
+type: text/vnd.tiddlywiki
+
+{{$:/plugins/telmiger/Clipboard/EditorToolbar/cb-insert!!description}} 

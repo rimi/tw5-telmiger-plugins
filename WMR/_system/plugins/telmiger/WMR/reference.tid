@@ -1,0 +1,105 @@
+created: 20181125111047842
+creator: Thomas
+modified: 20200219150938597
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/reference
+type: text/vnd.tiddlywiki
+
+<div class="wikitext-examples">
+
+!! Font Variants
+
+<<revealstate "$:/plugins/telmiger/WMR/font-variants" "font-variants">>
+
+
+!! Lists, Definitions
+
+<<revealstate "$:/plugins/telmiger/WMR/lists" "lists">>
+
+
+!! Links
+
+<<revealstate "$:/plugins/telmiger/WMR/links" "links">>
+
+
+!! Special Characters, Lines, Ruler
+
+<<revealstate "$:/plugins/telmiger/WMR/special-chars" "special-chars">>
+
+
+!! New Lines
+
+<<revealstate "$:/plugins/telmiger/WMR/new-lines" "new-lines">>
+
+
+!! Quotes
+
+<<revealstate "$:/plugins/telmiger/WMR/quotes" "quotes">>
+
+
+!! Styles
+
+<<revealstate "$:/plugins/telmiger/WMR/styles" "styles">>
+
+
+!! Images
+
+<<revealstate "$:/plugins/telmiger/WMR/images" "images">>
+
+
+!! Tables
+
+<<revealstate "$:/plugins/telmiger/WMR/tables" "tables">>
+
+
+!! Code
+
+<<revealstate "$:/plugins/telmiger/WMR/code" "code">>
+
+
+!! Plain HTML
+
+<<revealstate "$:/plugins/telmiger/WMR/html" "html">>
+
+
+!! Transclusion
+
+<<revealstate "$:/plugins/telmiger/WMR/transclusion" "transclusion">>
+
+
+!! Tabs
+
+<<revealstate "$:/plugins/telmiger/WMR/tabs" "tabs">>
+
+
+!! Special Cases
+
+<<revealstate "$:/plugins/telmiger/WMR/special" "special">>
+
+
+!! Variables
+
+<<revealstate "$:/plugins/telmiger/WMR/variables" "variables">>
+
+
+!! Macros
+
+<<revealstate "$:/plugins/telmiger/WMR/macros" "macros">>
+
+
+!! Filters
+
+<<revealstate "$:/plugins/telmiger/WMR/filters" "filters">>
+
+
+!! Templates
+
+<<revealstate "$:/plugins/telmiger/WMR/templates" "templates">>
+
+
+!! Typed Elements
+
+<<revealstate "$:/plugins/telmiger/WMR/typed-elements" "typed-elements">>
+
+</div>

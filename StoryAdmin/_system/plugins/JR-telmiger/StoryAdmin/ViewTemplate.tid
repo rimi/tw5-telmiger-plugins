@@ -1,0 +1,14 @@
+created: 20190104191033297
+creator: Thomas Elmiger
+list-after: $:/core/ui/ViewTemplate/body
+modified: 20200219130956386
+modifier: Thomas Elmiger
+tags: $:/tags/ViewTemplate
+title: $:/plugins/JR-telmiger/StoryAdmin/ViewTemplate
+type: text/vnd.tiddlywiki
+
+<$list filter="[all[current]has[story]]">
+<div>
+<<loadStoryButton>>
+</div>
+</$list>

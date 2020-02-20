@@ -1,0 +1,12 @@
+{
+	"title": "$:/plugins/telmiger/reminders",
+	"author": "Thomas Elmiger",
+	"core-version": ">=5.1.14",
+	"dependents": "ToDoNow",
+	"description": "Reminders for ToDoNow",
+	"list": "readme configuration settings",
+	"name": "Reminders and Alerts",
+	"plugin-type": "plugin",
+	"source": "https://tid.li/tw5/plugins.html",
+	"version": "0.1.7"
+}

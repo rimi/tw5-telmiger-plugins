@@ -1,0 +1,101 @@
+created: 20170627092117795
+creator: Thomas Elmiger
+modified: 20190426075256051
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]] $:/tags/Macro
+title: $:/plugins/telmiger/lib/dates
+type: text/vnd.tiddlywiki
+
+\define yearsSince(date-field:"modified",tiddler)
+<<yearsDiff """$date-field$""" """$tiddler$""">>
+\end
+
+\define monthsSince(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="years" text="""<$macrocall $name="yearsDiff" date-field=<<df>> tiddler=<<tid>>/>""">
+<$wikify name="yearsM" text='<$macrocall $name="rpn" a=<<years>> b=12 operation="*"/>'>
+<$wikify name="months" text="""<$macrocall $name="monthsDiff"date-field=<<df>> tiddler=<<tid>>/>""">
+<$macrocall $name="rpn" a=<<yearsM>> b=<<months>>/>
+</$wikify></$wikify></$wikify></$vars>
+\end
+
+\define daysSince(date-field:"modified",tiddler)
+<<daysDiff $date-field$ """$tiddler$""">>
+\end
+
+\define hoursSince(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="days" text="""<$macrocall $name="daysSince" date-field=<<df>> tiddler=<<tid>>/>""">
+<$wikify name="daysH" text='<$macrocall $name="rpn" a=<<days>> b="24" operation="*"/>'>
+<$wikify name="hours" text="""<$macrocall $name="hoursDiff" date-field=<<df>> tiddler=<<tid>>/>""">
+<$macrocall $name="rpn" a=<<daysH>> b=<<hours>>/>
+</$wikify></$wikify></$wikify></$vars>
+\end
+
+\define minutesSince(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="hours" text="""<$macrocall $name="hoursSince" date-field=<<df>> tiddler=<<tid>>/>"""><$wikify name="hoursM" text='<$macrocall $name="rpn" a=<<hours>> b="60" operation="*"/>'><$wikify name="minutes" text="""<$macrocall $name="minutesDiff" date-field=<<df>> tiddler=<<tid>>/>"""><$macrocall $name="rpn" a=<<hoursM>> b=<<minutes>>/></$wikify></$wikify></$wikify></$vars>
+\end
+
+\define hoursMinutesSince(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="minutes" text="""<$macrocall $name="minutesSince" date-field=<<df>> tiddler=<<tid>>/>"""><$macrocall $name="rpn" a=<<minutes>> b=60 operation="/" precision="f"/> h <$macrocall $name="rpn" a=<<minutes>> b=60 operation="%"/> m</$wikify></$vars>
+\end
+
+\define minutesTo(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="minutes" text="""<$macrocall $name="minutesSince" date-field=<<df>> tiddler=<<tid>>/>"""><$wikify name="result" text='<$macrocall $name="rpn" a=<<minutes>> b="-1" operation="*"/>'><<result>></$wikify></$wikify></$vars>
+\end
+
+\define hoursTo(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="hours" text="""<$macrocall $name="hoursSince" date-field=<<df>> tiddler=<<tid>>/>"""><$wikify name="result" text='<$macrocall $name="rpn" a=<<hours>> b="-1" operation="*"/>'><<result>></$wikify></$wikify></$vars>
+\end
+
+\define yearsDiff(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="a" text='<<now YYYY>>'><$wikify name="b" text="""<$macrocall $name="yearValue" field=<<df>> tiddler=<<tid>>/>"""><$macrocall $name="rpn" a=<<a>> b=<<b>> operation="-"/></$wikify></$wikify></$vars>
+\end
+
+\define monthsDiff(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="a" text='<<now MM>>'><$wikify name="b" text="""<$macrocall $name="monthValue" field=<<df>> tiddler=<<tid>>/>"""><$macrocall $name="rpn" a=<<a>> b=<<b>> operation="-"/></$wikify></$wikify></$vars>
+\end
+
+\define daysDiff(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="a" text='<<now DD>>'><$wikify name="b" text="""<$macrocall $name="dayValue" field=<<df>> tiddler=<<tid>>/>"""><$macrocall $name="rpn" a=<<a>> b=<<b>> operation="-"/></$wikify></$wikify></$vars>
+\end
+
+\define hoursDiff(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$wikify name="a" text='<<now 0hh>>'><$wikify name="b" text="""<$macrocall $name="hoursValue" field=<<df>> tiddler=<<tid>>/>"""><$macrocall $name="rpn" a=<<a>> b=<<b>> operation="-"/></$wikify></$wikify></$vars>
+\end
+
+\define minutesDiff(date-field:"modified",tiddler)
+<$vars df="""$date-field$""" tid="""$tiddler$"""><$set name="update-everything-now" value=<<now 0mm>>><$wikify name="a" text="<<update-everything-now>>"><$wikify name="b" text="<$macrocall $name=minutesValue field=<<df>> tiddler=<<tid>>/>"><$macrocall $name="rpn" a=<<a>> b=<<b>> operation="-"/></$wikify></$wikify></$set></$vars>
+\end
+
+<!-- !! Calculations with dates
+Transform dates in TW [[Date Field Format|http://tiddlywiki.com/#Date%20Fields]]
+
+TODO: Jed Carty has better macros for similar things – build a new version based on these http://ooktech.com/jed/ExampleWikis/DateMacros/
+
+We compare the date string in a given field with the result of the `<<now>>` macro combined with one of the selectors YYYY for years, MM for months, DD for Days, 0hh …, 0mm …, 0ss. Note the 0-prefix for values that could be zero! (They disappear and return nothing when this is missing).
+
+This was developped for use with due dates. The macros are good enough to check if a deadline was missed or if it will be reached soon.
+
+* time since the given timestamp
+** yearsSince(date-field:"modified",tiddler) – tiddler defaults to current
+** monthsSince (counts also the year difference)
+** daysSince – does NOT take the month into account
+*** this would be complicated because of differing number of days in each month
+** hoursSince (counts also the days)
+*** this can result in errors when the days are in different monts
+*** we recommend to filter for days in the same month first
+** minutesSince (counts also the hours and days)
+** hoursMinutesSince – turn minutes from minutesSince back into hours and minutes 
+* time to the given datestamp … – time since inverted (* -1)
+** minutesTo
+** hoursTo
+** missing: daysTo, monthsTo, yearsTo
+* Diff macros
+** yearsDiff(date-field:"modified",tiddler)
+** … and so on for months, days, hours, minutes
+
+
+Syntax: `<<yearsSince created>>`
+
+Result: <<yearsSince created>>
+
+-->

@@ -1,0 +1,32 @@
+created: 20170628185853501
+creator: Thomas Elmiger
+modified: 20190426075510630
+modifier: Thomas Elmiger
+tags: MyMacros $:/tags/Macro ToDoComponents
+title: $:/plugins/telmiger/todonow/filter-button
+todo-done: 20160819011650
+type: text/vnd.tiddlywiki
+
+\define todoUserFilter()
+<$set name="user-filter" value="$:/plugins/telmiger/todonow/settings!!filter">
+<$reveal type="nomatch" state=<<user-filter>> text="">
+<$button to="$:/plugins/telmiger/todonow/user-filter" class="te-btn-action te-filter" tooltip="Change user filter">{{$:/core/images/close-others-button}}
+<span class="te-tip">{{$:/plugins/telmiger/todonow/settings!!filter}}</span>
+</$button>
+</$reveal>
+<$reveal type="match" state="$:/plugins/telmiger/todonow/settings##user-filter-on" text="yes">
+<$reveal type="match" state=<<user-filter>> text="">
+<$button to="$:/plugins/telmiger/todonow/user-filter" class="te-btn-action te-filter muted" tooltip="Set user filter">{{$:/core/images/close-others-button}}
+<span class="te-tip">define your own filter</span>
+</$button>
+</$reveal>
+</$reveal>
+</$set>
+\end
+
+<!-- !! ToDoNow Plugin Macros
+
+!!! Macro for User Filters
+* todoUserFilter – if a user filter is set, show a button with a hint
+
+-->

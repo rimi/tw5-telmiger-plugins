@@ -1,0 +1,28 @@
+created: 20170628175727847
+creator: Thomas Elmiger
+modified: 20190426075510700
+modifier: Thomas Elmiger
+tags: ToDoComponents
+title: $:/plugins/telmiger/todonow/usage
+type: text/vnd.tiddlywiki
+
+!!! Usage
+ToDoNow is meant to be a //simple// todo list for everyone – also for you. Explore! Hover over buttons to get a hint for their function. Klick to try them out. 
+
+!!! Configuration
+On the [[configuration|$:/plugins/telmiger/todonow/configuration]] tab you can adjust the settings for: 
+
+* priority values
+* language
+* template for ~ToDo items
+
+Additional settings can be found on the tab [[user-filter|$:/plugins/telmiger/todonow/user-filter]].
+
+!!! How to change translations, date and time format
+
+# Clone one of the plugin’s language tiddlers, set a new ending for the title, e.g. …/en-foo (do not change the rest of the title). So if you clone $:/plugins/telmiger/lib/languages/en-GB, call your version e.g. $:/plugins/telmiger/lib/languages/en-foo
+# In this tiddler you can change every definition to the right of the colon (:), e.g.  in `date-deadline-tmpl: 0DD.0MM.YYYY` to the text/format you want.
+# Choose your own «language» on the [[configuration|$:/plugins/telmiger/todonow/configuration]] tab of the plugin: en-foo
+
+!!! Addons
+{{ToDo Addons}}

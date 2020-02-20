@@ -1,0 +1,46 @@
+caption: StoryAdmin Save
+created: 20160721203846694
+creator: JR
+modified: 20200219130956429
+modifier: Thomas Elmiger
+tags: $:/tags/Macro
+title: $:/plugins/JR-telmiger/StoryAdmin/save
+type: text/vnd.tiddlywiki
+
+\define saveStoryBtn()
+<$button>
+<$set name="cat" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##save-storycat}}>
+<$set name="myStory" filter="[list[$:/StoryList]!tag[excludeStory]]" >
+<$action-setfield $tiddler="$(snapshot)$" $field="story" $value=<<myStory>>/>
+<$fieldmangler tiddler="$(snapshot)$">
+<$action-sendmessage $message="tm-add-tag" $param=<<cat>>/>
+</$fieldmangler>
+<$action-sendmessage $message="tm-notify" $param="$:/plugins/JR-telmiger/StoryAdmin/confirm-save"/>
+<$list filter="[[$(snapshot)$]!has[title]]" emptyMessage="Yes, update">
+Save
+</$list>
+</$set>
+</$set>
+</$button>
+\end
+
+\define saveStoryBox()
+<$list filter="[field:title{$:/plugins/JR-telmiger/StoryAdmin/settings##save-storyname}has[story]]" emptyMessage=<<saveStoryBtn>> >
+<div class="savewarning">
+Replace existing story in <br>
+<$link><$view field="title"/></$link>?
+<br>
+<<saveStoryBtn>>
+</div>
+</$list>
+\end
+
+<label>Save in category: <<chooseCat "save-storycat">></label>
+
+<label>Name: <$edit-text tag="input" tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" index="save-storyname"/></label>
+
+<$set name="snapshot" value={{$:/plugins/JR-telmiger/StoryAdmin/settings##save-storyname}}>
+<div class="savebox">
+<<saveStoryBox>>
+</div>
+</$set>

@@ -1,0 +1,61 @@
+created: 20190102190045713
+creator: Thomas Elmiger
+modified: 20200219130956471
+modifier: Thomas Elmiger
+title: $:/plugins/JR-telmiger/StoryAdmin/readme
+type: text/vnd.tiddlywiki
+
+!! Story Admin
+
+This plugin is based on [[slidesnstories|http://slidesnstories.tiddlyspot.com/#%24%3A%2Fplugins%2FJR%2Fslidesnstories]] by Jan (JR). While the slides part was removed, some new features for dealing with stories were added.
+
+
+!!! Admin panel
+
+<$checkbox tiddler="$:/plugins/JR-telmiger/StoryAdmin/tab" tag="$:/tags/SideBar"> Show tab in sidebar</$checkbox>
+
+
+!!! Categories
+
+Every story is saved as an entry in a category. (Technically: as a tiddler tagged with the respective category.)
+
+<label>''Top category tag:'' <$edit-text tiddler="$:/plugins/JR-telmiger/StoryAdmin/settings" index="story-tag" size="20" tag="input"/></label>
+
+Click the top category tag to see the available Categories: <$macrocall $name="tag" tag={{$:/plugins/JR-telmiger/StoryAdmin/settings##story-tag}}/>
+
+To add a category, create a tiddler with this tag. Or add a category here: 
+
+{{$:/plugins/JR-telmiger/StoryAdmin/category-new}}
+
+!! Story Admin Macros
+
+!!! Button to load a story
+
+Replace the current story with the tiddlers saved in field //story// of a tiddler titled //Tiddler Title//:
+
+`<<loadStoryBtn "Tiddler Title">>`
+
+or as a macro call:
+
+```
+<$macrocall $name="loadStoryBtn" snap="Tiddler Title"/>
+```
+
+Shortcut for the tiddler the macro is in: 
+
+`<<loadStoryButton>>` uses `{{!!title}}`
+
+
+If there is no story, these macros return an error message.
+
+!!! Button to append a story
+
+Add the tiddlers saved in field //story// of a tiddler titled //Tiddler Title// to the bottom of the story:
+
+`<<appendStoryBtn "Tiddler Title">>`
+
+Also works as a macro call (see above).
+
+If there is no story, this macro returns a hidden error message (invisible HTML span).
+
+

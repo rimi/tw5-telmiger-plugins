@@ -1,0 +1,25 @@
+created: 20181124200421812
+creator: Thomas
+modified: 20200219150938484
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/code
+type: text/vnd.tiddlywiki
+
+<<wt "Display `code` via backticks.">> 
+
+Use double backticks ... <<wt "``for `embedded` backticks`` in code.">>
+
+For longer code use a [[code block|https://tiddlywiki.com/#Code%20Blocks%20in%20WikiText]]:
+
+<div class="wmr-input">
+<pre>&#96;&#96;&#96;
+monospaced
+codeblock
+&#96;&#96;&#96;</pre>
+</div>
+
+```
+monospaced
+codeblock
+```

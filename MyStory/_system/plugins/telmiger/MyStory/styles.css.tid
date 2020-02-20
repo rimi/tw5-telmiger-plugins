@@ -1,0 +1,125 @@
+caption: MyStory Styles
+created: 20190105221436571
+creator: Thomas Elmiger
+modified: 20190426131037416
+modifier: Thomas Elmiger
+tags: $:/tags/Stylesheet
+title: $:/plugins/telmiger/MyStory/styles.css
+type: text/vnd.tiddlywiki
+
+.te-nav-list {
+   list-style: none;
+   padding-left: 0;
+}
+
+
+/* icons */
+
+.te-nav-list svg {
+   height: 1rem;
+   width: 1rem;
+}
+
+.te-nav-list .tc-dirty-indicator svg {
+   margin: 0 0.25rem -0.25rem 1rem;
+}
+
+
+/* buttons */
+
+.te-nav-list button.tc-btn-mini {
+   margin-right: 0.5rem;
+}
+
+.my-story-footer .my-story-close-all-btn {
+   margin-right: 1em;
+}
+
+.te-nav-list .my-story-btn {
+   margin-left: 0.25rem;
+}
+
+/* bookmark icon */
+
+.my-bookmark-icon {
+   margin-right: 0.33em;
+}
+
+
+/* bookmarks tiddler marker */
+
+.my-story-bkmrk {
+   position: absolute;
+   right: -0.1em;
+   font-size: 2.1rem;
+}
+
+.my-story-bkmrk svg {
+   height: 1.75em;
+   max-width: 1.75em;
+}
+
+
+/* bookmarks buttons */
+
+.te-btn-inactive, .te-btn-active {
+   cursor: pointer;
+}
+
+.te-nav-list .te-btn-inactive,
+.te-nav-list .te-btn-active {
+   margin-right: .25rem;
+}
+
+.tc-tiddler-view-frame .te-btn-inactive {
+   display: none;
+}
+
+.tc-tiddler-view-frame:hover .te-btn-inactive {
+   display: initial;
+}
+
+.te-btn-active svg.my-bookmark {
+   color: <<colour primary>>
+}
+
+.te-btn-active svg.my-bookmark:hover {
+   color: rgba(123,123,123,0.3);
+   fill: <<colour foreground>>
+}
+
+.te-btn-active svg.my-bookmark:hover path.vertical-line {
+   fill: transparent;
+}
+
+.te-btn-inactive svg.my-bookmark:hover {
+   fill: <<colour foreground>>
+}
+
+.te-btn-inactive svg.my-bookmark:hover path{
+   color: <<colour foreground>>
+}
+
+.te-btn-inactive input,
+.te-btn-active input {
+   position: absolute;
+   left: -100vw;
+}
+
+.my-bkmrks .te-btn-active {
+   position: relative;
+   top: -0.125rem;
+}
+
+/* InStory Controls*/
+
+.te-footerbar {
+   text-align: right;
+   border-bottom: 1px solid <<colour primary>>;
+   padding: 0.25rem 0;
+}
+
+.te-footerbar button {
+   font-size: 1.5rem;
+   margin-left: 0.5rem;
+}

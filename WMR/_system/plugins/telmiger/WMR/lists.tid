@@ -1,0 +1,114 @@
+created: 20181124191350660
+creator: Thomas
+modified: 20200219150938642
+modifier: Thomas Elmiger
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/lists
+type: text/vnd.tiddlywiki
+
+!! Wikitext lists
+
+!!! Unordered list
+
+<<wt "* list item
+** list in list
+*** list in list in list
+">>
+
+!!! Ordered list
+
+<<wt "# list item
+#* list in list
+#** list in list in list
+# list item
+## numbered list in list
+">>
+
+!!! [[Definition list|https://tiddlywiki.com/#Definitions%20in%20WikiText]]
+
+<<wt "; term
+: definition of the term
+">>
+
+---
+
+!! [[List widget|https://tiddlywiki.com/prerelease/#ListWidget]]
+
+<<wt """<$list filter="[tag[Foo]sort[title]]"/>
+""">>
+
+<<wt "{{{ [tag[Foo]!sort[title]] }}}"
+""">>
+
+
+!!! List format
+
+```
+<ul>
+<$list filter="[tag[Foo]sort[title]]">
+<li><<currentTiddler>></li>
+</$list>
+</ul>
+```
+
+<ul>
+<$list filter="[tag[Foo]sort[title]]">
+<li><<currentTiddler>></li>
+</$list>
+</ul>
+
+!!! Store list item in variable
+
+By default, the title of the list item is stored in the Current Tiddler variable:
+
+
+```
+<$list filter="[tag[Bar]]">
+<<currentTiddler>>
+{{||$:/core/ui/ViewTemplate/tags}}
+</$list>
+```
+
+<$list filter="[tag[Bar]]">
+<<currentTiddler>>
+{{||$:/core/ui/ViewTemplate/tags}}
+</$list>
+
+
+When we store the title in our own variable, the Current Tiddler remains unchanged. In the following example, the tags of the displaying tiddler will be shown:
+
+```
+<$list filter="[tag[Bar]]" variable="tiddler">
+<<tiddler>>
+{{||$:/core/ui/ViewTemplate/tags}}
+</$list>
+```
+
+<$list filter="[tag[Bar]]" variable="tiddler">
+<<tiddler>>
+{{||$:/core/ui/ViewTemplate/tags}}
+</$list>
+
+!!! Empty message
+
+
+```
+<$list filter="[tag[foo]limit[1]]" emptyMessage="No `foo` tagged tiddlers available.">
+`foo` tagged tiddlers exist
+</$list>
+
+```
+
+<$list filter="[tag[foo]limit[1]]" emptyMessage="No `foo` tagged tiddlers available.">
+`foo` tagged tiddlers exist
+</$list>
+
+```
+<$list filter="[tag[Foo]limit[1]]" emptyMessage="no `Foo` tagged tiddlers available">
+`Foo` tagged tiddlers exist.
+</$list>
+```
+
+<$list filter="[tag[Foo]limit[1]]" emptyMessage="no `Foo` tagged tiddlers available">
+`Foo` tagged tiddlers exist.
+</$list>

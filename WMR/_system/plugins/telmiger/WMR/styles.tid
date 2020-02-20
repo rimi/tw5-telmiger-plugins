@@ -1,0 +1,40 @@
+created: 20181124200539896
+creator: Thomas
+modified: 20200219150938574
+modifier: Thomas
+tags: ShortReference
+title: $:/plugins/telmiger/WMR/styles
+type: text/vnd.tiddlywiki
+wmr-source-link: https://tiddlywiki.com/#How%20to%20apply%20custom%20styles
+
+<<wt "!.red CSS
+#.red classes can be
+;.red assigned
+:.red like
+>.red this
+">>
+
+
+<<wt "@@.myClass.red
+assign classes using double @
+@@
+">>
+
+
+<<wt "@@color:darkorange; apply styles directly @@
+">>
+
+
+<<wt "@@.red
+@@border:1px solid blue;
+combine classes and styles 
+@@
+">>
+
+
+<<wt "@@.purple Use style tags. @@ – Is it purple?
+
+<style>
+.purple{color:purple;}
+</style>
+">>

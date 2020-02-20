@@ -1,0 +1,33 @@
+caption: MyMarks
+created: 20190121194507035
+creator: Thomas Elmiger
+e-name: MyMarks Tab
+modified: 20190426131037439
+modifier: Thomas Elmiger
+tags: $:/tags/SideBar
+title: $:/plugins/telmiger/MyStory/bookmarks/tab
+type: text/vnd.tiddlywiki
+
+\define drop-actions()
+<$action-listops $tiddler="MyMark" $subfilter="+[insertbefore:currentTiddler<actionTiddler>]"/>
+\end
+<ul class="my-story te-nav-list">
+<$list filter="[tag[MyMark]!has[draft.of]]" history="$:/HistoryList" storyview="pop">
+<li class="my-bkmrks"><div style="position: relative;">
+<$droppable actions=<<drop-actions>>>
+<div class="tc-droppable-placeholder">
+&nbsp;
+</div>
+<div><<MyStoryBkmrkBtn>><<my-link>></div>
+</$droppable>
+</div>
+</li>
+</$list>
+</ul>
+<$tiddler tiddler="">
+<$droppable actions=<<drop-actions>>>
+<div class="tc-droppable-placeholder">
+&nbsp;
+</div>
+</$droppable>
+</$tiddler>

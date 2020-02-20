@@ -1,0 +1,86 @@
+created: 20170628190548721
+creator: Thomas Elmiger
+modified: 20190426132422049
+modifier: Thomas Elmiger
+tags: [[ToDo Addons]] $:/tags/Macro
+title: $:/plugins/telmiger/reminders/messages
+todo-done: 20160819011650
+type: text/vnd.tiddlywiki
+
+\define reminderCheck(reminder-field,tiddler,reminderspan:"-1")
+<$vars tid="""$tiddler$""" rmf="""$reminder-field$""">
+<$wikify name="checkfilter" text='<<ldsbra>><<tid>>]!days:<<rmf>>[-1<<rdsbra>>'>
+   <$list filter=<<checkfilter>>>
+<$macrocall $name="alertMessage" tiddler=<<tid>> reminder-field=<<rmf>> class="alert yesterday"/>
+   </$list>
+</$wikify>
+<$wikify name="checkfilter" text="""<<ldsbra>><<tid>>]days:<<rmf>>[0<<rdsbra>>""">
+   <$list filter=<<checkfilter>>>
+<$wikify name="timetodeadline" text="""<$macrocall $name="minutesTo" date-field=<<rmf>> tiddler=<<tid>>/>""">
+<$wikify name="reminderspan" text="""<$macrocall $name="rpn" a=$reminderspan$ b=1 operation="+"/>""">
+<$set name="todayMessage" filter="""[<timetodeadline>removeprefix[-]]""" value="alertMessage" emptyValue="reminderMessage">
+<$wikify name="hhmm" text="""<$macrocall $name="dateValue" template=0hh0mm field=<<rmf>> tiddler=<<tid>>/>""">
+<$wikify name="notime" text="""<$list filter="[<hhmm>removeprefix[0000]]" emptyMessage="show"/>""">
+<$set name="zeroClass" filter="[<notime>removeprefix[show]]" value="show" emptyValue="hide notime">
+<$macrocall $name=<<todayMessage>> tiddler=<<tid>> reminder-field=<<rmf>> class=<<zeroClass>>/>
+</$set>
+</$wikify>
+</$wikify>
+</$set>
+</$wikify>
+</$wikify>
+   </$list>
+</$wikify>
+</$vars>
+\end
+
+\define reminderMessage(tiddler,reminder-field,class:"te-reminder")
+<$vars tid="""$tiddler$""" rmf="""$reminder-field$""">
+<$wikify name="remind" text='<$macrocall $name=rpn a=<<timetodeadline>> b=<<reminderspan>> operation="-"/>'>
+<$set name="myClass" filter="[<remind>removeprefix[-]]" value="te-reminder $class$" emptyValue="te-reminder hide">
+<div class=<<myClass>>>
+
+!!! <$link to={{!!title}}><$view field="title"/></$link>
+<div class="te-flex-item">
+<<todoShowDeadline>>  <<todoBtnDeadline>> <<todoBtnDoNow>>
+</div>
+
+<$view field=<<rmf>> format="relativedate"/>
+</div>
+</$set>
+</$wikify>
+</$vars>
+\end
+
+\define alertMessage(tiddler,reminder-field,class:"alert")
+<$vars tid="""$tiddler$""" rmf="""$reminder-field$""">
+<div class="te-reminder $class$">
+
+!!! <$link to={{!!title}}><$view field="title"/></$link>
+<div class="te-flex-item">
+<<todoShowDeadline>>  <<todoBtnDeadline>> <<todoBtnDoNow>>
+</div>
+
+deadline passed <$view field=<<rmf>> format="relativedate"/>
+
+</div>
+</$vars>
+\end
+
+
+<!-- !! Reminders Plugin: Macros for Message Display
+
+!!! Missing
+* Translations
+
+!!! Macros for Reminders
+* reminderCheck(reminder-field,tiddler,reminderspan)
+** show an alert for tasks with a deadline of yesterday or before
+** show an alert or a reminder for tasks with a deadline of today
+*** show a reminder if a task is due today and the user wants to be reminded
+**** consider a global reminder-span in the user settings
+*** show an alert when the deadline was missed if a time (other than 0:00) was set
+* reminderMessage(reminder-field,class:"reminder") – sub-macro for the message content
+* alertMessage(reminder-field,class:"alert") – sub-macro for alerts when deadline has been missed
+
+-->
