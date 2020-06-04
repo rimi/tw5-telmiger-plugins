@@ -1,9 +1,0 @@
-created: 20170914190201427
-creator: Thomas Elmiger
-modified: 20200219094243027
-modifier: Thomas Elmiger
-tags: $:/tags/Image
-title: $:/core/images/done-close-button
-type: text/vnd.tiddlywiki
-
-<svg xmlns="http://www.w3.org/2000/svg" class="tc-image-button edit-btn-icon save-close" viewBox="0 0 22 22"><path d="M7,19c-0.537,0 -1,-0.5 -1,-0.5l-5.596,-6.616c-0.538,-0.54 -0.538,-1.41 0,-1.946c0.535,-0.536 1.407,-0.536 1.945,0l4.651,5.562l12.6,-13.1c0.537,-0.537 1.363,-0.537 1.9,0c0.536,0.536 0.587,1.413 0.05,1.95l-13.55,14.15c0,0 -0.463,0.5 -1,0.5Z"/><path class="tc-mini-icon" d="M17.5,22c-2.469,0 -4.5,-2.031 -4.5,-4.5c0,-2.469 2.031,-4.5 4.5,-4.5c2.469,0 4.5,2.031 4.5,4.5c0,2.469 -2.031,4.5 -4.5,4.5Z"/><path class="tc-mini-icon-foreground" d="M17.5,18.5l-1.5,1.6l-1,-1l1.6,-1.6l-1.6,-1.6l1,-1l1.6,1.6l1.6,-1.6l1,1l-1.6,1.6l1.6,1.6l-1,1l-1.6,-1.6l-0.1,0Z"/></svg>

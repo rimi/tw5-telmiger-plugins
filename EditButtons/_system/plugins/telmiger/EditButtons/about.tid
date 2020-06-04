@@ -1,0 +1,15 @@
+created: 20200523215035865
+modified: 20200604183653250
+tags: 
+title: $:/plugins/telmiger/EditButtons/about
+type: text/vnd.tiddlywiki
+
+The [[EditButtons|$:/plugins/telmiger/EditButtons]] plugin makes editing more efficient by adding three buttons to the edit toolbar: 
+
+{{$:/plugins/telmiger/EditButtons/images/cancel-close-button}} Cancel & Close (Discard & Close)
+
+{{$:/plugins/telmiger/EditButtons/images/done-close-button}} Save & Close (Done & Close)
+
+{{$:/plugins/telmiger/EditButtons/images/done-open-button}} Save & Keep Open (Done & Reopen)
+
+Inspired by Josiah and Richard William Smith. See Discussion in the [[Google Group|https://groups.google.com/d/msg/tiddlywiki/A4v-DqjN_D8/4hkOaaf0BQAJ]].

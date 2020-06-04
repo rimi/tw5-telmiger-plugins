@@ -1,0 +1,25 @@
+created: 20181104092840050
+creator: Thomas Elmiger
+modified: 20200604183653329
+modifier: Thomas Elmiger
+tags: 
+title: $:/plugins/telmiger/EditButtons/settings
+type: text/vnd.tiddlywiki
+
+!! Settings
+
+!!! Design
+
+Choose an icon style here, see the result below in the Toolbar section.
+
+<$radio tiddler="$:/plugins/telmiger/EditButtons/settings/style" value="$:/plugins/telmiger/EditButtons/styles/coloured.css"> Colourful</$radio> – defined in [[.../styles/coloured.css|$:/plugins/telmiger/EditButtons/styles/coloured.css]]
+
+<$radio tiddler="$:/plugins/telmiger/EditButtons/settings/style" value="$:/plugins/telmiger/EditButtons/styles/light.css"> Light colours</$radio> – defined in [[.../styles/light.css|$:/plugins/telmiger/EditButtons/styles/light.css]]
+
+<$radio tiddler="$:/plugins/telmiger/EditButtons/settings/style" value="$:/plugins/telmiger/EditButtons/styles/standard-accent.css"> Standard colours with accented mini icons</$radio> – defined in [[.../styles/standard-accent.css|$:/plugins/telmiger/EditButtons/styles/standard-accent.css]]
+
+<$radio tiddler="$:/plugins/telmiger/EditButtons/settings/style" value="$:/plugins/telmiger/EditButtons/styles/standard.css"> Standard colours</$radio> – defined in [[.../styles/standard.css|$:/plugins/telmiger/EditButtons/styles/standard.css]]
+
+!!! Toolbar configuration
+
+{{$:/core/ui/ControlPanel/Toolbars/EditToolbar}}

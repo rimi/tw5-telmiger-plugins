@@ -1,20 +1,20 @@
-caption: {{$:/core/images/cancel-close-button}} {{$:/language/Buttons/Cancel-Close/Caption}}
+caption: {{$:/plugins/telmiger/EditButtons/images/cancel-close-button}} {{$:/language/Buttons/Cancel-Close/Caption}}
 created: 20170911162241564
 creator: Thomas Elmiger
 description: {{$:/language/Buttons/Cancel-Close/Hint}}
-modified: 20200219094243011
+modified: 20200604183653216
 modifier: Thomas Elmiger
 tags: $:/tags/EditToolbar
-title: $:/core/ui/Buttons/cancel-and-close
+title: $:/plugins/telmiger/EditButtons/Buttons/cancel-and-close
 type: text/vnd.tiddlywiki
 
 <$button tooltip={{$:/language/Buttons/Cancel-Close/Hint}} aria-label={{$:/language/Buttons/Cancel-Close/Caption}} class=<<tv-config-toolbar-class>>>
 <$action-sendmessage $message="tm-cancel-tiddler"/>
-<$list filter="[all[current]get[draft.of]]" variable="originaltiddler">
-<$action-sendmessage $message="tm-close-tiddler" $param=<<originaltiddler>>/>
+<$list filter="[all[current]get[draft.of]]">
+<$action-sendmessage $message="tm-close-tiddler"/>
 </$list>
 <$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
-{{$:/core/images/cancel-close-button}}
+{{$:/plugins/telmiger/EditButtons/images/cancel-close-button}}
 </$list>
 <$list filter="[<tv-config-toolbar-text>prefix[yes]]">
 <span class="tc-btn-text"><$text text={{$:/language/Buttons/Cancel-Close/Caption}}/></span>

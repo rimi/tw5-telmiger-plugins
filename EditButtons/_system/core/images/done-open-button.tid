@@ -1,9 +1,0 @@
-created: 20170916150802062
-creator: Thomas Elmiger
-modified: 20200219094243018
-modifier: Thomas Elmiger
-tags: $:/tags/Image
-title: $:/core/images/done-open-button
-type: text/vnd.tiddlywiki
-
-<svg xmlns="http://www.w3.org/2000/svg" class="tc-image-button edit-btn-icon save-open" viewBox="0 0 22 22"><path d="M7,19c-0.537,0 -1,-0.5 -1,-0.5l-5.596,-6.616c-0.538,-0.54 -0.538,-1.41 0,-1.946c0.535,-0.536 1.407,-0.536 1.945,0l4.651,5.562l12.6,-13.1c0.537,-0.537 1.363,-0.537 1.9,0c0.536,0.536 0.587,1.413 0.05,1.95l-13.55,14.15c0,0 -0.463,0.5 -1,0.5Z"/><path class="tc-mini-icon" d="M15.577,13.971c-1.606,0 -1.606,1.606 -1.606,1.606l0,4.817c0,0 0,1.606 1.606,1.606l4.817,0c1.606,0 1.606,-1.606 1.606,-1.606l0,-4.817c0,0 0,-1.606 -1.606,-1.606l-4.817,0Z"/><rect class="tc-mini-icon-foreground" x="15.927" y="15.927" width="4" height="4"/></svg>

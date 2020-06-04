@@ -1,0 +1,15 @@
+created: 20170916150802062
+creator: Thomas Elmiger
+modified: 20200604183653296
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/EditButtons/images/done-open-button
+type: text/vnd.tiddlywiki
+
+<svg xmlns="http://www.w3.org/2000/svg" class="tc-image-button edit-btn-icon save-open" viewBox="0 0 22 22">
+<g fill="white" stroke-width="0">
+  <path fill="currentColor" d="M7 19c-.5 0-1-.5-1-.5L.4 11.9a1.4 1.4 0 112-2L7 15.5 19.6 2.4c.5-.5 1.4-.5 1.9 0s.6 1.4 0 2L8 18.4s-.5.5-1 .5z"/>
+  <path fill="currentColor" class="tc-mini-icon icon-accent" d="M15.6 14C14 14 14 15.6 14 15.6v4.8s0 1.6 1.6 1.6h4.8c1.6 0 1.6-1.6 1.6-1.6v-4.8s0-1.6-1.6-1.6h-4.8z"/>
+  <path class="tc-mini-icon-foreground" d="M15.9 15.9h4v4h-4z"/>
+</g>
+</svg>

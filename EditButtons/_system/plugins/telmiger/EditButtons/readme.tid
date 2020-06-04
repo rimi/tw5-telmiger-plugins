@@ -1,23 +1,33 @@
 created: 20170531175031820
 creator: Thomas Elmiger
-modified: 20200219094242951
+modified: 20200604183653315
 modifier: Thomas Elmiger
 priority: 1
-tags: Hacks ToDo
 title: $:/plugins/telmiger/EditButtons/readme
 type: text/vnd.tiddlywiki
 
 !! The Plugin
 
-The [[EditButtons|$:/plugins/telmiger/EditButtons]] plugin makes editing of tiddlers more efficient by adding three buttons to the ''edit toolbar'': 
+{{$:/plugins/telmiger/EditButtons/about}}
 
-* Cancel & Close (Discard & Close)
-* Save & Close (Done & Close)
-* Save & Keep Open (Done & Reopen)
-
-Inspired by Josiah and Richard William Smith. See Discussion in the [[Google Group|https://groups.google.com/d/msg/tiddlywiki/A4v-DqjN_D8/4hkOaaf0BQAJ]].
+---
 
 !!! Versions
+
+!!!! 1.0.6
+* Spelling correction, thanks Mat!
+
+!!!! 1.0.5 – Inspired by Mat <:-)
+* toolbar configuration added to settings
+* revised CSS, additional icon style
+* renamed icons and buttons to move them into the plugin namespace
+
+!!!! 1.0.4
+* settings, new styles and license added
+* refactoring of icons and CSS
+
+!!!! 1.0.3
+* update for TW version 5.1.22
 
 !!!! 1.0.2
 * simpler button graphics (single svg)
@@ -30,15 +40,17 @@ Inspired by Josiah and Richard William Smith. See Discussion in the [[Google Gro
 ** edit-btn-icon (in variants cancel-close, save-close, save-open)
 ** tc-mini-icon
 
+---
+
 !!! Plugin components
 * buttons
-** $:/core/ui/Buttons/cancel-and-close
-** $:/core/ui/Buttons/save-and-close
-** $:/core/ui/Buttons/save-open
+** $:/plugins/telmiger/EditButtons/Buttons/cancel-and-close
+** $:/plugins/telmiger/EditButtons/Buttons/save-and-close
+** $:/plugins/telmiger/EditButtons/Buttons/save-open
 * button graphics
-** $:/core/images/done-close-button
-** $:/core/images/cancel-close-button
-** $:/core/images/done-open-button
+** $:/plugins/telmiger/EditButtons/images/done-close-button
+** $:/plugins/telmiger/EditButtons/images/cancel-close-button
+** $:/plugins/telmiger/EditButtons/images/done-open-button
 * SVG
 ** $:/core/images/done-button – a slightly modified core button. <br>Original: <$transclude tiddler="$:/core" subtiddler="$:/core/images/done-button"/> => {{$:/core/images/done-button}} 
 * Hints and Captions you could translate
@@ -50,3 +62,6 @@ Inspired by Josiah and Richard William Smith. See Discussion in the [[Google Gro
 ** $:/language/Buttons/Save-Open/Caption
 * CSS
 ** $:/plugins/telmiger/EditButtons/styles.css
+*** $:/plugins/telmiger/EditButtons/styles/coloured.css
+*** $:/plugins/telmiger/EditButtons/styles/light.css
+*** $:/plugins/telmiger/EditButtons/styles/standard.css

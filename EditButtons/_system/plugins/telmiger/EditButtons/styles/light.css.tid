@@ -1,0 +1,46 @@
+created: 20200524124613294
+modified: 20200604183653367
+tags: 
+title: $:/plugins/telmiger/EditButtons/styles/light.css
+type: text/vnd.tiddlywiki
+
+/* Colours */
+
+.edit-btn-icon.cancel-close {
+    color: rgb(255,150,150);
+}
+
+.edit-btn-icon.cancel-close:hover {
+    color: rgba(255,0,0,0.75);
+}
+
+.edit-btn-icon.save-close {
+    color: #ffcc99;
+}
+
+.edit-btn-icon.save-close:hover {
+    color: orange;
+}
+
+.edit-btn-icon.save-open {
+    color: rgb(125,300,125);
+}
+
+.edit-btn-icon.save-open:hover {
+    color: rgba(0,200,0,0.75);
+}
+
+
+/* Mini Icon Colours */
+
+.edit-btn-icon .icon-accent {
+    fill: <<colour tiddler-controls-foreground>>;
+}
+
+.edit-btn-icon:hover .icon-accent {
+    fill: <<colour tiddler-controls-foreground-hover>>;
+}
+
+.edit-btn-icon .tc-mini-icon-foreground {
+    fill: <<colour tiddler-background>>;
+}

@@ -1,0 +1,15 @@
+created: 20170911161631900
+creator: Thomas Elmiger
+modified: 20200604183653269
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/EditButtons/images/cancel-close-button
+type: text/vnd.tiddlywiki
+
+<svg xmlns="http://www.w3.org/2000/svg" class="tc-image-button edit-btn-icon cancel-close" viewBox="0 0 22 22">
+<g fill="white" stroke-width="0">
+  <path fill="currentColor" d="M11 13.1l-3 3a1.4 1.4 0 11-1.9-2l3-3-3-2.8a1.4 1.4 0 112-2l2.9 3 3-3a1.4 1.4 0 111.9 2l-3 2.9 3 2.9a1.4 1.4 0 11-2 2L11 13zm0 9c6 0 11-4.9 11-11 0-6-5-11-11-11s-11 5-11 11c0 6.1 5 11 11 11zm0-2.7c4.5 0 8.3-3.7 8.3-8.2 0-4.6-3.8-8.3-8.3-8.3a8.3 8.3 0 00-8.3 8.3c0 4.5 3.8 8.2 8.3 8.2z" fill-rule="evenodd"/>
+  <path class="tc-mini-icon icon-accent" fill="currentColor" d="M17.5 22C15 22 13 20 13 17.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"/>
+  <path class="tc-mini-icon-foreground" d="M17.5 18.5L16 20.1l-1-1 1.6-1.6-1.6-1.6 1-1 1.6 1.6 1.6-1.6 1 1-1.6 1.6 1.6 1.6-1 1-1.6-1.6h-.1z"/>
+</g>
+</svg>

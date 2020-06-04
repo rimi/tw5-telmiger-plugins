@@ -1,0 +1,22 @@
+caption: {{$:/plugins/telmiger/EditButtons/images/done-open-button}} {{$:/language/Buttons/Save-Open/Caption}}
+created: 20170916134122812
+creator: Thomas Elmiger
+description: {{$:/language/Buttons/Save-Open/Hint}}
+modified: 20200604183653236
+modifier: Thomas Elmiger
+tags: $:/tags/EditToolbar
+title: $:/plugins/telmiger/EditButtons/Buttons/save-open
+type: text/vnd.tiddlywiki
+
+<$fieldmangler><$button tooltip={{$:/language/Buttons/Save-Open/Hint}} aria-label={{$:/language/Buttons/Save-Open/Caption}} class=<<tv-config-toolbar-class>>>
+<<save-tiddler-actions>>
+<$list filter="[all[current]get[draft.title]]">
+<$action-sendmessage $message="tm-edit-tiddler"/>
+</$list>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/telmiger/EditButtons/images/done-open-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/language/Buttons/Save-Open/Caption}}/></span>
+</$list>
+</$button></$fieldmangler>

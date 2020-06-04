@@ -1,0 +1,15 @@
+created: 20170914190201427
+creator: Thomas Elmiger
+modified: 20200604183653282
+modifier: Thomas Elmiger
+tags: $:/tags/Image
+title: $:/plugins/telmiger/EditButtons/images/done-close-button
+type: text/vnd.tiddlywiki
+
+<svg xmlns="http://www.w3.org/2000/svg" class="tc-image-button edit-btn-icon save-close" viewBox="0 0 22 22">
+<g fill="white" stroke-width="0">
+  <path fill="currentColor" d="M7 19c-.5 0-1-.5-1-.5L.4 11.9a1.4 1.4 0 112-2L7 15.5 19.6 2.4c.5-.5 1.4-.5 1.9 0s.6 1.4 0 2L8 18.4s-.5.5-1 .5z"/>
+  <path class="tc-mini-icon icon-accent" fill="currentColor" d="M17.5 22C15 22 13 20 13 17.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"/>
+  <path class="tc-mini-icon-foreground" d="M17.5 18.5L16 20.1l-1-1 1.6-1.6-1.6-1.6 1-1 1.6 1.6 1.6-1.6 1 1-1.6 1.6 1.6 1.6-1 1-1.6-1.6h-.1z"/>
+</g>
+</svg>

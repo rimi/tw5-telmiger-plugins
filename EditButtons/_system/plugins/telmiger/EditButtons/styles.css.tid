@@ -1,33 +1,9 @@
 created: 20170914192742622
 creator: Thomas Elmiger
-modified: 20200219094242942
+modified: 20200604183653345
 modifier: Thomas Elmiger
 tags: $:/tags/Stylesheet
 title: $:/plugins/telmiger/EditButtons/styles.css
 type: text/vnd.tiddlywiki
 
-/* Colours */
-
-.edit-btn-icon.cancel-close {
-    fill: rgba(255,0,0,0.75);
-}
-
-.edit-btn-icon.save-close,
-.tc-plugin-info .tc-plugin-info-chunk > svg.save-close {
-    fill: orange;
-}
-
-.edit-btn-icon.save-open {
-    fill: rgba(0,200,0,0.75);
-}
-
-
-/* Mini Icon Colours */
-
-.edit-btn-icon .tc-mini-icon {
-    fill: #000;
-}
-
-.edit-btn-icon .tc-mini-icon-foreground {
-    fill: #fff;
-}
+<$transclude tiddler={{$:/plugins/telmiger/EditButtons/settings/style}}/>

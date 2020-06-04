@@ -1,9 +1,11 @@
 created: 20170914191345424
 creator: Thomas Elmiger
-modified: 20200219094243033
+modified: 20200604183653065
 modifier: Thomas Elmiger
 tags: $:/tags/Image
 title: $:/core/images/done-button
 type: text/vnd.tiddlywiki
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" class="tc-image-button tc-image-done-button" fill="currentColor" width="22pt" height="22pt"><path d="M7 19c-.422 0-.73-.23-1-.5L.404 11.884c-.538-.54-.538-1.41 0-1.946.535-.536 1.407-.536 1.945 0L7 15.5 19.6 2.4c.537-.537 1.363-.537 1.9 0 .536.536.587 1.413.05 1.95L8 18.5s-.578.5-1 .5z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22" class="tc-image-button tc-image-done-button" width="22pt" height="22pt">
+<path fill-rule="evenodd"  stroke="none" d="M7 19c-.5 0-1-.5-1-.5L.4 11.9a1.4 1.4 0 112-2L7 15.5 19.6 2.4c.5-.5 1.4-.5 1.9 0s.6 1.4 0 2L8 18.4s-.5.5-1 .5z"/>
+</svg>

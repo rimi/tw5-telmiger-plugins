@@ -1,0 +1,26 @@
+created: 20200524122156466
+modified: 20200604183653420
+tags: 
+title: $:/plugins/telmiger/EditButtons/styles/standard.css
+type: text/vnd.tiddlywiki
+
+/* Colours */
+
+.edit-btn-icon {
+    color: <<colour tiddler-controls-foreground>>;
+}
+
+.edit-btn-icon:hover {
+    color: <<colour tiddler-controls-foreground-hover>>;
+}
+
+
+/* Mini Icon Colours */
+
+.edit-btn-icon .icon-accent {
+    fill: <<colour tiddler-controls-foreground>>;
+}
+
+.edit-btn-icon .tc-mini-icon-foreground {
+    fill: <<colour tiddler-background>>;
+}

@@ -1,0 +1,22 @@
+caption: {{$:/plugins/telmiger/EditButtons/images/done-close-button}} {{$:/language/Buttons/Save-Close/Caption}}
+created: 20170531174454839
+creator: Thomas Elmiger
+description: {{$:/language/Buttons/Save-Close/Hint}}
+modified: 20200604183653229
+modifier: Thomas Elmiger
+tags: $:/tags/EditToolbar
+title: $:/plugins/telmiger/EditButtons/Buttons/save-and-close
+type: text/vnd.tiddlywiki
+
+<$fieldmangler><$button tooltip={{$:/language/Buttons/Save-Close/Hint}} aria-label={{$:/language/Buttons/Save-Close/Caption}} class=<<tv-config-toolbar-class>>>
+<<save-tiddler-actions>>
+<$list filter="[all[current]get[draft.title]]">
+<$action-sendmessage $message="tm-close-tiddler"/>
+</$list>
+<$list filter="[<tv-config-toolbar-icons>prefix[yes]]">
+{{$:/plugins/telmiger/EditButtons/images/done-close-button}}
+</$list>
+<$list filter="[<tv-config-toolbar-text>prefix[yes]]">
+<span class="tc-btn-text"><$text text={{$:/language/Buttons/Save-Close/Caption}}/></span>
+</$list>
+</$button></$fieldmangler>
