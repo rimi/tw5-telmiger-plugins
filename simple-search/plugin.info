@@ -2,7 +2,7 @@
 	"title": "$:/plugins/telmiger/simple-search",
 	"author": "Thomas Elmiger",
 	"core-version": ">=5.1.18",
-	"description": "Simple Search – Search & find stuff easily",
+	"description": "Search & find stuff easily",
 	"list": "readme settings support license",
 	"name": "Simple Search",
 	"plugin-type": "plugin",
