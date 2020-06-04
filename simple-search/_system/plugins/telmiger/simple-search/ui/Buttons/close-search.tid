@@ -1,7 +1,7 @@
 caption: {{$:/core/images/close-button}} Close Search
 created: 20190303205314106
 creator: Thomas Elmiger
-modified: 20190426081734650
+modified: 20200604181038807
 modifier: Thomas Elmiger
 title: $:/plugins/telmiger/simple-search/ui/Buttons/close-search
 type: text/vnd.tiddlywiki

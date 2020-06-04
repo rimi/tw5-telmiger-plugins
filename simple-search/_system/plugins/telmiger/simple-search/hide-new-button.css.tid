@@ -1,0 +1,9 @@
+created: 20200528214941993
+modified: 20200604181038542
+tags: 
+title: $:/plugins/telmiger/simple-search/hide-new-button.css
+type: text/vnd.tiddlywiki
+
+.tc-simple-search-results .tc-image-new-button {
+   display: none;
+}
