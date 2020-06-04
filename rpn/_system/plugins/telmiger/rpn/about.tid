@@ -1,0 +1,10 @@
+created: 20200524154716663
+modified: 20200604183147819
+tags: 
+title: $:/plugins/telmiger/rpn/about
+type: text/vnd.tiddlywiki
+
+
+//rpn// is a lightweight Javascript macro for basic math operations. It is inspired by formerly popular calculators using Reverse Polish Notation (see [[Wikipedia|https://en.wikipedia.org/wiki/Reverse_Polish_notation]] for more info). Usage example:
+
+`<<rpn 5000 200 * 2 p en-GB>>` output: <<rpn 5000 200 * 2 p en-GB>>

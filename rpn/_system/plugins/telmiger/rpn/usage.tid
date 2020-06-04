@@ -1,6 +1,6 @@
 created: 20170715121502832
 creator: Thomas Elmiger
-modified: 20190426102400806
+modified: 20200604183148059
 modifier: Thomas Elmiger
 tags: [[ToDo Addons]]
 title: $:/plugins/telmiger/rpn/usage
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 !! Usage
 
-`<<rpn 5000 200 * 2 p en-GB>>` output: <<rpn 5000 200 * 2 p en-US>>
+`<<rpn 5000 200 * 2 p en-GB>>` output: <<rpn 5000 200 * 2 p en-GB>>
 
 The following operations can be used with two operands:
 

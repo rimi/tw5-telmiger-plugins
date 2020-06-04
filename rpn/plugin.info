@@ -1,4 +1,4 @@
-{
+﻿{
 	"title": "$:/plugins/telmiger/rpn",
 	"author": "Thomas Elmiger",
 	"core-version": ">=5.1.14",
@@ -7,5 +7,5 @@
 	"name": "rpn",
 	"plugin-type": "plugin",
 	"source": "https://tid.li/tw5/plugins.html",
-	"version": "0.7.1"
+	"version": "0.7.3"
 }
