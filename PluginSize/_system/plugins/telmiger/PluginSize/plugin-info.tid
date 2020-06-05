@@ -2,10 +2,10 @@ caption: {{$:/core/images/info-button}} Plugin Info
 created: 20190308213013859
 creator: Thomas Elmiger
 list-after: $:/core/ui/ControlPanel/Plugins
-modified: 20190426122812440
+modified: 20200605060258392
 modifier: Thomas Elmiger
 tags: $:/tags/ControlPanel
-title: $:/plugins/telmiger/PluginSize/lists
+title: $:/plugins/telmiger/PluginSize/plugin-info
 type: text/vnd.tiddlywiki
 
 \define lingo-base() $:/language/ControlPanel/Plugins/

@@ -1,6 +1,6 @@
 created: 20190127210600496
 creator: Thomas Elmiger
-modified: 20190426122812430
+modified: 20200605060258408
 modifier: Thomas Elmiger
 tags: 
 title: $:/plugins/telmiger/PluginSize/readme
@@ -8,7 +8,7 @@ type: text/vnd.tiddlywiki
 
 !! Plugin Size
 
-This plugin calculates the size of all installed plugins, including themes and languages.
+{{$:/plugins/telmiger/PluginSize/about}}
 
 !!! Categories (character count)
 
@@ -31,8 +31,8 @@ This is done using the following other plugins:
 The size of installed plugins can be found on 
 
 * a tab //{{$:/core/images/info-button}} Plugin Info// in the $:/ControlPanel 
-* on $:/plugins/telmiger/PluginSize/lists
+* on $:/plugins/telmiger/PluginSize/plugin-info
 
 !!! Copyright 
 
-© 2019, Thomas Elmiger
+© 2019-2020, Thomas Elmiger
