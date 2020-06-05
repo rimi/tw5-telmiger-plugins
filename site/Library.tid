@@ -7,4 +7,4 @@ The plugin library for the plugins made by Thomas Elmiger.
 
 Please check prerequisit of each plugin before install! Some of them depends on other plugin and should be installed together.
 
-Copy this link to add the plugin library:  [[$:/config/TelmigerPluginLibrary]]
+Drag this link to your wiki to add this plugin library:  [[$:/config/TelmigerPluginLibrary]]
