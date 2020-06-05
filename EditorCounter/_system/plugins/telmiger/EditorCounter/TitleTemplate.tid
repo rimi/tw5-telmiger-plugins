@@ -1,7 +1,7 @@
 created: 20170213190419968
 creator: Thomas Elmiger
 list-before: $:/core/ui/EditTemplate/tags
-modified: 20190426121838797
+modified: 20200605055914365
 modifier: Thomas Elmiger
 tags: $:/tags/EditTemplate EditorCounter
 title: $:/plugins/telmiger/EditorCounter/TitleTemplate

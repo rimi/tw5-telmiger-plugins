@@ -1,17 +1,18 @@
 created: 20170209064758307
 creator: Thomas Elmiger
-modified: 20190426121838865
+modified: 20200605055914514
 modifier: Thomas Elmiger
 tags: EditorCounter
 title: $:/plugins/telmiger/EditorCounter/readme
 type: text/vnd.tiddlywiki
 
 !! Count Your Texts & Autosave
-The [[EditorCounter plugin|https://tid.li/tw5/plugins.html#EditorCounter]] provides counters for words and characters in the edit view of your tiddlers. And it can save your texts automagically in the background while you work.
+
+{{$:/plugins/telmiger/EditorCounter/about}}
 
 !!! The counters
 * In edit mode users can see stats concerning the tiddler’s text and title fields. The numbers are updated whenever they pause typing.
-* Counters for words and characters can be activated in the [[plugin settings|$:/plugins/telmiger/EditorCounter/settings]].
+* Counters for //words// and/or //characters// can be activated in the plugin settings.
 * The colours of the counters change at some predefined numbers.
 ** Settings for colors and color limits are not available in the plugin configuration. <br>Workaround: edit [[the template|$:/plugins/telmiger/EditorCounter/EditTemplate]].
 

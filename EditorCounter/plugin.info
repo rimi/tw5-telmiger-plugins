@@ -3,9 +3,9 @@
 	"author": "Thomas & Jed",
 	"core-version": ">=5.1.13",
 	"description": "EditorCounter & Autosaver",
-	"list": "settings readme credits",
+	"list": "readme settings credits support",
 	"name": "EditorCounter",
 	"plugin-type": "plugin",
 	"source": "https://tid.li/tw5/plugins.html",
-	"version": "0.6.5"
+	"version": "0.6.6"
 }
