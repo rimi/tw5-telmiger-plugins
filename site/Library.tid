@@ -4,4 +4,6 @@ url: https://{GITHUB PAGES URL}/library/index.html
 
 The plugin library for the plugins made by telmiger.
 
+Please check prerequisit of each plugin before install! Some of them depends on other plugin and should be installed together.
+
 Copy this link to add the plugin library:  [[$:/config/TelmigerPluginLibrary]]
