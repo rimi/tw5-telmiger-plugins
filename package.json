@@ -4,10 +4,10 @@
   "description": "Thomas Elmiger Plugins for node (Source: https://tid.li/tw5/plugins.html)",
   "main": "index.js",
   "scripts": {
-    "build": "npm run clean && npm run build:library && npm run build:site",
-    "build:library": "cross-env TIDDLYWIKI_PLUGIN_PATH='./plugins' tiddlywiki . --build library --output ./output/library",
-    "build:site": "tiddlywiki . --build site --output ./output ",
-    "clean": "rm -rf ./output"
+    "build": "npm run clean && npm run build:library && npm run build:site && mv ./output ./public",
+    "build:library": "cross-env TIDDLYWIKI_PLUGIN_PATH='./plugins' tiddlywiki . --build library",
+    "build:site": "tiddlywiki . --build site ",
+    "clean": "rm -rf ./public"
   },
   "repository": {
     "type": "git",
