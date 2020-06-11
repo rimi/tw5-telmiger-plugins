@@ -1,0 +1,31 @@
+{
+  "name": "tw5-telmiger-plugins",
+  "version": "1.0.0",
+  "description": "Thomas Elmiger Plugins for node (Source: https://tid.li/tw5/plugins.html)",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:library && npm run build:site",
+    "build:library": "cross-env TIDDLYWIKI_PLUGIN_PATH='./plugins' tiddlywiki . --build library --output ./output/library",
+    "build:site": "tiddlywiki . --build site --output ./output ",
+    "clean": "rm -rf ./output"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rimi/tw5-telmiger-plugins.git"
+  },
+  "keywords": [
+    "tiddlywiki",
+    "telmiger",
+    "plugin"
+  ],
+  "author": "telmiger, rimi, linonetwo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rimi/tw5-telmiger-plugins/issues"
+  },
+  "homepage": "https://github.com/rimi/tw5-telmiger-plugins#readme",
+  "dependencies": {
+    "cross-env": "^7.0.2",
+    "tiddlywiki": "^5.1.22"
+  }
+}

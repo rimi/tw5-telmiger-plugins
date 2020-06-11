@@ -1,0 +1,11 @@
+{
+  "title": "$:/plugins/telmiger/EditButtons",
+  "author": "Thomas Elmiger",
+  "core-version": ">=5.1.22",
+  "description": "Save & close / Cancel & close / Save & keep open",
+  "list": "readme settings license support",
+  "name": "EditButtons",
+  "plugin-type": "plugin",
+  "source": "https://tid.li/tw5/plugins.html",
+  "version": "1.0.6"
+}
